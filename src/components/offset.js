@@ -22,18 +22,16 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // rec4sRpMUGLTGahXW Patrick State
+      // rec4sRpMUGLTGahXW
       patrick: [],
-      // recFfOW7iuzI6a8cb Neubs State
+      // recFfOW7iuzI6a8cb
       neubs: [],
-      //  Zack State recbMjoumd8cb6pQg ... Accurate state of 57
+      // recfDa2Zeu940sdpA
       zack: [],
-      //  recV6fVqabawVDGuZ Marco State ... Inaccruate state of 22
-      marco: [], 
-      // recUKD8ue91sXjx0x Amaia State ... Accurate State of 74 
-      amaia: [],
-      // recfDa2Zeu940sdpA Nick State 
-      nick: []
+      // recbMjoumd8cb6pQg
+      marco: [],
+      // recUKD8ue91sXjx0x
+      amaia: []
     }
   }
 
@@ -86,11 +84,8 @@ headers: {
                                   totalRecords.push(records3);
                                     //console.log(jsonResponse1);
                                     console.log(totalRecords);
-                                     totalRecords.forEach(page => {
-                                       console.log(page);
-                                      page.forEach(record => {
-                                        
-                                        
+                                     return totalRecords.forEach(page => {
+                                      return page.forEach(record => {
                                         console.log(record);
                                         if(record.fields['Claimed By:'][0] === 'rec4sRpMUGLTGahXW') {
                                           const patrickState = [];
@@ -108,7 +103,7 @@ headers: {
                                             neubs: [...this.state.neubs, ...neubsState]
                                           })
                                         }
-                                        if(record.fields['Claimed By:'][0] === 'recbMjoumd8cb6pQg') {
+                                        if(record.fields['Claimed By:'][0] === 'recfDa2Zeu940sdpA') {
                                           const zackState = [];
                                           zackState.push(record);
                                          // console.log(zackState);
@@ -116,7 +111,7 @@ headers: {
                                             zack: [...this.state.zack, ...zackState]
                                           })
                                         }
-                                        if(record.fields['Claimed By:'][0] === 'recV6fVqabawVDGuZ') {
+                                        if(record.fields['Claimed By:'][0] === 'recbMjoumd8cb6pQg') {
                                           const marcoState = [];
                                           marcoState.push(record);
                                          // console.log(marcoState);
@@ -132,19 +127,13 @@ headers: {
                                             amaia: [...this.state.amaia, ...amaiaState]
                                           })
                                         }
-                                        if(record.fields['Claimed By:'][0] === 'recfDa2Zeu940sdpA') {
-                                          const nickState = [];
-                                          nickState.push(record);
-                                          //console.log(nickState);
-                                          this.setState({
-                                            nick: [...this.state.nick, ...nickState]
-                                          })
+                                        else {
+                                          console.log('error');
                                         }
                                       })
                                     })
                                 }).catch(err => {
                                   console.log(err)
-                                  
                                 })
                         })
                 })

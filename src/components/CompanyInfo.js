@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
 
+
+
 const CompanyContainer = styled.div`
     width:100%;
     height:41%;
@@ -59,6 +61,9 @@ const InfoText = styled.p`
     font-weight:600;
 `;
 
+
+
+
 class CompanyInfo extends Component {
   render() {
     return (
@@ -79,6 +84,7 @@ class CompanyInfo extends Component {
                 <InfoText>Web type: SquareSpace</InfoText>
             </InfoRight>
         </InfoContainer>
+       
       </CompanyContainer>
     )
   }
