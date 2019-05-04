@@ -3,6 +3,10 @@ import logo from '../airtable-logo.png';
 import './App.css';
 import styled from 'styled-components';
 
+import patrickImage from '../fh-patrick.jpg'
+import neubsImage from '../alex-neubauer.jpeg';
+import amaiaImage from '../amaia-ibarra.jpeg';
+
 import Integrator from './Integrator';
 
 const AppContainer = styled.div`
@@ -23,22 +27,35 @@ class App extends Component {
     super(props);
     this.state = {
       // rec4sRpMUGLTGahXW Patrick State
-      patrick: [],
+      patrickRecords: [],
       // recFfOW7iuzI6a8cb Neubs State
-      neubs: [],
+      neubsRecords: [],
       //  Zack State recbMjoumd8cb6pQg ... Accurate state of 57
-      zack: [],
+      zackRecords: [],
       //  recV6fVqabawVDGuZ Marco State ... Inaccruate state of 22
-      marco: [], 
+      marcoRecords: [], 
       // recUKD8ue91sXjx0x Amaia State ... Accurate State of 74 
-      amaia: [],
+      amaiaRecords: [],
       // recfDa2Zeu940sdpA Nick State 
-      nick: []
+      nickRecords: [],
+
+      
+      //Names
+      patrick: 'Patrick Poole',
+      neubs: 'Alex Neubauer',
+      zack: 'Zack Feld',
+      amaia: 'Amaia Ibarra',
+
+      patrickImage: patrickImage,
+      neubsImage: neubsImage,
+      amaiaImage: amaiaImage
     }
   }
 
 componentDidMount() {
+  
   let totalRecords = [];
+ 
 fetch('https://api.airtable.com/v0/app9VtXS1vJyLgLgK/OB%20Integration%20Requests', {
 headers: {
     Authorization: `Bearer ${apiKey}`
@@ -84,61 +101,75 @@ headers: {
                                   const offset3 = jsonResponse3.offset;
                                   const records3 = jsonResponse3.records;
                                   totalRecords.push(records3);
-                                    //console.log(jsonResponse1);
-                                    console.log(totalRecords);
-                                     totalRecords.forEach(page => {
-                                       console.log(page);
-                                      page.forEach(record => {
-                                        
-                                        
-                                        console.log(record);
+                                  fetch(`https://api.airtable.com/v0/app9VtXS1vJyLgLgK/OB%20Integration%20Requests?offset=${offset3}`, {
+                                    headers: {
+                                        Authorization: `Bearer ${apiKey}`
+                                      }
+                                      }).then(response4 => {
+                                        return response4.json()}) 
+                                        .then(jsonResponse4 => {
+                                          
+                                          const records4 = jsonResponse4.records;
+                                          totalRecords.push(records4);
+                                            totalRecords.forEach(page => {
+                                              //console.log(page);
+                                              page.forEach(record => {
+
+                                       // console.log(record);
                                         if(record.fields['Claimed By:'][0] === 'rec4sRpMUGLTGahXW') {
-                                          const patrickState = [];
-                                          patrickState.push(record);
+                                          const patrickRecordsState = [];
+                                          patrickRecordsState.push(record);
                                           //console.log(patrickState);
                                           this.setState({
-                                            patrick: [...this.state.patrick, ...patrickState]
+                                            patrickRecords: [...this.state.patrickRecords, ...patrickRecordsState]
                                           })
+                                          
                                         } 
                                         if(record.fields['Claimed By:'][0] === 'recFfOW7iuzI6a8cb') {
-                                          const neubsState = [];
-                                          neubsState.push(record);
+                                          const neubsRecordsState = [];
+                                          neubsRecordsState.push(record);
                                           //console.log(neubsState);
                                           this.setState({
-                                            neubs: [...this.state.neubs, ...neubsState]
+                                            neubsRecords: [...this.state.neubsRecords, ...neubsRecordsState]
                                           })
+                                          
                                         }
                                         if(record.fields['Claimed By:'][0] === 'recbMjoumd8cb6pQg') {
-                                          const zackState = [];
-                                          zackState.push(record);
+                                          const zackRecordsState = [];
+                                          zackRecordsState.push(record);
                                          // console.log(zackState);
                                           this.setState({
-                                            zack: [...this.state.zack, ...zackState]
+                                            zackRecords: [...this.state.zackRecords, ...zackRecordsState]
                                           })
+                                         
                                         }
                                         if(record.fields['Claimed By:'][0] === 'recV6fVqabawVDGuZ') {
-                                          const marcoState = [];
-                                          marcoState.push(record);
+                                          const marcoRecordsState = [];
+                                          marcoRecordsState.push(record);
                                          // console.log(marcoState);
                                           this.setState({
-                                            marco: [...this.state.marco, ...marcoState]
+                                            marcoRecords: [...this.state.marcoRecords, ...marcoRecordsState]
                                           })
+                                         
                                         }
                                         if(record.fields['Claimed By:'][0] === 'recUKD8ue91sXjx0x') {
-                                          const amaiaState = [];
-                                          amaiaState.push(record);
+                                          const amaiaRecordsState = [];
+                                          amaiaRecordsState.push(record);
                                           //console.log(amaiaState);
                                           this.setState({
-                                            amaia: [...this.state.amaia, ...amaiaState]
+                                            amaiaRecords: [...this.state.amaiaRecords, ...amaiaRecordsState]
                                           })
+                                         
                                         }
                                         if(record.fields['Claimed By:'][0] === 'recfDa2Zeu940sdpA') {
-                                          const nickState = [];
-                                          nickState.push(record);
+                                          const nickRecordsState = [];
+                                          nickRecordsState.push(record);
                                           //console.log(nickState);
                                           this.setState({
-                                            nick: [...this.state.nick, ...nickState]
+                                            nickRecords: [...this.state.nickRecords, ...nickRecordsState]
                                           })
+
+                                          
                                         }
                                       })
                                     })
@@ -149,7 +180,9 @@ headers: {
                         })
                 })
           })
-    }
+          
+  })
+}   
   
 
 
@@ -160,9 +193,9 @@ headers: {
           <img src={logo} className="App-logo" alt="logo" />
           <MainHeading>Integration Team Airtable Data</MainHeading>
           <AppContainer>
-            <Integrator />
-            <Integrator />
-            <Integrator />
+            <Integrator records = {this.state.patrickRecords} name={this.state.patrick} image={this.state.patrickImage} />
+            <Integrator records = {this.state.amaiaRecords} name={this.state.amaia} image={this.state.amaiaImage} />
+            <Integrator records = {this.state.neubsRecords} name={this.state.neubs} image={this.state.neubsImage} />
           </AppContainer>
 
       </div>

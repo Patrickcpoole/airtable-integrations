@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
 
-
-
 const CompanyContainer = styled.div`
     width:100%;
     height:41%;
@@ -21,12 +19,12 @@ const CompanyHeader = styled.div`
 `;
 
 const CompanyHeading = styled.h1`
-    font-size:24px;
+    font-size:1rem;
     color:#282c34;
 `;
 
 const CompanySubheading = styled.h2`
-    font-size:20px;
+    font-size:1rem;
     color:#282c34;
 `;
 
@@ -56,7 +54,7 @@ const InfoLeft = styled.div`
 `;
 
 const InfoText = styled.p`
-    font-size:16px;
+    font-size:.75rem;
     color:#282c34;
     font-weight:600;
 `;
@@ -66,6 +64,8 @@ const InfoText = styled.p`
 
 class CompanyInfo extends Component {
   render() {
+  
+ 
     return (
       <CompanyContainer>
           <CompanyHeader>
