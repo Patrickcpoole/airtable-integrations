@@ -56,7 +56,7 @@ componentDidMount() {
   
   let totalRecords = [];
  
-fetch('https://api.airtable.com/v0/app9VtXS1vJyLgLgK/OB%20Integration%20Requests', {
+fetch('https://api.airtable.com/v0/app9VtXS1vJyLgLgK/OB%20Integration%20Requests?sort%5B0%5D%5Bfield%5D=Completion%20Date&sort%5B0%5D%5Bdirection%5D=asc', {
 headers: {
     Authorization: `Bearer ${apiKey}`
   }
@@ -108,9 +108,18 @@ headers: {
                                       }).then(response4 => {
                                         return response4.json()}) 
                                         .then(jsonResponse4 => {
-                                          
+                                          const offset4 = jsonResponse4.offset;
                                           const records4 = jsonResponse4.records;
                                           totalRecords.push(records4);
+                                          fetch(`https://api.airtable.com/v0/app9VtXS1vJyLgLgK/OB%20Integration%20Requests?offset=${offset4}`, {
+                                            headers: {
+                                                Authorization: `Bearer ${apiKey}`
+                                              }
+                                              }).then(response5 => {
+                                                return response5.json()}) 
+                                                .then(jsonResponse5 => {
+                                          const records5 = jsonResponse5.records;
+                                          totalRecords.push(records5);
                                             totalRecords.forEach(page => {
                                               //console.log(page);
                                               page.forEach(record => {
@@ -180,7 +189,7 @@ headers: {
                         })
                 })
           })
-          
+        }) 
   })
 }   
   

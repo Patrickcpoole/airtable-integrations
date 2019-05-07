@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
+import moment from 'moment';
 
 const CompanyContainer = styled.div`
     width:100%;
@@ -24,7 +25,7 @@ const CompanyHeading = styled.h1`
 `;
 
 const CompanySubheading = styled.h2`
-    font-size:1rem;
+    font-size:1.25rem;
     color:#282c34;
 `;
 
@@ -54,34 +55,76 @@ const InfoLeft = styled.div`
 `;
 
 const InfoText = styled.p`
-    font-size:.75rem;
+    font-size:1rem;
     color:#282c34;
     font-weight:600;
 `;
 
-
-
-
 class CompanyInfo extends Component {
   render() {
-  
+    let companyArray = [];
+    let completionDateArray = [];
+    let submitterArray = [];
+    let builderArray = [];
+    let tierArray = [];
+    let shortnameArray = [];
+    let webTypeArray = [];
+    
+
+    
+
+    //console.log(nameOfSubmitter)
+    this.props.records.map(record => {
+        let totalRecords = [];
+        totalRecords.push(record);
+        //console.log(record);
+        //console.log(totalRecords);
+        let lastItemName = totalRecords[totalRecords.length - 1].fields['Company Name'];
+        let lastItemDate = totalRecords[totalRecords.length - 1].fields['Completion Date'];
+        let lastItemDateFormatted = moment(lastItemDate).format('MMMM Do YYYY, h:mm a');
+        let lastItemSubmitter = totalRecords[totalRecords.length - 1].fields['Name of submitter'];
+        
+        let lastItemBuilder = totalRecords[totalRecords.length - 1].fields['Dashboard Builder'];
+        let lastItemTier = totalRecords[totalRecords.length - 1].fields['Tier'];
+        let lastItemShortname = totalRecords[totalRecords.length - 1].fields['Shortname'];
+        let lastItemWebType = totalRecords[totalRecords.length - 1].fields['Website Type'];
+        
+        companyArray.push(lastItemName);
+        completionDateArray.push(lastItemDateFormatted);
+        submitterArray.push(lastItemSubmitter);
+        builderArray.push(lastItemBuilder);
+        tierArray.push(lastItemTier);
+        shortnameArray.push(lastItemShortname);
+        webTypeArray.push(lastItemWebType);
+        //console.log(lastItem.fields['Company Name']);
+    });
+
+   let mostRecentName = companyArray.pop();
+   let mostRecentDate = completionDateArray.pop();
+   let mostRecentSubmitter = submitterArray.pop();
+   let mostRecentBuilder = builderArray.pop();
+   let mostRecentTier = tierArray.pop();
+   let mostRecentShortname = shortnameArray.pop();
+   let mostRecentWebType = webTypeArray.pop();
+
+   //console.log(mostRecentSubmitter);
  
     return (
       <CompanyContainer>
           <CompanyHeader>
             <CompanyHeading>Last Company Integrated:</CompanyHeading>
-            <CompanySubheading>Vineyard Boat Rental</CompanySubheading>
+            <CompanySubheading>{mostRecentName}</CompanySubheading>
           </CompanyHeader>
         <InfoContainer>
             <InfoLeft>
-                <InfoText>Completion date: 3/11/19</InfoText>
-                <InfoText>Submitted by: Alex Ingrassia</InfoText>
-                <InfoText>Dashboard Builder: Tori</InfoText>
+                <InfoText>Completion date: {mostRecentDate}</InfoText>
+                <InfoText>Submitted by: {mostRecentSubmitter}</InfoText>
+                <InfoText>Dashboard Builder: {mostRecentBuilder}</InfoText>
             </InfoLeft>
             <InfoRight>
-                <InfoText>Tier: 1</InfoText>
-                <InfoText>Shortname: vineyardboatrentals</InfoText>
-                <InfoText>Web type: SquareSpace</InfoText>
+                <InfoText>Tier: {mostRecentTier}</InfoText>
+                <InfoText>Shortname: {mostRecentShortname}</InfoText>
+                <InfoText>Web type: {mostRecentWebType}</InfoText>
             </InfoRight>
         </InfoContainer>
        

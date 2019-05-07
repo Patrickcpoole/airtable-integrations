@@ -30,8 +30,7 @@ const CompletedText = styled.h2`
 
 class Completed extends Component {
  
-
-  render() {
+render() {
  
   let today = new Date();
   let day = today.getDate();

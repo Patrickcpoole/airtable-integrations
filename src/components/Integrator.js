@@ -55,7 +55,7 @@ class Integrator extends Component {
             <img className="picture" src={this.props.image} alt="integrator-profile"/>
               <IntegratorName>{this.props.name}</IntegratorName>
           </Header>
-          <Completed weekly = {this.props.weekly} records = {this.props.records}/>
+          <Completed  records = {this.props.records}/>
           <CompanyInfo records = {this.props.records}/>
         </IntegratorContainer>
       
