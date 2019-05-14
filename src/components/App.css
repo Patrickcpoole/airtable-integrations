@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: #333333;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,8 +16,8 @@
 }
 
 .picture {
-  width:12vh;
-  height:12vh;
+  width:9vh;
+  height:9vh;
   border-radius:20%;
   margin-top:10px;
   margin-bottom:-25px;
@@ -34,4 +34,103 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Modal Stlyes */
+
+.modal {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.modal-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  max-width: 60%;
+  height:80%;
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+}
+
+.modal-card h1 {
+  color: black;
+}
+
+.modal-picture {
+  width:12vh;
+  height:12vh;
+  border-radius:20%;
+  margin-top:10px;
+  margin-bottom:-25px;
+}
+
+.left-column {
+  width:33%;
+  background-color:red;
+  height:100%;
+}
+
+.middle-column {
+  width:33%;
+  background-color:blue;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.right-column {
+  width:33%;
+  background-color:purple;
+  height:100%;
+}
+
+.row-one {
+  width: 100%;
+  height:30%;
+  background:green;
+}
+
+.row-two {
+  width: 100%;
+  height:40%;
+  background:orange;
+}
+
+.row-three {
+  width: 100%;
+  height:30%;
+  background:yellow
+}
+
+.top-row {
+  width: 100%;
+  height:50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color:purple;
+}
+
+.bottom-row {
+  width: 100%;
+  height:50%;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-button {
+  margin-top:5vh;
 }

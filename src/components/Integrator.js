@@ -10,12 +10,12 @@ const IntegratorContainer = styled.div`
     flex-direction:column;
     align-items: center;
     justify-content: flex-start;
-    width: 32vw;
+    width: 23vw;
     margin-right:2%;
     margin-left:2%;
     margin-top:1%;
     background-color:white;
-    height: 75vh;
+    height: 50vh;
     border-radius:8px;
     box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   `;
@@ -30,7 +30,7 @@ const IntegratorContainer = styled.div`
 
   const IntegratorName = styled.h3`
     color:#282c34;
-    font-size:2rem;
+    font-size:1.5rem;
     margin-bottom:3%;
   `;
 

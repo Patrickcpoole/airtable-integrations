@@ -20,13 +20,14 @@ const CompanyHeader = styled.div`
 `;
 
 const CompanyHeading = styled.h1`
-    font-size:1rem;
+    font-size:.75rem;
     color:#282c34;
 `;
 
 const CompanySubheading = styled.h2`
-    font-size:1.25rem;
+    font-size:1rem;
     color:#282c34;
+    margin-top:-.75vh;
 `;
 
 const InfoContainer = styled.div`
@@ -55,9 +56,10 @@ const InfoLeft = styled.div`
 `;
 
 const InfoText = styled.p`
-    font-size:1rem;
+    font-size:.75rem;
     color:#282c34;
     font-weight:600;
+    padding:5px;
 `;
 
 class CompanyInfo extends Component {

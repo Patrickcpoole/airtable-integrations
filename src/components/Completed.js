@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const CompletedContainer = styled.div`
     width:100%;
-    height:30%;
+    height:25%;
     display:flex;
     flex-direction: row;
     border-bottom: solid 2px;
@@ -18,12 +18,12 @@ const NumberContainer = styled.div`
 
 const CompletedNumber = styled.h1`
     color:#282c34;
-    font-size:3rem;
+    font-size:2rem;
 `;
 
 const CompletedText = styled.h2`
     color:#282c34;
-    font-size:1rem;
+    font-size:.75rem;
     padding:10px;
     margin-top:-3vh;
 `;
