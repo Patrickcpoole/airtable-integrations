@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
+import {animated, useTransition} from 'react-spring';
 import './App.css';
 import styled from 'styled-components';
-
+import ModalWrapper from './Modal';
 import Completed from './Completed';
 import CompanyInfo from './CompanyInfo';
+import patrickImage from '../fh-patrick.jpg';
 
 const IntegratorContainer = styled.div`
     display:flex;
@@ -36,21 +38,12 @@ const IntegratorContainer = styled.div`
 
 class Integrator extends Component {
 
+      
   render() {
-
-    /*let name = ''
-    switch(name) {
-      case this.props.records[0].fields['Claimed By'][0] == 'rec4sRpMUGLTGahXW':
-        name = 'Patrick Poole';
-      case this.props.records.fields['Claimed By'][0] == 'recFfOW7iuzI6a8cb':
-        name = 'Alex Neubauer';
-        case this.props.records.fields['Claimed By'][0] == 'recbMjoumd8cb6pQg':
-        name = 'Alex Neubauer';
-    }*/
 
     return (
       
-        <IntegratorContainer>
+        <IntegratorContainer onClick={this.loadModal}>
           <Header>
             <img className="picture" src={this.props.image} alt="integrator-profile"/>
               <IntegratorName>{this.props.name}</IntegratorName>

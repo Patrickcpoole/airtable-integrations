@@ -3,7 +3,8 @@ import {animated, useTransition} from 'react-spring';
 import patrickImage from '../fh-patrick.jpg';
 
 
-const Modal = ({closeModal, animation}) => {
+const Modal = ({closeModal, animation, props}) => {
+    
     return (
         <div className="modal">
             <animated.div className="modal-card" style={animation}>
@@ -15,7 +16,7 @@ const Modal = ({closeModal, animation}) => {
                 <div className="middle-column">
                     <div className="top-row">
                         <h1>Patrick Poole</h1>
-                        <img className="modal-picture" src={patrickImage} />
+                        <img className="modal-picture" src={this.props.image} />
                        
                         <button className="close-button" onClick={closeModal} >Close</button>
                         <h1>Integrations Specialist</h1>
@@ -52,9 +53,7 @@ const ModalWrapper = () => {
                 ({ item, key, props: animation}) => 
                 item && <Modal animation={animation} closeModal={() => toggle(false)}/>
             )}
-            
-            <h1>Modal</h1>
-            <button onClick={() => toggle(!on)} >Open </button>
+            <button onClick={() => toggle(!on)} >Full Stats</button>
         </div> 
     )
 }

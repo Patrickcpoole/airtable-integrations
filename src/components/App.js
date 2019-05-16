@@ -3,6 +3,7 @@ import logo from '../airtable-logo.png';
 import './App.css';
 import styled from 'styled-components';
 import Modal from './Modal';
+import ModalWrapper from './Modal';
 
 import patrickImage from '../fh-patrick.jpg';
 import neubsImage from '../alex-neubauer.jpeg';
@@ -21,10 +22,17 @@ const AppContainer = styled.div`
     flex-wrap: wrap;
     justify-content:center;
     align-items:center;
+    
 `;
 
 const MainHeading = styled.h1`
   font-size:32px;
+`;
+
+const Container = styled.div`
+  display:flex;
+  flex-direction:column;
+  margin:10px;
 `;
 
 const apiKey = 'keyBupI08coJkltKa'; 
@@ -377,15 +385,38 @@ headers: {
           <img src={logo} className="App-logo" alt="logo" />
           <MainHeading>Integration Team Airtable Data</MainHeading>
           <AppContainer>
-            <Modal image={this.state.patrick.image}/>
-            <Integrator records = {this.state.patrick.records} name={this.state.patrick.name} image={this.state.patrick.image} />
-            <Integrator records = {this.state.amaia.records} name={this.state.amaia.name} image={this.state.amaia.image} />
-            <Integrator records = {this.state.neubs.records} name={this.state.neubs.name} image={this.state.neubs.image} />
-            <Integrator records = {this.state.marco.records} name={this.state.marco.name} image={this.state.marco.image} />
-            <Integrator records = {this.state.zack.records} name={this.state.zack.name} image={this.state.zack.image} />
-            <Integrator records = {this.state.elly.records} name={this.state.elly.name} image={this.state.elly.image} />
-            <Integrator records = {this.state.tobey.records} name={this.state.tobey.name} image={this.state.tobey.image} />
-            <Integrator records = {this.state.johnny.records} name={this.state.johnny.name} image={this.state.johnny.image} />
+            <Container>
+              <Integrator records = {this.state.patrick.records} name={this.state.patrick.name} image={this.state.patrick.image} />
+              <ModalWrapper records = {this.state.patrick.records} image={this.state.patrick.image}/>
+           </Container>
+            <Container>
+              <Integrator records = {this.state.amaia.records} name={this.state.amaia.name} image={this.state.amaia.image} />
+              <Modal records = {this.state.amaia.records} image={this.state.amaia.image}/>
+            </Container>
+            <Container>
+              <Integrator records = {this.state.neubs.records} name={this.state.neubs.name} image={this.state.neubs.image} />
+              <Modal records = {this.state.neubs.records} image={this.state.neubs.image}/>
+            </Container>
+            <Container>
+              <Integrator records = {this.state.marco.records} name={this.state.marco.name} image={this.state.marco.image} />
+              <Modal records = {this.state.marco.records} image={this.state.marco.image}/>
+            </Container>
+            <Container>
+              <Integrator records = {this.state.zack.records} name={this.state.zack.name} image={this.state.zack.image} />
+              <Modal records = {this.state.zack.records} image={this.state.zack.image}/>
+            </Container>
+            <Container>
+              <Integrator records = {this.state.elly.records} name={this.state.elly.name} image={this.state.elly.image} />
+              <Modal records = {this.state.elly.records} image={this.state.elly.image}/>
+            </Container>
+            <Container>
+              <Integrator records = {this.state.tobey.records} name={this.state.tobey.name} image={this.state.tobey.image} />
+              <Modal records = {this.state.patrick.records} image={this.state.tobey.image}/>
+            </Container>
+            <Container>
+              <Integrator records = {this.state.patrick.records} records = {this.state.johnny.records} name={this.state.johnny.name} image={this.state.johnny.image} />  
+              <Modal records = {this.state.patrick.records} image={this.state.johnny.image}/>
+            </Container>
           </AppContainer>
 
       </div>
