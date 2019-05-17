@@ -1,11 +1,13 @@
 import React, { Component, useState } from 'react'
-import {animated, useTransition} from 'react-spring';
 import './App.css';
 import styled from 'styled-components';
-import ModalWrapper from './Modal';
+import Modal from './Modal';
 import Completed from './Completed';
 import CompanyInfo from './CompanyInfo';
-import patrickImage from '../fh-patrick.jpg';
+import moment from 'moment';
+
+
+
 
 const IntegratorContainer = styled.div`
     display:flex;
@@ -17,9 +19,14 @@ const IntegratorContainer = styled.div`
     margin-left:2%;
     margin-top:1%;
     background-color:white;
-    height: 50vh;
+    height: 65vh;
     border-radius:8px;
-    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+    box-shadow: 2px 5px 15px 2px hsla(0, 0%, 0%, 0.4);
+    transition: .4s all ease-in-out;
+    :hover {
+      background-color:#ffbf00;
+      cursor: pointer;
+  }
   `;
 
   const Header = styled.div`
@@ -37,19 +44,133 @@ const IntegratorContainer = styled.div`
   `;
 
 class Integrator extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen:false
+    }
+  }
 
+  
+
+  toggleModal = () => {
+   {this.state.isOpen ===false ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'inherit'}
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
       
   render() {
+    let today = new Date();
+  let day = today.getDate();
+  
+  let month = today.getMonth();
+  month = month+1;
+  let year = today.getFullYear();
+ 
+  // Adds 0 to single digit days and months
+  if (month < 10){
+    month = "0"+month;
+  }
 
+    if (day < 10){
+    day = "0"+day;
+    }    
+
+    const date = `${year}-${month}-${day}`;
+   // console.log(date);
+   
+    let dailyIntegrations = [];
+    let totalIntegrations = [];
+    
+    let monthlyIntegrations = [];
+   
+    this.props.records.map(record => {
+      
+        let completionDates = [];
+       
+        //console.log(record);
+        if(record.fields['Completion Date']) {
+          completionDates.push(record.fields['Completion Date'].split('T').shift());
+          //console.log(completionDates);  
+        }
+        
+          completionDates.forEach(completionDate => {
+            totalIntegrations.push(completionDate);
+            //console.log(completionDate);
+            if(completionDate === date) {          
+              dailyIntegrations.push(completionDate);
+            }
+            let completionMonth = completionDate.split('-')[1];
+            if(completionMonth === month) {
+              monthlyIntegrations.push(completionDate);
+            }
+            
+          })
+      })
+      
+    let companyArray = [];
+    let completionDateArray = [];
+    let submitterArray = [];
+    let builderArray = [];
+    let tierArray = [];
+    let shortnameArray = [];
+    let webTypeArray = [];
+    
+    //console.log(nameOfSubmitter)
+    this.props.records.map(record => {
+        let totalRecords = [];
+        totalRecords.push(record);
+        //console.log(record);
+        //console.log(totalRecords);
+        let lastItemName = totalRecords[totalRecords.length - 1].fields['Company Name'];
+        let lastItemDate = totalRecords[totalRecords.length - 1].fields['Completion Date'];
+        let lastItemDateFormatted = moment(lastItemDate).format('MMMM Do YYYY, h:mm a');
+        let lastItemSubmitter = totalRecords[totalRecords.length - 1].fields['Name of submitter'];
+        
+        let lastItemBuilder = totalRecords[totalRecords.length - 1].fields['Dashboard Builder'];
+        let lastItemTier = totalRecords[totalRecords.length - 1].fields['Tier'];
+        let lastItemShortname = totalRecords[totalRecords.length - 1].fields['Shortname'];
+        let lastItemWebType = totalRecords[totalRecords.length - 1].fields['Website Type'];
+        
+        companyArray.push(lastItemName);
+        completionDateArray.push(lastItemDateFormatted);
+        submitterArray.push(lastItemSubmitter);
+        builderArray.push(lastItemBuilder);
+        tierArray.push(lastItemTier);
+        shortnameArray.push(lastItemShortname);
+        webTypeArray.push(lastItemWebType);
+        //console.log(lastItem.fields['Company Name']);
+    });
+
+   let mostRecentName = companyArray.pop();
+   let mostRecentDate = completionDateArray.pop();
+   let mostRecentSubmitter = submitterArray.pop();
+   let mostRecentBuilder = builderArray.pop();
+   let mostRecentTier = tierArray.pop();
+   let mostRecentShortname = shortnameArray.pop();
+   let mostRecentWebType = webTypeArray.pop();
+
+   //console.log(mostRecentSubmitter);
     return (
       
-        <IntegratorContainer onClick={this.loadModal}>
+        <IntegratorContainer onClick={this.toggleModal} >
           <Header>
             <img className="picture" src={this.props.image} alt="integrator-profile"/>
               <IntegratorName>{this.props.name}</IntegratorName>
           </Header>
-          <Completed  records = {this.props.records}/>
-          <CompanyInfo records = {this.props.records}/>
+          <Completed records={this.props.records} monthly = {monthlyIntegrations.length} total={totalIntegrations.length} daily={dailyIntegrations.length}/>
+
+          <CompanyInfo recentName={mostRecentName} recentDate={mostRecentDate} recentSubmitter={mostRecentSubmitter} recentBuilder={mostRecentBuilder} 
+              recentTier={mostRecentTier} recentShortname={mostRecentShortname} recentWebType={mostRecentWebType}/>
+
+              <Modal name={this.props.name} monthly = {monthlyIntegrations.length} daily={dailyIntegrations.length}
+              total={totalIntegrations.length} image={this.props.image} title={this.props.title}
+              slack={this.props.slack} timezone={this.props.timezone} phone={this.props.phone} email={this.props.email}
+              office={this.props.office} manager={this.props.manager} show={this.state.isOpen} onClose={this.toggleModal}
+              recentName={mostRecentName} recentDate={mostRecentDate} recentSubmitter={mostRecentSubmitter} recentBuilder={mostRecentBuilder} 
+              recentTier={mostRecentTier} recentShortname={mostRecentShortname} recentWebType={mostRecentWebType} />  
+
         </IntegratorContainer>
       
     )

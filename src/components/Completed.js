@@ -31,67 +31,19 @@ const CompletedText = styled.h2`
 class Completed extends Component {
  
 render() {
- 
-  let today = new Date();
-  let day = today.getDate();
-  
-  let month = today.getMonth();
-  month = month+1;
-  let year = today.getFullYear();
- 
-  // Adds 0 to single digit days and months
-  if (month < 10){
-    month = "0"+month;
-  }
-
-    if (day < 10){
-    day = "0"+day;
-    }    
-
-    const date = `${year}-${month}-${day}`;
-   // console.log(date);
-   
-    let dailyIntegrations = [];
-    let totalIntegrations = [];
-    let monthlyIntegrations = [];
     
-    this.props.records.map(record => {
-      
-        let completionDates = [];
-       
-        //console.log(record);
-        if(record.fields['Completion Date']) {
-          completionDates.push(record.fields['Completion Date'].split('T').shift());
-          //console.log(completionDates);  
-        }
-        
-          completionDates.forEach(completionDate => {
-            totalIntegrations.push(completionDate);
-            //console.log(completionDate);
-            if(completionDate === date) {          
-              dailyIntegrations.push(completionDate);
-            }
-            let completionMonth = completionDate.split('-')[1];
-            if(completionMonth === month) {
-              monthlyIntegrations.push(completionDate);
-            }
-            
-          })
-      })
-      
-     //console.log(weeklyIntegrations);
     return (
       <CompletedContainer>
           <NumberContainer>
-            <CompletedNumber>{monthlyIntegrations.length}</CompletedNumber>
+            <CompletedNumber>{this.props.monthly}</CompletedNumber>
             <CompletedText>Integrations Completed This Month</CompletedText>
           </NumberContainer>
           <NumberContainer>
-            <CompletedNumber>{totalIntegrations.length}</CompletedNumber>
+            <CompletedNumber>{this.props.total}</CompletedNumber>
             <CompletedText>Total Integrations Completed</CompletedText>
           </NumberContainer>
           <NumberContainer>
-          <CompletedNumber>{dailyIntegrations.length}</CompletedNumber>
+          <CompletedNumber>{this.props.daily}</CompletedNumber>
           <CompletedText>Integrations Completed Today</CompletedText>
           </NumberContainer>
       </CompletedContainer>

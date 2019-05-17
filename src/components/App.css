@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #333333;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -47,6 +47,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  z-index: 100;
 }
 
 .modal-card {
@@ -59,9 +60,22 @@
   width: 100%;
   display:flex;
   flex-direction: row;
+ 
 }
 
-.modal-card h1 {
+ h1 {
+  color: black;
+}
+
+h2 {
+  color: black;
+}
+
+h3 {
+  color: black;
+}
+
+h5 {
   color: black;
 }
 
@@ -75,13 +89,11 @@
 
 .left-column {
   width:33%;
-  background-color:red;
   height:100%;
 }
 
 .middle-column {
   width:33%;
-  background-color:blue;
   height:100%;
   display: flex;
   flex-direction: column;
@@ -90,26 +102,22 @@
 
 .right-column {
   width:33%;
-  background-color:purple;
   height:100%;
 }
 
 .row-one {
   width: 100%;
   height:30%;
-  background:green;
 }
 
 .row-two {
   width: 100%;
   height:40%;
-  background:orange;
 }
 
 .row-three {
   width: 100%;
   height:30%;
-  background:yellow
 }
 
 .top-row {
@@ -119,7 +127,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color:purple;
+  border: 2px solid black;
 }
 
 .bottom-row {
@@ -127,10 +135,11 @@
   height:50%;
   display: flex;
   flex-direction:column;
-  justify-content: center;
   align-items: center;
+  margin-bottom:10px;
 }
 
 .close-button {
   margin-top:5vh;
 }
+
