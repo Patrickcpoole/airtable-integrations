@@ -16,6 +16,7 @@ import tobeyImage from '../tobey.jpg';
 import johnnyImage from '../johnny.png';
 import Integrator from './Integrator';
 
+require("dotenv").config({ path: "../../../.env"});
 
 const AppContainer = styled.div`
     display:flex;
@@ -36,7 +37,7 @@ const Container = styled.div`
   margin:10px;
 `;
 
-const apiKey = 'keyBupI08coJkltKa'; 
+const apiKey = process.env.REACT_APP_AIRTABLE_KEY;
 
 class App extends Component {
   constructor(props) {
@@ -157,7 +158,7 @@ class App extends Component {
  
   
 componentDidMount() {
-  
+  console.log(apiKey);
   let totalRecords = [];
 this.setState({loading:true});
   
@@ -507,7 +508,7 @@ headers: {
       <div className="App">
           <img src={logo} className="App-logo" alt="logo" />
           <MainHeading>Integration Team Airtable Data</MainHeading>
-          {//this.state.loading ? <LoadingSpinner /> :
+          {this.state.loading ? <LoadingSpinner /> :
           
          <AppContainer>
             <Container>
