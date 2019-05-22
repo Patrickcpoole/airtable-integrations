@@ -46,12 +46,77 @@ const IntegratorContainer = styled.div`
 class Integrator extends Component {
   constructor(props) {
     super(props);
+    this.loadIntegrationData = this.loadIntegrationData.bind(this);
     this.state = {
-      isOpen:false
+      isOpen:false,
+      dailyIntegrations: 0,
+      monthlyIntegrations: 0,
+      totalIntegrations: 0
     }
   }
 
+  loadIntegrationData() {
+      console.log('loading data');
+    let today = new Date();
+    let day = today.getDate();
+    
+    let month = today.getMonth();
+    month = month+1;
+    let year = today.getFullYear();
+   
+    // Adds 0 to single digit days and months
+    if (month < 10){
+      month = "0"+month;
+    }
   
+      if (day < 10){
+      day = "0"+day;
+      }    
+  
+      const date = `${year}-${month}-${day}`;
+     // console.log(date);
+     
+      
+        let dailyIntegrationsArray = [];
+        let totalIntegrationsArray = [];
+        let monthlyIntegrationsArray = [];
+      this.props.records.map(record => {
+        
+  
+        
+        let completionDates = [];
+         
+          //console.log(record);
+          if(record.fields['Completion Date']) {
+            completionDates.push(record.fields['Completion Date'].split('T').shift());
+            //console.log(completionDates);  
+          }
+          
+            completionDates.forEach(completionDate => {
+              totalIntegrationsArray.push(completionDate);
+              //console.log(completionDate);
+              if(completionDate === date) {          
+                dailyIntegrationsArray.push(completionDate);
+              }
+              let completionMonth = completionDate.split('-')[1];
+              if(completionMonth === month) {
+                monthlyIntegrationsArray.push(completionDate);
+              }
+              
+            })
+            
+            let dailyIntegrations = dailyIntegrationsArray.length;
+            let totalIntegrations = totalIntegrationsArray.length;
+            let monthlyIntegrations = monthlyIntegrationsArray.length;
+          
+        this.setState({
+            dailyIntegrations: dailyIntegrations,
+            monthlyIntegrations: monthlyIntegrations,
+            totalIntegrations: totalIntegrations
+        })
+        })
+
+  }
 
   toggleModal = () => {
    {this.state.isOpen ===false ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'inherit'}
@@ -59,55 +124,17 @@ class Integrator extends Component {
       isOpen: !this.state.isOpen
     });
   }
-      
-  render() {
-    let today = new Date();
-  let day = today.getDate();
+
   
-  let month = today.getMonth();
-  month = month+1;
-  let year = today.getFullYear();
- 
-  // Adds 0 to single digit days and months
-  if (month < 10){
-    month = "0"+month;
+
+  componentDidMount() {
+    setTimeout(() => {
+        this.loadIntegrationData();
+      }, 3500)
   }
 
-    if (day < 10){
-    day = "0"+day;
-    }    
-
-    const date = `${year}-${month}-${day}`;
-   // console.log(date);
-   
-    let dailyIntegrations = [];
-    let totalIntegrations = [];
+  render() {
     
-    let monthlyIntegrations = [];
-   
-    this.props.records.map(record => {
-      
-        let completionDates = [];
-       
-        //console.log(record);
-        if(record.fields['Completion Date']) {
-          completionDates.push(record.fields['Completion Date'].split('T').shift());
-          //console.log(completionDates);  
-        }
-        
-          completionDates.forEach(completionDate => {
-            totalIntegrations.push(completionDate);
-            //console.log(completionDate);
-            if(completionDate === date) {          
-              dailyIntegrations.push(completionDate);
-            }
-            let completionMonth = completionDate.split('-')[1];
-            if(completionMonth === month) {
-              monthlyIntegrations.push(completionDate);
-            }
-            
-          })
-      })
       
     let companyArray = [];
     let completionDateArray = [];
@@ -152,26 +179,29 @@ class Integrator extends Component {
    let mostRecentWebType = webTypeArray.pop();
 
    //console.log(mostRecentSubmitter);
+   
     return (
-      
+        
         <IntegratorContainer onClick={this.toggleModal} >
           <Header>
             <img className="picture" src={this.props.image} alt="integrator-profile"/>
               <IntegratorName>{this.props.name}</IntegratorName>
           </Header>
-          <Completed records={this.props.records} monthly = {monthlyIntegrations.length} total={totalIntegrations.length} daily={dailyIntegrations.length}/>
+         
+          <Completed records={this.props.records} monthly = {this.state.monthlyIntegrations} total={this.state.totalIntegrations} daily={this.state.dailyIntegrations}/>
 
           <CompanyInfo recentName={mostRecentName} recentDate={mostRecentDate} recentSubmitter={mostRecentSubmitter} recentBuilder={mostRecentBuilder} 
               recentTier={mostRecentTier} recentShortname={mostRecentShortname} recentWebType={mostRecentWebType}/>
 
-              <Modal name={this.props.name} monthly = {monthlyIntegrations.length} daily={dailyIntegrations.length}
-              total={totalIntegrations.length} image={this.props.image} title={this.props.title}
+              <Modal name={this.props.name} monthly = {this.state.monthlyIntegrations} daily={this.state.dailyIntegrations}
+              total={this.state.totalIntegrations} image={this.props.image} title={this.props.title}
               slack={this.props.slack} timezone={this.props.timezone} phone={this.props.phone} email={this.props.email}
               office={this.props.office} manager={this.props.manager} show={this.state.isOpen} onClose={this.toggleModal}
               recentName={mostRecentName} recentDate={mostRecentDate} recentSubmitter={mostRecentSubmitter} recentBuilder={mostRecentBuilder} 
               recentTier={mostRecentTier} recentShortname={mostRecentShortname} recentWebType={mostRecentWebType} />  
-
+           
         </IntegratorContainer>
+    
       
     )
   }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, Component } from 'react';
 import logo from '../airtable-logo.png';
 import './App.css';
 import styled from 'styled-components';
@@ -158,358 +158,240 @@ class App extends Component {
  
   
 componentDidMount() {
-  console.log(apiKey);
-  let totalRecords = [];
-this.setState({loading:true});
+ 
+this.setState({loading:true})
+
+  const idArray = [
+    'rec4sRpMUGLTGahXW',
+    'recFfOW7iuzI6a8cb',
+    'recbMjoumd8cb6pQg',
+    'recV6fVqabawVDGuZ',
+    'recUKD8ue91sXjx0x',
+    'recvnh0fRFsGvqPYx',
+    'recGu8dqcUNmX7Lsx',
+    'recjAF0GGGahIkwti',
+    'recfDa2Zeu940sdpA'
+  ];
+
+  const Airtable = require('airtable');
   
-fetch('https://api.airtable.com/v0/app9VtXS1vJyLgLgK/OB%20Integration%20Requests?sort%5B0%5D%5Bfield%5D=Completion%20Date&sort%5B0%5D%5Bdirection%5D=asc', {
-headers: {
-    Authorization: `Bearer ${apiKey}`
-  }
-}).then(response => {
-    return response.json()}) 
-    .then(jsonResponse => {
-      const offset = jsonResponse.offset;
-      const records = jsonResponse.records; 
-      totalRecords.push(records);
-      //console.log(jsonResponse.offset);
-      fetch(`https://api.airtable.com/v0/app9VtXS1vJyLgLgK/OB%20Integration%20Requests?offset=${offset}`, {
-        headers: {
-            Authorization: `Bearer ${apiKey}`
-          }
-          }).then(response1 => {
-            return response1.json()}) 
-            .then(jsonResponse1 => {
-              const offset1 = jsonResponse1.offset;
-              const records1 = jsonResponse1.records;
-              totalRecords.push(records1);
-                //console.log(jsonResponse1);
-                //console.log(totalRecords);
-                fetch(`https://api.airtable.com/v0/app9VtXS1vJyLgLgK/OB%20Integration%20Requests?offset=${offset1}`, {
-                  headers: {
-                      Authorization: `Bearer ${apiKey}`
-                    }
-                    }).then(response2 => {
-                      return response2.json()}) 
-                      .then(jsonResponse2 => {
-                        const offset2 = jsonResponse2.offset;
-                        const records2 = jsonResponse2.records;
-                        totalRecords.push(records2);
-                          //console.log(jsonResponse1);
-                          //console.log(totalRecords);
-                          fetch(`https://api.airtable.com/v0/app9VtXS1vJyLgLgK/OB%20Integration%20Requests?offset=${offset2}`, {
-                            headers: {
-                                Authorization: `Bearer ${apiKey}`
-                              }
-                              }).then(response3 => {
-                                return response3.json()}) 
-                                .then(jsonResponse3 => {
-                                  const offset3 = jsonResponse3.offset;
-                                  const records3 = jsonResponse3.records;
-                                  totalRecords.push(records3);
-                                  fetch(`https://api.airtable.com/v0/app9VtXS1vJyLgLgK/OB%20Integration%20Requests?offset=${offset3}`, {
-                                    headers: {
-                                        Authorization: `Bearer ${apiKey}`
-                                      }
-                                      }).then(response4 => {
-                                        return response4.json()}) 
-                                        .then(jsonResponse4 => {
-                                          const offset4 = jsonResponse4.offset;
-                                          const records4 = jsonResponse4.records;
-                                          totalRecords.push(records4);
-                                          fetch(`https://api.airtable.com/v0/app9VtXS1vJyLgLgK/OB%20Integration%20Requests?offset=${offset4}`, {
-                                            headers: {
-                                                Authorization: `Bearer ${apiKey}`
-                                              }
-                                              }).then(response5 => {
-                                                return response5.json()}) 
-                                                .then(jsonResponse5 => {
-                                                  const records5 = jsonResponse5.records;
-                                                  const offset5 = jsonResponse5.offset;
-                                                  totalRecords.push(records5);
-                                                  fetch(`https://api.airtable.com/v0/app9VtXS1vJyLgLgK/OB%20Integration%20Requests?offset=${offset5}`, {
-                                            headers: {
-                                                Authorization: `Bearer ${apiKey}`
-                                              }
-                                              }).then(response6 => {
-                                                return response6.json()})
-                                                .then(jsonResponse6 => {
-                                                  const records6 = jsonResponse6.records;
-                                                 
-                                                  totalRecords.push(records6);
-                                                  this.setState({loading:false})
-                                                  totalRecords.forEach(page => {
-                                                   // console.log(page);
-                                                    page.forEach(record => {
-                                                      console.log(record);
-                                                      try{
-                                              if(!record.fields['Claimed By:']) {
-                                                const notClaimedRecordsState = [];
-                                                notClaimedRecordsState.push(record);
-                                                //record['Claimed By:'][0] = 'Blank';
-                                                console.log(record)
-                                                this.setState({
-                                                  notClaimed: [...this.state.notClaimed, ...notClaimedRecordsState]
-                                                  
-                                                })
-                                              } else {
-                                                throw new Error('Undefined');
-                                              }
-                                            } catch(err) {
-                                              console.log('There was an error: ', err);
-                                            }
-                                                    
-                                             //console.log(record);
-                                            try {
-                                              if(record.fields['Claimed By:'][0] === 'rec4sRpMUGLTGahXW') {
-                                                const patrickRecordsState = [];
-                                                patrickRecordsState.push(record);
-                                                //console.log(patrickState);
-                                                this.setState({
-                                                  patrick:{
-                                                    records: [...this.state.patrick.records, ...patrickRecordsState],
-                                                    name: 'Patrick Poole',
-                                                    image: patrickImage,
-                                                    title: 'Integrations Specialist',
-                                                    slack: 'patrick',
-                                                    timezone: 'Mountain',
-                                                    phone: '303-888-8909',
-                                                    email: 'patrick.poole@fareharbor.com',
-                                                    office: 'Denver',
-                                                    manager: 'Neubs/Raleigh'
-                                                  }
-                                                })
-                                                
-                                              } else {
-                                                throw new Error('Undefined');
-                                              } 
-                                            } catch(err) {
-                                              console.log('There was an error: ', err);
-                                            }
-                                            try {
-                                              if(record.fields['Claimed By:'][0] === 'recFfOW7iuzI6a8cb') {
-                                                const neubsRecordsState = [];
-                                                neubsRecordsState.push(record);
-                                                //console.log(neubsState);
-                                                this.setState({
-                                                  neubs:{
-                                                    records: [...this.state.neubs.records, ...neubsRecordsState],
-                                                    name: 'Alex Neubauer',
-                                                    image: neubsImage,
-                                                    title: 'Enterprise Integrations Specialist',
-                                                    slack: 'neubs',
-                                                    timezone: 'Mountain',
-                                                    phone: '615-354-4808',
-                                                    email: 'alex@fareharbor.com',
-                                                    office: 'Denver',
-                                                    manager: 'Raleigh Caruso'
-                                                  }
-                                                })
-                                                
-                                              } else {
-                                                throw new Error('Undefined');
-                                              }
-                                            } catch(err) {
-                                              console.log('There was an error: ', err);
-                                            }
-                                            try {
-                                              if(record.fields['Claimed By:'][0] === 'recbMjoumd8cb6pQg') {
-                                                const zackRecordsState = [];
-                                                zackRecordsState.push(record);
-                                              // console.log(zackState);
-                                                this.setState({
-                                                  zack:{
-                                                    records: [...this.state.zack.records, ...zackRecordsState],
-                                                    name: 'Zack Feld',
-                                                    image: zackImage,
-                                                    title: 'Special Big Helper',
-                                                    slack: 'zackf',
-                                                    timezone: 'Mountain',
-                                                    phone: '847-912-1215',
-                                                    email: 'zack@fareharbor.com',
-                                                    office: 'Denver',
-                                                    manager: 'Mark Loh'
-                                                  }
-                                                })
-                                              
-                                              } else {
-                                                throw new Error('Undefined');
-                                              }
-                                            } catch(err) {
-                                              console.log('There was an error: ', err);
-                                            }
-                                              try {
-                                              if(record.fields['Claimed By:'][0] === 'recV6fVqabawVDGuZ') {
-                                                const marcoRecordsState = [];
-                                                marcoRecordsState.push(record);
-                                              // console.log(marcoState);
-                                                this.setState({
-                                                  marco:{
-                                                    records: [...this.state.marco.records, ...marcoRecordsState],
-                                                    name: 'Marco Depperu',
-                                                    image: marcoImage,
-                                                    title: 'Integrations Specialist',
-                                                    slack: 'mdepperu',
-                                                    timezone: 'Central European Summer Time',
-                                                    phone: '0686423460',
-                                                    email: 'marco.depperu@fareharbor.com',
-                                                    office: 'Amsterdam',
-                                                    manager: 'Michael Klempner'
-                                                  }
-                                                })
-                                              
-                                              } else {
-                                                throw new Error('Undefined');
-                                              }
-                                            } catch(err) {
-                                              console.log('There was an error: ', err);
-                                            }
-                                            try {
-                                              if(record.fields['Claimed By:'][0] === 'recUKD8ue91sXjx0x') {
-                                                const amaiaRecordsState = [];
-                                                amaiaRecordsState.push(record);
-                                                //console.log(amaiaState);
-                                                this.setState({
-                                                  amaia:{
-                                                    records: [...this.state.amaia.records, ...amaiaRecordsState],
-                                                    name: 'Amaia Ibarra',
-                                                    image: amaiaImage,
-                                                    title: 'Integrations Specialist',
-                                                    slack: 'amaia',
-                                                    timezone: 'Central European Summer Time',
-                                                    phone: '34615711333',
-                                                    email: 'amaia.ibarra@fareharbor.com',
-                                                    office: 'Amsterdam',
-                                                    manager: 'Michael Klempner'
-                                                  }
-                                                })
-                                              
-                                              } else {
-                                                throw new Error('Undefined');
-                                              }
-                                            } catch(err) {
-                                              console.log('There was an error: ', err);
-                                            }
-                                            try {
-                                              if(record.fields['Claimed By:'][0] === 'recvnh0fRFsGvqPYx') {
-                                                const ellyRecordsState = [];
-                                                ellyRecordsState.push(record);
-                                                //console.log(amaiaState);
-                                                this.setState({
-                                                  elly:{
-                                                    records: [...this.state.elly.records, ...ellyRecordsState],
-                                                    name: 'Nallely Torres',
-                                                    image: ellyImage,
-                                                    title: 'Integrations Specialist',
-                                                    slack: 'elly',
-                                                    timezone: 'Mountain',
-                                                    phone: '720-380-3867',
-                                                    email: 'nallely.torres@fareharbor.com',
-                                                    office: 'Denver',
-                                                    manager: 'Neubs'
-                                                  }
-                                                })
-                                              
-                                              } else {
-                                                throw new Error('Undefined');
-                                              }
-                                            } catch(err) {
-                                              console.log('There was an error: ', err);
-                                            }
-                                            try {
-                                              if(record.fields['Claimed By:'][0] === 'recGu8dqcUNmX7Lsx') {
-                                                const tobeyRecordsState = [];
-                                                tobeyRecordsState.push(record);
-                                                //console.log(amaiaState);
-                                                this.setState({
-                                                  tobey:{
-                                                    records: [...this.state.tobey.records, ...tobeyRecordsState],
-                                                    name: 'Tobey Ross',
-                                                    image: tobeyImage,
-                                                    title: 'Integrations Specialist',
-                                                    slack: 'tobez',
-                                                    timezone: 'Mountain',
-                                                    phone: '512-529-6783',
-                                                    email: 'tobey.ross@fareharbor.com',
-                                                    office: 'Denver',
-                                                    manager: 'Neubs'
-                                                  }
-                                                })
-                                              
-                                              } else {
-                                                throw new Error('Undefined');
-                                              }
-                                            } catch(err) {
-                                              console.log('There was an error: ', err);
-                                            }
-                                            try {
-                                              if(record.fields['Claimed By:'][0] === 'recjAF0GGGahIkwti') {
-                                                const johnnyRecordsState = [];
-                                                johnnyRecordsState.push(record);
-                                                //console.log(johnnyState);
-                                                this.setState({
-                                                  johnny:{
-                                                    records: [...this.state.johnny.records, ...johnnyRecordsState],
-                                                    name: 'Johnny Garcia',
-                                                    image: johnnyImage,
-                                                    title: 'Integrations Specialist',
-                                                    slack: 'patrick',
-                                                    timezone: 'Mountain',
-                                                    phone: '303-888-8909',
-                                                    email: 'patrick.poole@fareharbor.com',
-                                                    office: 'Denver',
-                                                    manager: 'Raleigh Caruso',
-                                                    manager: 'Neubs'
-                                                  }
-                                                })
-                                              
-                                              } else {
-                                                throw new Error('Undefined');
-                                              }
-                                            } catch(err) {
-                                              console.log('There was an error: ', err);
-                                            }
-                                            try {
-                                              if(record.fields['Claimed By:'][0] === 'recfDa2Zeu940sdpA') {
-                                                const nickRecordsState = [];
-                                                nickRecordsState.push(record);
-                                                //console.log(nickState);
-                                                this.setState({
-                                                  nick:{
-                                                    records: [...this.state.nick.records, ...nickRecordsState]
-                                                  }
-                                                })
-                                              } else {
-                                                throw new Error('Undefined');
-                                              }
-                                            } catch(err) {
-                                              console.log('There was an error: ', err);
-                                            }
-    
-                                            })
-                                          })
-                                      }).catch(err => {
-                                        console.log('There was an error: ', err);
-                                      })
-                              })
-                      })
-                })
-              }) 
-        })
+  const base = new Airtable({ apiKey: apiKey }).base('app9VtXS1vJyLgLgK');
+  
+  const loadOBRecords = () => {
+    const patrickRecordsState = [];
+    const neubsRecordsState = [];
+    const zackRecordsState = [];
+    const marcoRecordsState = [];
+    const amaiaRecordsState = [];
+    const ellyRecordsState = [];
+    const tobeyRecordsState = [];
+    const johnnyRecordsState = [];
+    const nickRecordsState = [];
+      base('OB Integration Requests').select({
+          sort: [
+              {field: 'Completion Date', direction: 'asc'}
+          ]
+      }).eachPage(function page(records, fetchNextPage) {
+          records.forEach(function(record) {
+            //console.log(record);
+            try {
+                if(record.fields['Claimed By:'][0] === idArray[0]) {
+                  patrickRecordsState.push(record);
+                  //console.log(patrickRecordsState);
+                } 
+              } catch(err) {
+                console.log('There was an error: ', err);
+              }
+              try {
+                if(record.fields['Claimed By:'][0] === idArray[1]) {
+                  neubsRecordsState.push(record);
+                  //console.log(NeubsRecordsState);
+                } 
+              } catch(err) {
+                console.log('There was an error: ', err);
+              }
+              try {
+                if(record.fields['Claimed By:'][0] === idArray[2]) {
+                  zackRecordsState.push(record);
+                  //console.log(zackRecordsState);
+                } 
+              } catch(err) {
+                console.log('There was an error: ', err);
+              }
+              try {
+                if(record.fields['Claimed By:'][0] === idArray[3]) {
+                  marcoRecordsState.push(record);
+                  //console.log(marcoRecordsState);
+                } 
+              } catch(err) {
+                console.log('There was an error: ', err);
+              }
+              try {
+                if(record.fields['Claimed By:'][0] === idArray[4]) {
+                  amaiaRecordsState.push(record);
+                  //console.log(amaiaRecordsState);
+                } 
+              } catch(err) {
+                console.log('There was an error: ', err);
+              }
+              
+              try {
+                if(record.fields['Claimed By:'][0] === idArray[5]) {
+                  ellyRecordsState.push(record);
+                  //console.log(nellyRecordsState);
+                } 
+              } catch(err) {
+                console.log('There was an error: ', err);
+              }
+              try {
+                if(record.fields['Claimed By:'][0] === idArray[6]) {
+                  tobeyRecordsState.push(record);
+                  //console.log(tobeyRecordsState);
+                } 
+              } catch(err) {
+                console.log('There was an error: ', err);
+              }
+              try {
+                if(record.fields['Claimed By:'][0] === idArray[7]) {
+                  johnnyRecordsState.push(record);
+                  //console.log(johnnyRecordsState);
+                } 
+              } catch(err) {
+                console.log('There was an error: ', err);
+              }
+              try {
+                if(record.fields['Claimed By:'][0] === idArray[8]) {
+                  nickRecordsState.push(record);
+                  //console.log(nickRecordsState);
+                } 
+              } catch(err) {
+                console.log('There was an error: ', err);
+              }
+          });
+          fetchNextPage();
+      }, function done(error) {
+          console.log(error);
+      });
+
+      this.setState({
+        loading:false,
+        patrick:{
+          records: patrickRecordsState,
+          name: 'Patrick Poole',
+          image: patrickImage,
+          title: 'Integrations Specialist',
+          slack: 'patrick',
+          timezone: 'Mountain',
+          phone: '303-888-8909',
+          email: 'patrick.poole@fareharbor.com',
+          office: 'Denver',
+          manager: 'Neubs/Raleigh'
+        },
+        neubs: {
+          records: neubsRecordsState
+        },
+        zack: {
+          records: zackRecordsState,
+          name: 'Zack Feld',
+          image: zackImage,
+          title: 'Special Big Helper',
+          slack: 'zackf',
+          timezone: 'Mountain',
+          phone: '847-912-1215',
+          email: 'zack@fareharbor.com',
+          office: 'Denver',
+          manager: 'Mark Loh'
+        },
+        neubs: {
+          records: neubsRecordsState,
+          name: 'Alex Neubauer',
+          image: neubsImage,
+          title: 'Enterprise Integrations Specialist',
+          slack: 'neubs',
+          timezone: 'Mountain',
+          phone: '615-354-4808',
+          email: 'alex@fareharbor.com',
+          office: 'Denver',
+          manager: 'Raleigh Caruso'
+        },
+        marco: {
+          records: marcoRecordsState,
+          name: 'Marco Depperu',
+          image: marcoImage,
+          title: 'Integrations Specialist',
+          slack: 'mdepperu',
+          timezone: 'Central European Summer Time',
+          phone: '0686423460',
+          email: 'marco.depperu@fareharbor.com',
+          office: 'Amsterdam',
+          manager: 'Michael Klempner'
+        },
+        amaia: {
+          records: amaiaRecordsState,
+          name: 'Amaia Ibarra',
+          image: amaiaImage,
+          title: 'Integrations Specialist',
+          slack: 'amaia',
+          timezone: 'Central European Summer Time',
+          phone: '34615711333',
+          email: 'amaia.ibarra@fareharbor.com',
+          office: 'Amsterdam',
+          manager: 'Michael Klempner'
+        },
+        elly: {
+          records: ellyRecordsState,
+          name: 'Nallely Torres',
+          image: ellyImage,
+          title: 'Integrations Specialist',
+          slack: 'elly',
+          timezone: 'Mountain',
+          phone: '720-380-3867',
+          email: 'nallely.torres@fareharbor.com',
+          office: 'Denver',
+          manager: 'Neubs'
+        },
+        tobey: {
+          records: tobeyRecordsState,
+          name: 'Tobey Ross',
+          image: tobeyImage,
+          title: 'Integrations Specialist',
+          slack: 'tobez',
+          timezone: 'Mountain',
+          phone: '512-529-6783',
+          email: 'tobey.ross@fareharbor.com',
+          office: 'Denver',
+          manager: 'Neubs'
+        },
+        johnny: {
+          records: johnnyRecordsState,
+          name: 'Johnny Garcia',
+          image: johnnyImage,
+          title: 'Integrations Specialist',
+          slack: 'patrick',
+          timezone: 'Mountain',
+          phone: '303-888-8909',
+          email: 'patrick.poole@fareharbor.com',
+          office: 'Denver',
+          manager: 'Neubs'
+        }
       })
-  }
+  };
 
-  
 
-  render() {
-   
-  
-    return (
-      <div className="App">
+loadOBRecords();
+
+}
+
+render() {
+
+
+  return (
+    <div className="App">
           <img src={logo} className="App-logo" alt="logo" />
           <MainHeading>Integration Team Airtable Data</MainHeading>
-          {this.state.loading ? <LoadingSpinner /> :
           
+          {this.state.loading ? <LoadingSpinner /> :
+
          <AppContainer>
             <Container>
               <Integrator records = {this.state.patrick.records} name={this.state.patrick.name} image={this.state.patrick.image} 
@@ -559,11 +441,12 @@ headers: {
               phone={this.state.johnny.phone} email={this.state.johnny.email} office={this.state.johnny.office} 
               manager={this.state.johnny.manager}/>
             </Container>
-          </AppContainer>}
-
+          </AppContainer>
+          }
       </div>
-    );
-  }
+  )
+}
+
 }
 
 export default App;
