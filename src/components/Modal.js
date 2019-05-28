@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 
+
 const CompletedContainer = styled.div`
     width:100%;
     height:25%;
@@ -88,6 +89,8 @@ const InfoText = styled.p`
     padding:5px;
 `;
 
+
+
 class Modal extends React.Component {
     
   render() {
@@ -138,7 +141,9 @@ class Modal extends React.Component {
                         </InfoContainer>
                     </CompanyContainer>
                 </div>
-                <div className="row-three"></div>
+                <div className="row-three">
+                
+                </div>
             </div>
             <div className="middle-column">
                 <div className="top-row">
@@ -179,18 +184,18 @@ class Modal extends React.Component {
                 <CompanyContainer>
                     <CompanyHeader>
                             <CompanyHeading>Last Company Integrated:</CompanyHeading>
-                            <CompanySubheading>{this.props.recentName}</CompanySubheading>
+                            <CompanySubheading>{this.props.mostRecentNameLive}</CompanySubheading>
                         </CompanyHeader>
                         <InfoContainer>
                             <InfoLeft>
-                                <InfoText>Completion date: {this.props.recentDate}</InfoText>
-                                <InfoText>Submitted by: {this.props.recentSubmitter}</InfoText>
-                                <InfoText>Dashboard Builder: {this.props.recentBuilder}</InfoText>
+                                <InfoText>Completion date: {this.props.mostRecentDateLive}</InfoText>
+                                <InfoText>Submitted by: {this.props.mostRecentSubmitterLive}</InfoText>
+                                <InfoText>Dashboard Builder: {this.props.mostRecentBuilderLive}</InfoText>
                             </InfoLeft>
                             <InfoRight>
-                                <InfoText>Tier: {this.props.recentTier}</InfoText>
-                                <InfoText>Shortname: {this.props.recentShortname}</InfoText>
-                                <InfoText>Web type: {this.props.recentWebType}</InfoText>
+                                <InfoText>Tier: {this.props.mostRecentTierLive}</InfoText>
+                                <InfoText>Shortname: {this.props.mostRecentShortnameLive}</InfoText>
+                                <InfoText>Web type: {this.props.mostRecentWebTypeLive}</InfoText>
                             </InfoRight>
                         </InfoContainer>
                     </CompanyContainer>

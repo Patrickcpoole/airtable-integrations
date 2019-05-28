@@ -497,7 +497,7 @@ setTimeout(()=> {
   if(johnnyLiveState.length > 0) {
     this.setState({loading:false})
   }
-}, 9000);
+}, 10000);
 }
 
 render() {

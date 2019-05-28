@@ -189,40 +189,81 @@ class Integrator extends Component {
     let tierArray = [];
     let shortnameArray = [];
     let webTypeArray = [];
+
+    let liveCompanyArray = [];
+    let liveCompletionDateArray = [];
+    let liveSubmitterArray = [];
+    let liveBuilderArray = [];
+    let liveTierArray = [];
+    let liveShortnameArray = [];
+    let liveWebTypeArray = [];
+
+    this.props.records.map(record => {
+      let totalRecords = [];
+      totalRecords.push(record);
+      //console.log(record);
+      //console.log(totalRecords);
+      let lastItemName = totalRecords[totalRecords.length - 1].fields['Company Name'];
+      let lastItemDate = totalRecords[totalRecords.length - 1].fields['Completion Date'];
+      let lastItemDateFormatted = moment(lastItemDate).format('MMMM Do YYYY, h:mm a');
+      let lastItemSubmitter = totalRecords[totalRecords.length - 1].fields['Name of submitter'];
+      
+      let lastItemBuilder = totalRecords[totalRecords.length - 1].fields['Dashboard Builder'];
+      let lastItemTier = totalRecords[totalRecords.length - 1].fields['Tier'];
+      let lastItemShortname = totalRecords[totalRecords.length - 1].fields['Shortname'];
+      let lastItemWebType = totalRecords[totalRecords.length - 1].fields['Website Type'];
+      
+      companyArray.push(lastItemName);
+      completionDateArray.push(lastItemDateFormatted);
+      submitterArray.push(lastItemSubmitter);
+      builderArray.push(lastItemBuilder);
+      tierArray.push(lastItemTier);
+      shortnameArray.push(lastItemShortname);
+      webTypeArray.push(lastItemWebType);
+      //console.log(lastItem.fields['Company Name']);
+  });
     
     //console.log(nameOfSubmitter)
-    this.props.records.map(record => {
-        let totalRecords = [];
-        totalRecords.push(record);
+    this.props.live.map(live => {
+        let totalRecordsLive = [];
+        totalRecordsLive.push(live);
         //console.log(record);
         //console.log(totalRecords);
-        let lastItemName = totalRecords[totalRecords.length - 1].fields['Company Name'];
-        let lastItemDate = totalRecords[totalRecords.length - 1].fields['Completion Date'];
+        let lastItemName = totalRecordsLive[totalRecordsLive.length - 1].fields['Company Name'];
+        let lastItemDate = totalRecordsLive[totalRecordsLive.length - 1].fields['Completion Date'];
         let lastItemDateFormatted = moment(lastItemDate).format('MMMM Do YYYY, h:mm a');
-        let lastItemSubmitter = totalRecords[totalRecords.length - 1].fields['Name of submitter'];
+        let lastItemSubmitter = totalRecordsLive[totalRecordsLive.length - 1].fields['Name of submitter'];
         
-        let lastItemBuilder = totalRecords[totalRecords.length - 1].fields['Dashboard Builder'];
-        let lastItemTier = totalRecords[totalRecords.length - 1].fields['Tier'];
-        let lastItemShortname = totalRecords[totalRecords.length - 1].fields['Shortname'];
-        let lastItemWebType = totalRecords[totalRecords.length - 1].fields['Website Type'];
+        let lastItemBuilder = totalRecordsLive[totalRecordsLive.length - 1].fields['Dashboard Builder'];
+        let lastItemTier = totalRecordsLive[totalRecordsLive.length - 1].fields['Tier'];
+        let lastItemShortname = totalRecordsLive[totalRecordsLive.length - 1].fields['Shortname'];
+        let lastItemWebType = totalRecordsLive[totalRecordsLive.length - 1].fields['Website Type'];
         
-        companyArray.push(lastItemName);
-        completionDateArray.push(lastItemDateFormatted);
-        submitterArray.push(lastItemSubmitter);
-        builderArray.push(lastItemBuilder);
-        tierArray.push(lastItemTier);
-        shortnameArray.push(lastItemShortname);
-        webTypeArray.push(lastItemWebType);
+        liveCompanyArray.push(lastItemName);
+        liveCompletionDateArray.push(lastItemDateFormatted);
+        liveSubmitterArray.push(lastItemSubmitter);
+        liveBuilderArray.push(lastItemBuilder);
+        liveTierArray.push(lastItemTier);
+        liveShortnameArray.push(lastItemShortname);
+        liveWebTypeArray.push(lastItemWebType);
         //console.log(lastItem.fields['Company Name']);
     });
 
-   let mostRecentName = companyArray.pop();
+    let mostRecentName = companyArray.pop();
    let mostRecentDate = completionDateArray.pop();
    let mostRecentSubmitter = submitterArray.pop();
    let mostRecentBuilder = builderArray.pop();
    let mostRecentTier = tierArray.pop();
    let mostRecentShortname = shortnameArray.pop();
    let mostRecentWebType = webTypeArray.pop();
+
+   let mostRecentNameLive = liveCompanyArray.pop();
+   let mostRecentDateLive = liveCompletionDateArray.pop();
+   let mostRecentSubmitterLive = liveSubmitterArray.pop();
+   let mostRecentBuilderLive = liveBuilderArray.pop();
+   let mostRecentTierLive = liveTierArray.pop();
+   let mostRecentShortnameLive = liveShortnameArray.pop();
+   let mostRecentWebTypeLive = liveWebTypeArray.pop();
 
    //console.log(mostRecentSubmitter);
    
@@ -245,7 +286,10 @@ class Integrator extends Component {
               slack={this.props.slack} timezone={this.props.timezone} phone={this.props.phone} email={this.props.email}
               office={this.props.office} manager={this.props.manager} show={this.state.isOpen} onClose={this.toggleModal}
               recentName={mostRecentName} recentDate={mostRecentDate} recentSubmitter={mostRecentSubmitter} recentBuilder={mostRecentBuilder} 
-              recentTier={mostRecentTier} recentShortname={mostRecentShortname} recentWebType={mostRecentWebType} />  
+              recentTier={mostRecentTier} recentShortname={mostRecentShortname} recentWebType={mostRecentWebType} 
+              mostRecentNameLive={mostRecentNameLive} mostRecentDateLive={mostRecentDateLive} mostRecentSubmitterLive={mostRecentSubmitterLive}
+              mostRecentBuilderLive={mostRecentBuilderLive} mostRecentTierLive={mostRecentTierLive} mostRecentShortnameLive={mostRecentShortnameLive}
+              mostRecentWebTypeLive={mostRecentWebTypeLive}/>  
            
         </IntegratorContainer>
     
