@@ -4,8 +4,6 @@ import './App.css';
 import styled from 'styled-components';
 import LoadingSpinner from './LoadingSpinner';
 
-import Modal from './Modal';
-
 import patrickImage from '../fh-patrick.jpg';
 import neubsImage from '../alex-neubauer.jpeg';
 import amaiaImage from '../amaia-ibarra.jpeg';
@@ -43,7 +41,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading:false,
+      loading:true,
      
       patrick: {
         records: [],
@@ -158,8 +156,16 @@ class App extends Component {
  
   
 componentDidMount() {
- 
-this.setState({loading:true})
+  const patrickRecordsState = [];
+  const neubsRecordsState = [];
+  const zackRecordsState = [];
+  const marcoRecordsState = [];
+  const amaiaRecordsState = [];
+  const ellyRecordsState = [];
+  const tobeyRecordsState = [];
+  const johnnyRecordsState = [];
+  const nickRecordsState = [];
+  console.log(patrickRecordsState);
 
   const idArray = [
     'rec4sRpMUGLTGahXW',
@@ -178,15 +184,7 @@ this.setState({loading:true})
   const base = new Airtable({ apiKey: apiKey }).base('app9VtXS1vJyLgLgK');
   
   const loadOBRecords = () => {
-    const patrickRecordsState = [];
-    const neubsRecordsState = [];
-    const zackRecordsState = [];
-    const marcoRecordsState = [];
-    const amaiaRecordsState = [];
-    const ellyRecordsState = [];
-    const tobeyRecordsState = [];
-    const johnnyRecordsState = [];
-    const nickRecordsState = [];
+    
       base('OB Integration Requests').select({
           sort: [
               {field: 'Completion Date', direction: 'asc'}
@@ -274,7 +272,7 @@ this.setState({loading:true})
       });
 
       this.setState({
-        loading:false,
+        
         patrick:{
           records: patrickRecordsState,
           name: 'Patrick Poole',
@@ -378,19 +376,29 @@ this.setState({loading:true})
   };
 
 
+
 loadOBRecords();
 
+setTimeout(()=> {
+  if(johnnyRecordsState.length > 0) {
+    this.setState({loading:false})
+  }
+}, 4000);
 }
+
+
 
 render() {
 
 
   return (
     <div className="App">
+    {this.state.loading ? <LoadingSpinner /> :
+    <div>
           <img src={logo} className="App-logo" alt="logo" />
           <MainHeading>Integration Team Airtable Data</MainHeading>
           
-          {this.state.loading ? <LoadingSpinner /> :
+          
 
          <AppContainer>
             <Container>
@@ -442,7 +450,9 @@ render() {
               manager={this.state.johnny.manager}/>
             </Container>
           </AppContainer>
+          </div>
           }
+          
       </div>
   )
 }

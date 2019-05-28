@@ -46,7 +46,7 @@ const IntegratorContainer = styled.div`
 class Integrator extends Component {
   constructor(props) {
     super(props);
-    this.loadIntegrationData = this.loadIntegrationData.bind(this);
+    this.displayIntegrationData = this.displayIntegrationData.bind(this);
     this.state = {
       isOpen:false,
       dailyIntegrations: 0,
@@ -55,7 +55,7 @@ class Integrator extends Component {
     }
   }
 
-  loadIntegrationData() {
+  displayIntegrationData() {
       console.log('loading data');
     let today = new Date();
     let day = today.getDate();
@@ -81,9 +81,7 @@ class Integrator extends Component {
         let totalIntegrationsArray = [];
         let monthlyIntegrationsArray = [];
       this.props.records.map(record => {
-        
-  
-        
+
         let completionDates = [];
          
           //console.log(record);
@@ -128,9 +126,8 @@ class Integrator extends Component {
   
 
   componentDidMount() {
-    setTimeout(() => {
-        this.loadIntegrationData();
-      }, 3500)
+    console.log(this.props.records);
+        this.displayIntegrationData();
   }
 
   render() {

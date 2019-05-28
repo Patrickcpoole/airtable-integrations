@@ -34,16 +34,17 @@ render() {
     
     return (
       <CompletedContainer>
+          
           <NumberContainer>
-            <CompletedNumber>{this.props.monthly}</CompletedNumber>
+            <CompletedNumber>{this.props.records ? this.props.monthly : 0}</CompletedNumber>
             <CompletedText>Integrations Completed This Month</CompletedText>
           </NumberContainer>
           <NumberContainer>
-            <CompletedNumber>{this.props.total}</CompletedNumber>
+            <CompletedNumber>{this.props.records ? this.props.total : 0}</CompletedNumber>
             <CompletedText>Total Integrations Completed</CompletedText>
           </NumberContainer>
           <NumberContainer>
-          <CompletedNumber>{this.props.daily}</CompletedNumber>
+          <CompletedNumber>{this.props.records ? this.props.daily : 0}</CompletedNumber>
           <CompletedText>Integrations Completed Today</CompletedText>
           </NumberContainer>
       </CompletedContainer>

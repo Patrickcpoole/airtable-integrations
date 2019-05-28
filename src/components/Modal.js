@@ -162,16 +162,16 @@ class Modal extends React.Component {
                 <h3>Live Integration Requests</h3>
                 <CompletedContainer>
                     <NumberContainer>
-                        <CompletedNumber>40</CompletedNumber>
-                        <CompletedText>Integrations Completed This Month</CompletedText>
+                        <CompletedNumber>{this.props.monthlyLive}</CompletedNumber>
+                        <CompletedText> Live Integrations Completed This Month</CompletedText>
                     </NumberContainer>
                     <NumberContainer>
-                        <CompletedNumber>40</CompletedNumber>
-                        <CompletedText>Total Integrations Completed</CompletedText>
+                        <CompletedNumber>{this.props.totalLive}</CompletedNumber>
+                        <CompletedText>Live Integrations Completed</CompletedText>
                     </NumberContainer>
                     <NumberContainer>
-                    <CompletedNumber>40</CompletedNumber>
-                    <CompletedText>Integrations Completed Today</CompletedText>
+                    <CompletedNumber>{this.props.dailyLive}</CompletedNumber>
+                    <CompletedText>Live Integrations Completed Today</CompletedText>
                     </NumberContainer>
                 </CompletedContainer>
                 </div>
