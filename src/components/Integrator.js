@@ -46,17 +46,37 @@ const IntegratorContainer = styled.div`
 class Integrator extends Component {
   constructor(props) {
     super(props);
-    this.displayIntegrationData = this.displayIntegrationData.bind(this);
     this.state = {
       isOpen:false,
       dailyIntegrations: 0,
       monthlyIntegrations: 0,
-      totalIntegrations: 0
+      totalIntegrations: 0,
+
+      dailyLiveIntegrations: 0,
+      monthlyLiveIntegrations: 0,
+      totalLiveIntegrations: 0
+
     }
   }
 
-  displayIntegrationData() {
-      console.log('loading data');
+  toggleModal = () => {
+   {this.state.isOpen ===false ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'inherit'}
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
+  componentDidMount() {
+
+    let dailyIntegrationsArray = [];
+    let totalIntegrationsArray = [];
+    let monthlyIntegrationsArray = [];
+  
+
+    let dailyLiveArray = [];
+    let totalLiveArray = [];
+    let monthlyLiveArray = [];
+
     let today = new Date();
     let day = today.getDate();
     
@@ -73,16 +93,17 @@ class Integrator extends Component {
       day = "0"+day;
       }    
   
-      const date = `${year}-${month}-${day}`;
+    const date = `${year}-${month}-${day}`;
      // console.log(date);
-     
+
+    const displayIntegrationData = () =>  {
+
+      //console.log('loading data');
       
-        let dailyIntegrationsArray = [];
-        let totalIntegrationsArray = [];
-        let monthlyIntegrationsArray = [];
       this.props.records.map(record => {
 
         let completionDates = [];
+        //console.log(completionDates);
          
           //console.log(record);
           if(record.fields['Completion Date']) {
@@ -102,32 +123,60 @@ class Integrator extends Component {
               }
               
             })
-            
-            let dailyIntegrations = dailyIntegrationsArray.length;
-            let totalIntegrations = totalIntegrationsArray.length;
-            let monthlyIntegrations = monthlyIntegrationsArray.length;
-          
-        this.setState({
+
+      
+          });
+
+          let dailyIntegrations = dailyIntegrationsArray.length;
+          let totalIntegrations = totalIntegrationsArray.length;
+          let monthlyIntegrations = monthlyIntegrationsArray.length;
+          this.setState({
             dailyIntegrations: dailyIntegrations,
             monthlyIntegrations: monthlyIntegrations,
-            totalIntegrations: totalIntegrations
+            totalIntegrations: totalIntegrations,
         })
-        })
+          //console.log(totalIntegrations);
+        }
+          
+          
+            const displayLiveData = () =>{
+              this.props.live.map(liveRecord => {
 
-  }
+                let liveCompletionDates = [];
+                 
+                  //console.log(record);
+                  if(liveRecord.fields['Completion Date']) {
+                    liveCompletionDates.push(liveRecord.fields['Completion Date'].split('T').shift());
+                    //console.log(completionDates);  
+                  }
+                  
+                    liveCompletionDates.forEach(liveCompletionDate => {
+                      totalLiveArray.push(liveCompletionDate);
+                      //console.log(completionDate);
+                      if(liveCompletionDate === date) {          
+                        dailyLiveArray.push(liveCompletionDate);
+                      }
+                      let completionLiveMonth = liveCompletionDate.split('-')[1];
+                      if(completionLiveMonth === month) {
+                        monthlyLiveArray.push(liveCompletionDate);
+                      }
+                      
+                    })
 
-  toggleModal = () => {
-   {this.state.isOpen ===false ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'inherit'}
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
-
+                    let dailyLiveIntegrations = dailyLiveArray.length;
+                    let totalLiveIntegrations = totalLiveArray.length;
+                    let monthlyLiveIntegrations = monthlyLiveArray.length;
+          this.setState({
   
-
-  componentDidMount() {
-    console.log(this.props.records);
-        this.displayIntegrationData();
+              dailyLiveIntegrations: dailyLiveIntegrations,
+              monthlyLiveIntegrations: monthlyLiveIntegrations,
+              totalLiveIntegrations: totalLiveIntegrations
+          })
+            })
+          }
+    
+        displayIntegrationData();
+        displayLiveData();
   }
 
   render() {
@@ -190,8 +239,9 @@ class Integrator extends Component {
           <CompanyInfo recentName={mostRecentName} recentDate={mostRecentDate} recentSubmitter={mostRecentSubmitter} recentBuilder={mostRecentBuilder} 
               recentTier={mostRecentTier} recentShortname={mostRecentShortname} recentWebType={mostRecentWebType}/>
 
-              <Modal name={this.props.name} monthly = {this.state.monthlyIntegrations} daily={this.state.dailyIntegrations}
-              total={this.state.totalIntegrations} image={this.props.image} title={this.props.title}
+              <Modal name={this.props.name} monthly = {this.state.monthlyIntegrations} monthlyLive={this.state.monthlyLiveIntegrations} 
+              daily={this.state.dailyIntegrations} dailyLive={this.state.dailyLiveIntegrations} total={this.state.totalIntegrations} 
+              totalLive={this.state.totalLiveIntegrations} image={this.props.image} title={this.props.title}
               slack={this.props.slack} timezone={this.props.timezone} phone={this.props.phone} email={this.props.email}
               office={this.props.office} manager={this.props.manager} show={this.state.isOpen} onClose={this.toggleModal}
               recentName={mostRecentName} recentDate={mostRecentDate} recentSubmitter={mostRecentSubmitter} recentBuilder={mostRecentBuilder} 

@@ -45,6 +45,7 @@ class App extends Component {
      
       patrick: {
         records: [],
+        live: [],
         name: 'Patrick Poole',
         image: patrickImage,
         title: 'Integrations Specialist',
@@ -57,6 +58,7 @@ class App extends Component {
       },
       neubs: {
         records: [],
+        live: [],
         name: 'Alex Neubauer',
         image: neubsImage,
         title: 'Enterprise Integrations Specialist',
@@ -70,6 +72,7 @@ class App extends Component {
       },
       zack: {
         records: [],
+        live: [],
         name: 'Zack Feld',
         image: zackImage,
         title: 'Special Big Helper',
@@ -82,6 +85,7 @@ class App extends Component {
       },
       marco: {
         records: [],
+        live: [],
         name: 'Marco Depperu',
         image: marcoImage,
         title: 'Integrations Specialist',
@@ -94,6 +98,7 @@ class App extends Component {
       },
       amaia: {
         records: [],
+        live: [],
         name: 'Amaia Ibarra',
         image: amaiaImage,
         title: 'Integrations Specialist',
@@ -107,6 +112,7 @@ class App extends Component {
       //recvnh0fRFsGvqPYx
       elly: {
         records: [],
+        live: [],
         name: 'Nallely Torres',
         image: ellyImage,
         title: 'Integrations Specialist',
@@ -120,6 +126,7 @@ class App extends Component {
       //recGu8dqcUNmX7Lsx
       tobey: {
         records: [],
+        live: [],
         name: 'Tobey Ross',
         image: tobeyImage,
         title: 'Integrations Specialist',
@@ -132,6 +139,7 @@ class App extends Component {
       },
       //recjAF0GGGahIkwti
       johnny: {
+        live: [],
         records: [],
         name: 'Johnny Garcia',
         image: johnnyImage,
@@ -165,8 +173,19 @@ componentDidMount() {
   const tobeyRecordsState = [];
   const johnnyRecordsState = [];
   const nickRecordsState = [];
-  console.log(patrickRecordsState);
+  //console.log(patrickRecordsState);
 
+  const patrickLiveState = [];
+  const neubsLiveState = [];
+  const zackLiveState = [];
+  const marcoLiveState = [];
+  const amaiaLiveState = [];
+  const ellyLiveState = [];
+  const tobeyLiveState = [];
+  const johnnyLiveState = [];
+  const nickLiveState = [];
+  console.log(patrickLiveState)
+ 
   const idArray = [
     'rec4sRpMUGLTGahXW',
     'recFfOW7iuzI6a8cb',
@@ -182,7 +201,96 @@ componentDidMount() {
   const Airtable = require('airtable');
   
   const base = new Airtable({ apiKey: apiKey }).base('app9VtXS1vJyLgLgK');
-  
+
+  const loadLiveRecords = () => {
+    base('Live Integration Requests').select({
+      sort: [
+          {field: 'Completion Date', direction: 'asc'}
+      ]
+  }).eachPage(function page(records, fetchNextPage) {
+      records.forEach(function(record) {
+        //console.log(record);
+        try {
+          if(record.fields['Claimed By:'][0] === idArray[0]) {
+            patrickLiveState.push(record);
+            //console.log(patrickRecordsState);
+          } 
+        } catch(err) {
+          console.log('There was an error: ', err);
+        }
+        try {
+          if(record.fields['Claimed By:'][0] === idArray[1]) {
+            neubsLiveState.push(record);
+            //console.log(NeubsRecordsState);
+          } 
+        } catch(err) {
+          console.log('There was an error: ', err);
+        }
+        try {
+          if(record.fields['Claimed By:'][0] === idArray[2]) {
+            zackLiveState.push(record);
+            //console.log(zackRecordsState);
+          } 
+        } catch(err) {
+          console.log('There was an error: ', err);
+        }
+        try {
+          if(record.fields['Claimed By:'][0] === idArray[3]) {
+            marcoLiveState.push(record);
+            //console.log(marcoRecordsState);
+          } 
+        } catch(err) {
+          console.log('There was an error: ', err);
+        }
+        try {
+          if(record.fields['Claimed By:'][0] === idArray[4]) {
+            amaiaLiveState.push(record);
+            //console.log(amaiaRecordsState);
+          } 
+        } catch(err) {
+          console.log('There was an error: ', err);
+        }
+        
+        try {
+          if(record.fields['Claimed By:'][0] === idArray[5]) {
+            ellyLiveState.push(record);
+            //console.log(nellyRecordsState);
+          } 
+        } catch(err) {
+          console.log('There was an error: ', err);
+        }
+        try {
+          if(record.fields['Claimed By:'][0] === idArray[6]) {
+            tobeyLiveState.push(record);
+            //console.log(tobeyRecordsState);
+          } 
+        } catch(err) {
+          console.log('There was an error: ', err);
+        }
+        try {
+          if(record.fields['Claimed By:'][0] === idArray[7]) {
+            johnnyLiveState.push(record);
+            //console.log(johnnyRecordsState);
+          } 
+        } catch(err) {
+          console.log('There was an error: ', err);
+        }
+        try {
+          if(record.fields['Claimed By:'][0] === idArray[8]) {
+            nickLiveState.push(record);
+            //console.log(nickRecordsState);
+          } 
+        } catch(err) {
+          console.log('There was an error: ', err);
+        }
+    });
+      fetchNextPage();
+  }, function done(error) {
+      console.log(error);
+});
+  }
+
+
   const loadOBRecords = () => {
     
       base('OB Integration Requests').select({
@@ -275,6 +383,7 @@ componentDidMount() {
         
         patrick:{
           records: patrickRecordsState,
+          live: patrickLiveState,
           name: 'Patrick Poole',
           image: patrickImage,
           title: 'Integrations Specialist',
@@ -285,11 +394,10 @@ componentDidMount() {
           office: 'Denver',
           manager: 'Neubs/Raleigh'
         },
-        neubs: {
-          records: neubsRecordsState
-        },
+        
         zack: {
           records: zackRecordsState,
+          live: zackLiveState,
           name: 'Zack Feld',
           image: zackImage,
           title: 'Special Big Helper',
@@ -302,6 +410,7 @@ componentDidMount() {
         },
         neubs: {
           records: neubsRecordsState,
+          live: neubsLiveState,
           name: 'Alex Neubauer',
           image: neubsImage,
           title: 'Enterprise Integrations Specialist',
@@ -314,6 +423,7 @@ componentDidMount() {
         },
         marco: {
           records: marcoRecordsState,
+          live: marcoLiveState,
           name: 'Marco Depperu',
           image: marcoImage,
           title: 'Integrations Specialist',
@@ -326,6 +436,7 @@ componentDidMount() {
         },
         amaia: {
           records: amaiaRecordsState,
+          live: amaiaLiveState,
           name: 'Amaia Ibarra',
           image: amaiaImage,
           title: 'Integrations Specialist',
@@ -338,6 +449,7 @@ componentDidMount() {
         },
         elly: {
           records: ellyRecordsState,
+          live: ellyLiveState,
           name: 'Nallely Torres',
           image: ellyImage,
           title: 'Integrations Specialist',
@@ -350,6 +462,7 @@ componentDidMount() {
         },
         tobey: {
           records: tobeyRecordsState,
+          live: tobeyLiveState,
           name: 'Tobey Ross',
           image: tobeyImage,
           title: 'Integrations Specialist',
@@ -362,6 +475,7 @@ componentDidMount() {
         },
         johnny: {
           records: johnnyRecordsState,
+          live: johnnyLiveState,
           name: 'Johnny Garcia',
           image: johnnyImage,
           title: 'Integrations Specialist',
@@ -375,18 +489,16 @@ componentDidMount() {
       })
   };
 
-
-
+  loadLiveRecords();
 loadOBRecords();
 
+
 setTimeout(()=> {
-  if(johnnyRecordsState.length > 0) {
+  if(johnnyLiveState.length > 0) {
     this.setState({loading:false})
   }
-}, 4000);
+}, 9000);
 }
-
-
 
 render() {
 
@@ -402,49 +514,49 @@ render() {
 
          <AppContainer>
             <Container>
-              <Integrator records = {this.state.patrick.records} name={this.state.patrick.name} image={this.state.patrick.image} 
+              <Integrator records={this.state.patrick.records} live={this.state.patrick.live} name={this.state.patrick.name} image={this.state.patrick.image} 
              title={this.state.patrick.title} slack={this.state.patrick.slack} timezone={this.state.patrick.timezone}
              phone={this.state.patrick.phone} email={this.state.patrick.email} office={this.state.patrick.office} 
              manager={this.state.patrick.manager}/> 
            </Container>
             <Container>
-              <Integrator records = {this.state.amaia.records} name={this.state.amaia.name} image={this.state.amaia.image} 
+              <Integrator records={this.state.amaia.records} live={this.state.amaia.live} name={this.state.amaia.name} image={this.state.amaia.image} 
               title={this.state.amaia.title} slack={this.state.amaia.slack} timezone={this.state.amaia.timezone}
               phone={this.state.amaia.phone} email={this.state.amaia.email} office={this.state.amaia.office} 
               manager={this.state.amaia.manager}/>
             </Container>
             <Container>
-              <Integrator records = {this.state.neubs.records} name={this.state.neubs.name} image={this.state.neubs.image} 
+              <Integrator records={this.state.neubs.records} live={this.state.neubs.live} name={this.state.neubs.name} image={this.state.neubs.image} 
               title={this.state.neubs.title} slack={this.state.neubs.slack} timezone={this.state.neubs.timezone}
               phone={this.state.neubs.phone} email={this.state.neubs.email} office={this.state.neubs.office} 
               manager={this.state.neubs.manager}/>
             </Container>
             <Container>
-              <Integrator records = {this.state.marco.records} name={this.state.marco.name} image={this.state.marco.image} 
+              <Integrator records={this.state.marco.records} live={this.state.marco.live} name={this.state.marco.name} image={this.state.marco.image} 
               title={this.state.marco.title} slack={this.state.marco.slack} timezone={this.state.marco.timezone}
               phone={this.state.marco.phone} email={this.state.marco.email} office={this.state.marco.office} 
               manager={this.state.marco.manager}/>
             </Container>
             <Container>
-              <Integrator records = {this.state.zack.records} name={this.state.zack.name} image={this.state.zack.image} 
+              <Integrator records={this.state.zack.records} live={this.state.zack.live} name={this.state.zack.name} image={this.state.zack.image} 
               title={this.state.zack.title} slack={this.state.zack.slack} timezone={this.state.zack.timezone}
               phone={this.state.zack.phone} email={this.state.zack.email} office={this.state.zack.office} 
               manager={this.state.zack.manager}/>
             </Container>
             <Container>
-              <Integrator records = {this.state.elly.records} name={this.state.elly.name} image={this.state.elly.image} 
+              <Integrator records={this.state.elly.records} live={this.state.elly.live} name={this.state.elly.name} image={this.state.elly.image} 
               title={this.state.elly.title} slack={this.state.elly.slack} timezone={this.state.elly.timezone}
               phone={this.state.elly.phone} email={this.state.elly.email} office={this.state.elly.office} 
               manager={this.state.elly.manager}/>
             </Container>
             <Container>
-              <Integrator records = {this.state.tobey.records} name={this.state.tobey.name} image={this.state.tobey.image} 
+              <Integrator records={this.state.tobey.records} live={this.state.tobey.live} name={this.state.tobey.name} image={this.state.tobey.image} 
               title={this.state.tobey.title} slack={this.state.tobey.slack} timezone={this.state.tobey.timezone}
               phone={this.state.tobey.phone} email={this.state.tobey.email} office={this.state.tobey.office} 
               manager={this.state.tobey.manager}/>
             </Container>
             <Container>
-              <Integrator records = {this.state.johnny.records} name={this.state.johnny.name} image={this.state.johnny.image} 
+              <Integrator records={this.state.johnny.records} live={this.state.johnny.live} name={this.state.johnny.name} image={this.state.johnny.image} 
               title={this.state.johnny.title} slack={this.state.johnny.slack} timezone={this.state.johnny.timezone}
               phone={this.state.johnny.phone} email={this.state.johnny.email} office={this.state.johnny.office} 
               manager={this.state.johnny.manager}/>
