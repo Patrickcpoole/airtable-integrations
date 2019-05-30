@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Chart from './Chart';
 
 
 
@@ -91,9 +92,53 @@ const InfoText = styled.p`
 
 
 
+
 class Modal extends React.Component {
-    
+    constructor(props) {
+        super(props);
+        this.state = {
+            chartData:{},
+        
+          }
+    }
+    componentDidMount(){
+        this.getChartData();
+        console.log(this.props.tier0);
+      }
+
+      getChartData(){
+          
+          
+        // Ajax calls here
+        this.setState({
+          chartData:{
+            labels: ['Tier 0', 'Tier 1', ' Tier 2', 'Tier 3', 'Tier 4'],
+          
+            datasets:[
+              {
+                label: 'Integrations Completed',
+                data:[
+                  41,
+                  161,
+                  56,
+                  21,
+                  5
+                ],
+                backgroundColor:[
+                  'rgb(205,176,255)',
+                  'rgb(255,213,110)',
+                  'rgb(147,223,136)',
+                  'rgb(255,169,128)',
+                  'rgb(249,157,226)'
+                ]
+              }
+            ]
+          }
+        });
+      }
+      
   render() {
+    //console.log(this.props.tier0);
     // Render nothing if the "show" prop is false
     if(!this.props.show) {
       return null;
@@ -142,7 +187,9 @@ class Modal extends React.Component {
                     </CompanyContainer>
                 </div>
                 <div className="row-three">
-                
+                    <div class="chart-container">
+                        <Chart chartData={this.state.chartData} tierType="OB" legendPosition="bottom" />
+                    </div>
                 </div>
             </div>
             <div className="middle-column">
@@ -201,7 +248,7 @@ class Modal extends React.Component {
                     </CompanyContainer>
                 </div>
                 <div className="row-three">
-                    
+                <Chart chartData={this.state.chartData} tierType="Live" legendPosition="bottom"/>
                 </div>
             </div>
         </div>

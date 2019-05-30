@@ -21,7 +21,6 @@ const AppContainer = styled.div`
     flex-wrap: wrap;
     justify-content:center;
     align-items:center;
-    
 `;
 
 const MainHeading = styled.h1`
@@ -161,8 +160,6 @@ class App extends Component {
     }
   }
 
- 
-  
 componentDidMount() {
   const patrickRecordsState = [];
   const neubsRecordsState = [];
@@ -216,7 +213,7 @@ componentDidMount() {
             //console.log(patrickRecordsState);
           } 
         } catch(err) {
-          console.log('There was an error: ', err);
+          
         }
         try {
           if(record.fields['Claimed By:'][0] === idArray[1]) {
@@ -224,7 +221,7 @@ componentDidMount() {
             //console.log(NeubsRecordsState);
           } 
         } catch(err) {
-          console.log('There was an error: ', err);
+      
         }
         try {
           if(record.fields['Claimed By:'][0] === idArray[2]) {
@@ -232,7 +229,7 @@ componentDidMount() {
             //console.log(zackRecordsState);
           } 
         } catch(err) {
-          console.log('There was an error: ', err);
+          
         }
         try {
           if(record.fields['Claimed By:'][0] === idArray[3]) {
@@ -240,7 +237,7 @@ componentDidMount() {
             //console.log(marcoRecordsState);
           } 
         } catch(err) {
-          console.log('There was an error: ', err);
+          
         }
         try {
           if(record.fields['Claimed By:'][0] === idArray[4]) {
@@ -248,7 +245,7 @@ componentDidMount() {
             //console.log(amaiaRecordsState);
           } 
         } catch(err) {
-          console.log('There was an error: ', err);
+         
         }
         
         try {
@@ -257,7 +254,7 @@ componentDidMount() {
             //console.log(nellyRecordsState);
           } 
         } catch(err) {
-          console.log('There was an error: ', err);
+         
         }
         try {
           if(record.fields['Claimed By:'][0] === idArray[6]) {
@@ -265,7 +262,7 @@ componentDidMount() {
             //console.log(tobeyRecordsState);
           } 
         } catch(err) {
-          console.log('There was an error: ', err);
+          
         }
         try {
           if(record.fields['Claimed By:'][0] === idArray[7]) {
@@ -273,7 +270,7 @@ componentDidMount() {
             //console.log(johnnyRecordsState);
           } 
         } catch(err) {
-          console.log('There was an error: ', err);
+      
         }
         try {
           if(record.fields['Claimed By:'][0] === idArray[8]) {
@@ -281,7 +278,7 @@ componentDidMount() {
             //console.log(nickRecordsState);
           } 
         } catch(err) {
-          console.log('There was an error: ', err);
+        
         }
     });
       fetchNextPage();
@@ -306,7 +303,7 @@ componentDidMount() {
                   //console.log(patrickRecordsState);
                 } 
               } catch(err) {
-                console.log('There was an error: ', err);
+                
               }
               try {
                 if(record.fields['Claimed By:'][0] === idArray[1]) {
@@ -314,7 +311,7 @@ componentDidMount() {
                   //console.log(NeubsRecordsState);
                 } 
               } catch(err) {
-                console.log('There was an error: ', err);
+               
               }
               try {
                 if(record.fields['Claimed By:'][0] === idArray[2]) {
@@ -322,7 +319,7 @@ componentDidMount() {
                   //console.log(zackRecordsState);
                 } 
               } catch(err) {
-                console.log('There was an error: ', err);
+               
               }
               try {
                 if(record.fields['Claimed By:'][0] === idArray[3]) {
@@ -330,7 +327,7 @@ componentDidMount() {
                   //console.log(marcoRecordsState);
                 } 
               } catch(err) {
-                console.log('There was an error: ', err);
+                
               }
               try {
                 if(record.fields['Claimed By:'][0] === idArray[4]) {
@@ -338,7 +335,7 @@ componentDidMount() {
                   //console.log(amaiaRecordsState);
                 } 
               } catch(err) {
-                console.log('There was an error: ', err);
+               
               }
               
               try {
@@ -347,7 +344,7 @@ componentDidMount() {
                   //console.log(nellyRecordsState);
                 } 
               } catch(err) {
-                console.log('There was an error: ', err);
+                
               }
               try {
                 if(record.fields['Claimed By:'][0] === idArray[6]) {
@@ -355,7 +352,7 @@ componentDidMount() {
                   //console.log(tobeyRecordsState);
                 } 
               } catch(err) {
-                console.log('There was an error: ', err);
+            
               }
               try {
                 if(record.fields['Claimed By:'][0] === idArray[7]) {
@@ -363,7 +360,7 @@ componentDidMount() {
                   //console.log(johnnyRecordsState);
                 } 
               } catch(err) {
-                console.log('There was an error: ', err);
+               
               }
               try {
                 if(record.fields['Claimed By:'][0] === idArray[8]) {
@@ -371,7 +368,7 @@ componentDidMount() {
                   //console.log(nickRecordsState);
                 } 
               } catch(err) {
-                console.log('There was an error: ', err);
+               
               }
           });
           fetchNextPage();
@@ -497,7 +494,7 @@ setTimeout(()=> {
   if(johnnyLiveState.length > 0) {
     this.setState({loading:false})
   }
-}, 10000);
+}, 20000);
 }
 
 render() {
@@ -508,7 +505,7 @@ render() {
     {this.state.loading ? <LoadingSpinner /> :
     <div>
           <img src={logo} className="App-logo" alt="logo" />
-          <MainHeading>Integration Team Airtable Data</MainHeading>
+          <MainHeading>Integration Team Airtable Dashboard</MainHeading>
           
           
 

@@ -24,7 +24,7 @@ const IntegratorContainer = styled.div`
     box-shadow: 2px 5px 15px 2px hsla(0, 0%, 0%, 0.4);
     transition: .4s all ease-in-out;
     :hover {
-      background-color:#ffbf00;
+      background-color:#ec3049;
       cursor: pointer;
   }
   `;
@@ -54,7 +54,13 @@ class Integrator extends Component {
 
       dailyLiveIntegrations: 0,
       monthlyLiveIntegrations: 0,
-      totalLiveIntegrations: 0
+      totalLiveIntegrations: 0,
+
+      tier0:0,
+      tier1:0,
+      tier2:0,
+      tier3:0,
+      tier4:0
 
     }
   }
@@ -76,6 +82,12 @@ class Integrator extends Component {
     let dailyLiveArray = [];
     let totalLiveArray = [];
     let monthlyLiveArray = [];
+
+    let tier0 = 0;
+    let tier1 = 0;
+    let tier2 = 0;
+    let tier3 = 0;
+    let tier4 = 0;
 
     let today = new Date();
     let day = today.getDate();
@@ -109,7 +121,25 @@ class Integrator extends Component {
           if(record.fields['Completion Date']) {
             completionDates.push(record.fields['Completion Date'].split('T').shift());
             //console.log(completionDates);  
+            switch(record.fields['Tier']){
+              case '0': 
+                tier0++;
+                break;
+              case '1':
+                tier1++;
+                break;
+              case '2':
+                tier2++;
+                break;
+              case '3':
+                tier3++;
+                break;
+              case '4':
+                tier4++;
+                break;
+            }
           }
+
           
             completionDates.forEach(completionDate => {
               totalIntegrationsArray.push(completionDate);
@@ -127,6 +157,8 @@ class Integrator extends Component {
       
           });
 
+          
+
           let dailyIntegrations = dailyIntegrationsArray.length;
           let totalIntegrations = totalIntegrationsArray.length;
           let monthlyIntegrations = monthlyIntegrationsArray.length;
@@ -134,6 +166,12 @@ class Integrator extends Component {
             dailyIntegrations: dailyIntegrations,
             monthlyIntegrations: monthlyIntegrations,
             totalIntegrations: totalIntegrations,
+
+            tier0: tier0,
+            tier1: tier1,
+            tier2: tier2,
+            tier3: tier3,
+            tier4: tier4
         })
           //console.log(totalIntegrations);
         }
@@ -177,6 +215,7 @@ class Integrator extends Component {
     
         displayIntegrationData();
         displayLiveData();
+       // console.log(this.state.dailyLiveIntegrations);
   }
 
   render() {
@@ -265,7 +304,10 @@ class Integrator extends Component {
    let mostRecentShortnameLive = liveShortnameArray.pop();
    let mostRecentWebTypeLive = liveWebTypeArray.pop();
 
-   //console.log(mostRecentSubmitter);
+
+    
+
+   //console.log(this.state.tier1);
    
     return (
         
@@ -289,7 +331,8 @@ class Integrator extends Component {
               recentTier={mostRecentTier} recentShortname={mostRecentShortname} recentWebType={mostRecentWebType} 
               mostRecentNameLive={mostRecentNameLive} mostRecentDateLive={mostRecentDateLive} mostRecentSubmitterLive={mostRecentSubmitterLive}
               mostRecentBuilderLive={mostRecentBuilderLive} mostRecentTierLive={mostRecentTierLive} mostRecentShortnameLive={mostRecentShortnameLive}
-              mostRecentWebTypeLive={mostRecentWebTypeLive}/>  
+              mostRecentWebTypeLive={mostRecentWebTypeLive} tier0={this.state.tier0} tier1={this.state.tier1} 
+              tier2={this.state.tier2} tier3={this.state.tier3} tier4={this.state.tier4}/>  
            
         </IntegratorContainer>
     
