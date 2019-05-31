@@ -95,12 +95,12 @@ h5 {
 }
 
 .left-column {
-  width:33%;
+  width:36%;
   height:100%;
 }
 
 .middle-column {
-  width:33%;
+  width:30%;
   height:100%;
   display: flex;
   flex-direction: column;
@@ -109,11 +109,14 @@ h5 {
 .right-column {
   width:33%;
   height:100%;
+  margin-left:2.55%;
 }
 
 .row-one {
   width: 100%;
   height:30%;
+  
+  margin-top:-5%;
 }
 
 .row-two {
@@ -123,8 +126,9 @@ h5 {
 
 .row-three {
   width: 100%;
-  height:40%;
-  position: relative;
+  height:30%;
+margin-top:10%;
+  
 }
 
 .top-row {
@@ -143,7 +147,8 @@ h5 {
   display: flex;
   flex-direction:column;
   align-items: center;
-  margin-bottom:10px;
+  
+  margin-bottom:10%;
 }
 
 .close-button {
@@ -153,6 +158,6 @@ h5 {
 .chart-container {
   position: relative;
   margin: auto;
+  width:100%;
   height: 100%;
-  width: 100%;
 }

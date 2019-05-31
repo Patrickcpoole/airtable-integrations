@@ -25,7 +25,7 @@ class Chart extends Component{
           width={null}
           data={this.props.chartData}
           options={{
-            aspectRatio:1,
+            aspectRatio:1.1,
             responsive:true,
             maintainAspectRatio: false,
             title:{

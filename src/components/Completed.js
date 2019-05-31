@@ -19,6 +19,7 @@ const NumberContainer = styled.div`
 const CompletedNumber = styled.h1`
     color:#282c34;
     font-size:2rem;
+    
 `;
 
 const CompletedText = styled.h2`

@@ -16,6 +16,7 @@ const CompletedContainer = styled.div`
 const NumberContainer = styled.div`
     width:33%;
     height:100%;
+    margin-top:-5%;
 `;
 
 const CompletedNumber = styled.h1`
@@ -37,6 +38,7 @@ const CompanyContainer = styled.div`
     flex-direction: column;
     justify-content:center;
     align-items:stretch;
+    margin-top:-10%;
 `;
 
 const CompanyHeader = styled.div`
@@ -65,6 +67,7 @@ const InfoContainer = styled.div`
     flex-direction:row;
     justify-content:center;
     align-items:center;
+    margin-top:10%;
 `;
 
 const InfoRight = styled.div`
@@ -273,7 +276,9 @@ class Modal extends React.Component {
                     </CompanyContainer>
                 </div>
                 <div className="row-three">
-                <Chart chartData={this.state.chartDataLive} tierType="Live" legendPosition="bottom"/>
+                    <div className="chart-container">
+                        <Chart chartData={this.state.chartDataLive} tierType="Live" legendPosition="bottom"/>
+                    </div>
                 </div>
             </div>
         </div>
