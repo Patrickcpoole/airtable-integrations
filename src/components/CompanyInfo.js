@@ -70,18 +70,18 @@ class CompanyInfo extends Component {
       <CompanyContainer>
           <CompanyHeader>
             <CompanyHeading>Last Company Integrated:</CompanyHeading>
-            <CompanySubheading>{this.props.recentName}</CompanySubheading>
+            <CompanySubheading>{this.props.mostRecentName}</CompanySubheading>
           </CompanyHeader>
         <InfoContainer>
             <InfoLeft>
-                <InfoText>Completion date: {this.props.recentDate}</InfoText>
-                <InfoText>Submitted by: {this.props.recentSubmitter}</InfoText>
-                <InfoText>Dashboard Builder: {this.props.recentBuilder}</InfoText>
+                <InfoText>Completion date: {this.props.mostRecentDate}</InfoText>
+                <InfoText>Submitted by: {this.props.mostRecentSubmitter}</InfoText>
+                <InfoText>Dashboard Builder: {this.props.mostRecentBuilder}</InfoText>
             </InfoLeft>
             <InfoRight>
-                <InfoText>Tier: {this.props.recentTier}</InfoText>
-                <InfoText>Shortname: {this.props.recentShortname}</InfoText>
-                <InfoText>Web type: {this.props.recentWebType}</InfoText>
+                <InfoText>Tier: {this.props.mostRecentTier}</InfoText>
+                <InfoText>Shortname: {this.props.mostRecentShortname}</InfoText>
+                <InfoText>Web type: {this.props.mostRecentWebType}</InfoText>
             </InfoRight>
         </InfoContainer>
        

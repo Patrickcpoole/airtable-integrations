@@ -98,13 +98,17 @@ class Modal extends React.Component {
         super(props);
         this.state = {
             chartData:{},
+            chartDataLive:{},
         
           }
     }
     componentDidMount(){
         this.getChartData();
-        console.log(this.props.tier0);
+        console.log(this.props.tier0)
+        
       }
+
+      
 
       getChartData(){
           
@@ -113,16 +117,37 @@ class Modal extends React.Component {
         this.setState({
           chartData:{
             labels: ['Tier 0', 'Tier 1', ' Tier 2', 'Tier 3', 'Tier 4'],
-          
             datasets:[
               {
                 label: 'Integrations Completed',
                 data:[
-                  41,
-                  161,
-                  56,
-                  21,
-                  5
+                  this.props.tier0,
+                  this.props.tier1,
+                  this.props.tier2,
+                  this.props.tier3,
+                  this.props.tier4
+                ],
+                backgroundColor:[
+                  'rgb(205,176,255)',
+                  'rgb(255,213,110)',
+                  'rgb(147,223,136)',
+                  'rgb(255,169,128)',
+                  'rgb(249,157,226)'
+                ]
+              }
+            ]
+          },
+          chartDataLive:{
+            labels: ['Tier 0', 'Tier 1', ' Tier 2', 'Tier 3', 'Tier 4'],
+            datasets:[
+              {
+                label: 'Integrations Completed',
+                data:[
+                  this.props.tier0Live,
+                  this.props.tier1Live,
+                  this.props.tier2Live,
+                  this.props.tier3Live,
+                  this.props.tier4Live
                 ],
                 backgroundColor:[
                   'rgb(205,176,255)',
@@ -138,7 +163,7 @@ class Modal extends React.Component {
       }
       
   render() {
-    //console.log(this.props.tier0);
+    console.log(this.props.mostRecentNameLive);
     // Render nothing if the "show" prop is false
     if(!this.props.show) {
       return null;
@@ -187,7 +212,7 @@ class Modal extends React.Component {
                     </CompanyContainer>
                 </div>
                 <div className="row-three">
-                    <div class="chart-container">
+                    <div className="chart-container">
                         <Chart chartData={this.state.chartData} tierType="OB" legendPosition="bottom" />
                     </div>
                 </div>
@@ -248,7 +273,7 @@ class Modal extends React.Component {
                     </CompanyContainer>
                 </div>
                 <div className="row-three">
-                <Chart chartData={this.state.chartData} tierType="Live" legendPosition="bottom"/>
+                <Chart chartData={this.state.chartDataLive} tierType="Live" legendPosition="bottom"/>
                 </div>
             </div>
         </div>

@@ -23,7 +23,7 @@ class Chart extends Component{
         <Bar
           height={null}
           width={null}
-          data={this.state.chartData}
+          data={this.props.chartData}
           options={{
             aspectRatio:1,
             responsive:true,

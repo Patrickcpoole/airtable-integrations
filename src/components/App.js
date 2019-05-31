@@ -3,7 +3,7 @@ import logo from '../airtable-logo.png';
 import './App.css';
 import styled from 'styled-components';
 import LoadingSpinner from './LoadingSpinner';
-
+import moment from 'moment';
 import patrickImage from '../fh-patrick.jpg';
 import neubsImage from '../alex-neubauer.jpeg';
 import amaiaImage from '../amaia-ibarra.jpeg';
@@ -43,8 +43,89 @@ class App extends Component {
       loading:true,
      
       patrick: {
-        records: [],
-        live: [],
+        records: {
+          total: 0,
+          monthly: 0,
+          daily: 0,
+          mostRecentName: '',
+          mostRecentDate: '',
+          mostRecentSubmitter: '',
+          mostRecentBuilder: '',
+          mostRecentTier: '',
+          mostRecentShortname: '',
+          mostRecentWebType: '',
+          tier0: 0,
+          tier1: 0,
+          tier2: 0,
+          tier3: 0,
+          tier: 0,
+        },
+        live: {
+          total: 0,
+          monthly: 0,
+          daily: 0,
+          mostRecentName: '',
+          mostRecentDate: '',
+          mostRecentSubmitter: '',
+          mostRecentBuilder: '',
+          mostRecentTier: '',
+          mostRecentShortname: '',
+          mostRecentWebType: '',
+          tier0: 0,
+          tier1: 0,
+          tier2: 0,
+          tier3: 0,
+          tier: 0,
+        },
+        info:{
+          name: 'Patrick Poole',
+          image: patrickImage,
+          title: 'Integrations Specialist',
+          slack: 'patrick',
+          timezone: 'Mountain',
+          phone: '303-888-8909',
+          email: 'patrick.poole@fareharbor.com',
+          office: 'Denver',
+          manager: 'Neubs/Raleigh'
+        }
+      },
+    
+    nuebs: {
+      records: {
+        total: 0,
+        monthly: 0,
+        daily: 0,
+        mostRecentName: '',
+        mostRecentDate: '',
+        mostRecentSubmitter: '',
+        mostRecentBuilder: '',
+        mostRecentTier: '',
+        mostRecentShortname: '',
+        mostRecentWebType: '',
+        tier0: 0,
+        tier1: 0,
+        tier2: 0,
+        tier3: 0,
+        tier: 0,
+      },
+      live: {
+        total: 0,
+        monthly: 0,
+        daily: 0,
+        mostRecentName: '',
+        mostRecentDate: '',
+        mostRecentSubmitter: '',
+        mostRecentBuilder: '',
+        mostRecentTier: '',
+        mostRecentShortname: '',
+        mostRecentWebType: '',
+        tier0: 0,
+        tier1: 0,
+        tier2: 0,
+        tier3: 0,
+        tier: 0,
+      },
+      info:{
         name: 'Patrick Poole',
         image: patrickImage,
         title: 'Integrations Specialist',
@@ -54,135 +135,12 @@ class App extends Component {
         email: 'patrick.poole@fareharbor.com',
         office: 'Denver',
         manager: 'Neubs/Raleigh'
-      },
-      neubs: {
-        records: [],
-        live: [],
-        name: 'Alex Neubauer',
-        image: neubsImage,
-        title: 'Enterprise Integrations Specialist',
-        slack: 'neubs',
-        timezone: 'Mountain',
-        phone: '615-354-4808',
-        email: 'alex@fareharbor.com',
-        office: 'Denver',
-        manager: 'Raleigh Caruso'
-
-      },
-      zack: {
-        records: [],
-        live: [],
-        name: 'Zack Feld',
-        image: zackImage,
-        title: 'Special Big Helper',
-        slack: 'zackf',
-        timezone: 'Mountain',
-        phone: '847-912-1215',
-        email: 'zack@fareharbor.com',
-        office: 'Denver',
-        manager: 'Mark Loh'
-      },
-      marco: {
-        records: [],
-        live: [],
-        name: 'Marco Depperu',
-        image: marcoImage,
-        title: 'Integrations Specialist',
-        slack: 'mdepperu',
-        timezone: 'Central European Summer Time',
-        phone: '0686423460',
-        email: 'marco.depperu@fareharbor.com',
-        office: 'Amsterdam',
-        manager: 'Michael Klempner'
-      },
-      amaia: {
-        records: [],
-        live: [],
-        name: 'Amaia Ibarra',
-        image: amaiaImage,
-        title: 'Integrations Specialist',
-        slack: 'amaia',
-        timezone: 'Central European Summer Time',
-        phone: '34615711333',
-        email: 'amaia.ibarra@fareharbor.com',
-        office: 'Amsterdam',
-        manager: 'Michael Klempner'
-      },
-      //recvnh0fRFsGvqPYx
-      elly: {
-        records: [],
-        live: [],
-        name: 'Nallely Torres',
-        image: ellyImage,
-        title: 'Integrations Specialist',
-        slack: 'elly',
-        timezone: 'Mountain',
-        phone: '720-380-3867',
-        email: 'nallely.torres@fareharbor.com',
-        office: 'Denver',
-        manager: 'Neubs'
-      },
-      //recGu8dqcUNmX7Lsx
-      tobey: {
-        records: [],
-        live: [],
-        name: 'Tobey Ross',
-        image: tobeyImage,
-        title: 'Integrations Specialist',
-        slack: 'tobez',
-        timezone: 'Mountain',
-        phone: '512-529-6783',
-        email: 'tobey.ross@fareharbor.com',
-        office: 'Denver',
-        manager: 'Neubs'
-      },
-      //recjAF0GGGahIkwti
-      johnny: {
-        live: [],
-        records: [],
-        name: 'Johnny Garcia',
-        image: johnnyImage,
-        title: 'Integrations Specialist',
-        slack: 'patrick',
-        timezone: 'Mountain',
-        phone: '303-888-8909',
-        email: 'patrick.poole@fareharbor.com',
-        office: 'Denver',
-        manager: 'Raleigh Caruso',
-        manager: 'Neubs'
-      },
-  
-      nick: {
-        records: [],
-      },
-
-      notClaimed: []
+      }
     }
+  }
   }
 
 componentDidMount() {
-  const patrickRecordsState = [];
-  const neubsRecordsState = [];
-  const zackRecordsState = [];
-  const marcoRecordsState = [];
-  const amaiaRecordsState = [];
-  const ellyRecordsState = [];
-  const tobeyRecordsState = [];
-  const johnnyRecordsState = [];
-  const nickRecordsState = [];
-  //console.log(patrickRecordsState);
-
-  const patrickLiveState = [];
-  const neubsLiveState = [];
-  const zackLiveState = [];
-  const marcoLiveState = [];
-  const amaiaLiveState = [];
-  const ellyLiveState = [];
-  const tobeyLiveState = [];
-  const johnnyLiveState = [];
-  const nickLiveState = [];
-  console.log(patrickLiveState)
- 
   const idArray = [
     'rec4sRpMUGLTGahXW',
     'recFfOW7iuzI6a8cb',
@@ -195,101 +153,227 @@ componentDidMount() {
     'recfDa2Zeu940sdpA'
   ];
 
+  let today = new Date();
+    let day = today.getDate();
+    
+    let month = today.getMonth();
+    month = month+1;
+    let year = today.getFullYear();
+   
+    // Adds 0 to single digit days and months
+    if (month < 10){
+      month = "0"+month;
+    }
+  
+      if (day < 10){
+      day = "0"+day;
+      }    
+  
+    const date = `${year}-${month}-${day}`;
+
   const Airtable = require('airtable');
   
   const base = new Airtable({ apiKey: apiKey }).base('app9VtXS1vJyLgLgK');
 
-  const loadLiveRecords = () => {
+  
+  
+
+  const loadOBRecords = () => {
+  let dailyIntegrationsArrayLive = [];
+  let totalIntegrationsArrayLive = [];
+  let monthlyIntegrationsArrayLive = [];
+
+  
+
+            
+
+            let companyArrayLive = [];
+            
+            let completionDateArrayLive = [];
+            let submitterArrayLive = [];
+            //console.log(submitterArrayLive);
+            let builderArrayLive = [];
+            let tierArrayLive = [];
+           // console.log(tierArrayLive);
+            let shortnameArrayLive = [];
+            let webTypeArrayLive = [];
+
+
+            let tier0Live = 0;
+            let tier1Live = 0;
+            let tier2Live = 0;
+            let tier3Live = 0;
+            let tier4Live = 0;
+
+            let totalRecordsLive = [];
+            console.log(totalRecordsLive);
+  
     base('Live Integration Requests').select({
       sort: [
           {field: 'Completion Date', direction: 'asc'}
       ]
   }).eachPage(function page(records, fetchNextPage) {
       records.forEach(function(record) {
-        //console.log(record);
+        
         try {
           if(record.fields['Claimed By:'][0] === idArray[0]) {
-            patrickLiveState.push(record);
-            //console.log(patrickRecordsState);
+            
+            
+            if(record.fields['Completion Date']) {
+              totalRecordsLive.push(record);
+              
+              switch(record.fields['Tier']){
+                case '0': 
+                  tier0Live++;
+                  break;
+                case '1':
+                  tier1Live++;
+                  break;
+                case '2':
+                  tier2Live++;
+                  break;
+                case '3':
+                  tier3Live++;
+                  break;
+                case '4':
+                  tier4Live++;
+                  break;
+              }
+            }
+            let completionDateLive = record.fields['Completion Date'].split('T').shift();
+              totalIntegrationsArrayLive.push(completionDateLive);
+              if(completionDateLive === date) {          
+                dailyIntegrationsArrayLive.push(completionDateLive);
+              }
+              let completionMonthLive = completionDateLive.split('-')[1];
+              if(completionMonthLive === month) {
+                monthlyIntegrationsArrayLive.push(completionDateLive);
+              }
+
+            
+
+            let lastItemNameLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Company Name'];
+            let lastItemDateLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Completion Date'];
+            let lastItemDateFormattedLive = moment(lastItemDateLive).format('MMMM Do YYYY, h:mm a');
+            let lastItemSubmitterLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Name of submitter'];
+                //console.log(lastItemSubmitterLive);
+            let lastItemBuilderLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Dashboard Builder'];
+            let lastItemTierLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Tier'];
+            
+            let lastItemShortnameLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Shortname'];
+            let lastItemWebTypeLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Website Type'];
+            
+            companyArrayLive.push(lastItemNameLive);
+            completionDateArrayLive.push(lastItemDateFormattedLive);
+            submitterArrayLive.push(lastItemSubmitterLive);
+            builderArrayLive.push(lastItemBuilderLive);
+            tierArrayLive.push(lastItemTierLive);
+            shortnameArrayLive.push(lastItemShortnameLive);
+            webTypeArrayLive.push(lastItemWebTypeLive);
+
+          
           } 
         } catch(err) {
           
         }
         try {
-          if(record.fields['Claimed By:'][0] === idArray[1]) {
-            neubsLiveState.push(record);
-            //console.log(NeubsRecordsState);
-          } 
-        } catch(err) {
-      
-        }
-        try {
-          if(record.fields['Claimed By:'][0] === idArray[2]) {
-            zackLiveState.push(record);
-            //console.log(zackRecordsState);
+          if(record.fields['Claimed By:'][0] === idArray[0]) {
+            
+            
+            if(record.fields['Completion Date']) {
+              totalRecordsLive.push(record);
+              
+              switch(record.fields['Tier']){
+                case '0': 
+                  tier0Live++;
+                  break;
+                case '1':
+                  tier1Live++;
+                  break;
+                case '2':
+                  tier2Live++;
+                  break;
+                case '3':
+                  tier3Live++;
+                  break;
+                case '4':
+                  tier4Live++;
+                  break;
+              }
+            }
+            let completionDateLive = record.fields['Completion Date'].split('T').shift();
+              totalIntegrationsArrayLive.push(completionDateLive);
+              if(completionDateLive === date) {          
+                dailyIntegrationsArrayLive.push(completionDateLive);
+              }
+              let completionMonthLive = completionDateLive.split('-')[1];
+              if(completionMonthLive === month) {
+                monthlyIntegrationsArrayLive.push(completionDateLive);
+              }
+
+            
+
+            let lastItemNameLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Company Name'];
+            let lastItemDateLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Completion Date'];
+            let lastItemDateFormattedLive = moment(lastItemDateLive).format('MMMM Do YYYY, h:mm a');
+            let lastItemSubmitterLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Name of submitter'];
+                //console.log(lastItemSubmitterLive);
+            let lastItemBuilderLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Dashboard Builder'];
+            let lastItemTierLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Tier'];
+            
+            let lastItemShortnameLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Shortname'];
+            let lastItemWebTypeLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Website Type'];
+            
+            companyArrayLive.push(lastItemNameLive);
+            completionDateArrayLive.push(lastItemDateFormattedLive);
+            submitterArrayLive.push(lastItemSubmitterLive);
+            builderArrayLive.push(lastItemBuilderLive);
+            tierArrayLive.push(lastItemTierLive);
+            shortnameArrayLive.push(lastItemShortnameLive);
+            webTypeArrayLive.push(lastItemWebTypeLive);
+
+          
           } 
         } catch(err) {
           
-        }
-        try {
-          if(record.fields['Claimed By:'][0] === idArray[3]) {
-            marcoLiveState.push(record);
-            //console.log(marcoRecordsState);
-          } 
-        } catch(err) {
-          
-        }
-        try {
-          if(record.fields['Claimed By:'][0] === idArray[4]) {
-            amaiaLiveState.push(record);
-            //console.log(amaiaRecordsState);
-          } 
-        } catch(err) {
-         
-        }
-        
-        try {
-          if(record.fields['Claimed By:'][0] === idArray[5]) {
-            ellyLiveState.push(record);
-            //console.log(nellyRecordsState);
-          } 
-        } catch(err) {
-         
-        }
-        try {
-          if(record.fields['Claimed By:'][0] === idArray[6]) {
-            tobeyLiveState.push(record);
-            //console.log(tobeyRecordsState);
-          } 
-        } catch(err) {
-          
-        }
-        try {
-          if(record.fields['Claimed By:'][0] === idArray[7]) {
-            johnnyLiveState.push(record);
-            //console.log(johnnyRecordsState);
-          } 
-        } catch(err) {
-      
-        }
-        try {
-          if(record.fields['Claimed By:'][0] === idArray[8]) {
-            nickLiveState.push(record);
-            //console.log(nickRecordsState);
-          } 
-        } catch(err) {
-        
         }
     });
       fetchNextPage();
   }, function done(error) {
       console.log(error);
 });
-  }
-
-
-  const loadOBRecords = () => {
     
+    let dailyIntegrationsArray = [];
+    let totalIntegrationsArray = [];
+    let monthlyIntegrationsArray = [];
+    
+   // console.log(totalIntegrationsArray);
+  
+    
+  
+     
+       
+       //console.log(totalRecords);
+  
+      let companyArray = [];
+      //console.log(companyArray);
+      let completionDateArray = [];
+       let submitterArray = [];
+                    let builderArray = [];
+                    let tierArray = [];
+                    let shortnameArray = [];
+                    let webTypeArray = [];
+  
+  
+                    let tier0 = 0;
+                    let tier1 = 0;
+                    let tier2 = 0;
+                    let tier3 = 0;
+                    let tier4 = 0;
+   
+              let totalRecords = [];        
+              console.log(totalRecords);
+    console.log('loading OB Records');
       base('OB Integration Requests').select({
           sort: [
               {field: 'Completion Date', direction: 'asc'}
@@ -299,207 +383,152 @@ componentDidMount() {
             //console.log(record);
             try {
                 if(record.fields['Claimed By:'][0] === idArray[0]) {
-                  patrickRecordsState.push(record);
-                  //console.log(patrickRecordsState);
-                } 
-              } catch(err) {
-                
+                  
+            if(record.fields['Completion Date']) {
+              if(record === records.length -1) {
+                console.log(record);
               }
-              try {
-                if(record.fields['Claimed By:'][0] === idArray[1]) {
-                  neubsRecordsState.push(record);
-                  //console.log(NeubsRecordsState);
-                } 
-              } catch(err) {
-               
+                totalRecords.push(record);
+              switch(record.fields['Tier']){
+                case '0': 
+                  tier0++;
+                  break;
+                case '1':
+                  tier1++;
+                  break;
+                case '2':
+                  tier2++;
+                  break;
+                case '3':
+                  tier3++;
+                  break;
+                case '4':
+                  tier4++;
+                  break;
               }
-              try {
-                if(record.fields['Claimed By:'][0] === idArray[2]) {
-                  zackRecordsState.push(record);
-                  //console.log(zackRecordsState);
-                } 
-              } catch(err) {
-               
+              let completionDate = record.fields['Completion Date'].split('T').shift();
+              totalIntegrationsArray.push(completionDate);
+              if(completionDate === date) {          
+                dailyIntegrationsArray.push(completionDate);
               }
-              try {
-                if(record.fields['Claimed By:'][0] === idArray[3]) {
-                  marcoRecordsState.push(record);
-                  //console.log(marcoRecordsState);
-                } 
-              } catch(err) {
-                
+              let completionMonth = completionDate.split('-')[1];
+              if(completionMonth === month) {
+                monthlyIntegrationsArray.push(completionDate);
               }
-              try {
-                if(record.fields['Claimed By:'][0] === idArray[4]) {
-                  amaiaRecordsState.push(record);
-                  //console.log(amaiaRecordsState);
-                } 
-              } catch(err) {
-               
-              }
+
               
-              try {
-                if(record.fields['Claimed By:'][0] === idArray[5]) {
-                  ellyRecordsState.push(record);
-                  //console.log(nellyRecordsState);
-                } 
+            let lastItemName = totalRecords[totalRecords.length - 1].fields['Company Name'];
+            //console.log(lastItemName);
+            let lastItemDate = totalRecords[totalRecords.length - 1].fields['Completion Date'];
+            let lastItemDateFormatted = moment(lastItemDate).format('MMMM Do YYYY, h:mm a');
+            let lastItemSubmitter = totalRecords[totalRecords.length - 1].fields['Name of submitter'];
+            //console.log(lastItemSubmitter);
+            let lastItemBuilder = totalRecords[totalRecords.length - 1].fields['Dashboard Builder'];
+            let lastItemTier = totalRecords[totalRecords.length - 1].fields['Tier'];
+            let lastItemShortname = totalRecords[totalRecords.length - 1].fields['Shortname'];
+            let lastItemWebType = totalRecords[totalRecords.length - 1].fields['Website Type'];
+                    companyArray.push(lastItemName);
+                    completionDateArray.push(lastItemDateFormatted);
+                    submitterArray.push(lastItemSubmitter);
+                    builderArray.push(lastItemBuilder);
+                    tierArray.push(lastItemTier);
+                    shortnameArray.push(lastItemShortname);
+                    webTypeArray.push(lastItemWebType);
+            }
+            }
               } catch(err) {
                 
               }
-              try {
-                if(record.fields['Claimed By:'][0] === idArray[6]) {
-                  tobeyRecordsState.push(record);
-                  //console.log(tobeyRecordsState);
-                } 
-              } catch(err) {
             
-              }
-              try {
-                if(record.fields['Claimed By:'][0] === idArray[7]) {
-                  johnnyRecordsState.push(record);
-                  //console.log(johnnyRecordsState);
-                } 
-              } catch(err) {
-               
-              }
-              try {
-                if(record.fields['Claimed By:'][0] === idArray[8]) {
-                  nickRecordsState.push(record);
-                  //console.log(nickRecordsState);
-                } 
-              } catch(err) {
-               
-              }
           });
           fetchNextPage();
       }, function done(error) {
           console.log(error);
       });
 
-      this.setState({
+      setTimeout(() => {
+        let mostRecentName = companyArray.pop();  
+        let mostRecentDate = completionDateArray.pop();
+        let mostRecentSubmitter = submitterArray.pop();
+        let mostRecentBuilder = builderArray.pop();
+        let mostRecentTier = tierArray.pop();
+        let mostRecentShortname = shortnameArray.pop();
+        let mostRecentWebType = webTypeArray.pop();
+        console.log(mostRecentWebType);
+        let mostRecentNameLive = companyArrayLive.pop();
+        let mostRecentDateLive = completionDateArrayLive.pop();
+        let mostRecentSubmitterLive = submitterArrayLive.pop();
         
-        patrick:{
-          records: patrickRecordsState,
-          live: patrickLiveState,
-          name: 'Patrick Poole',
-          image: patrickImage,
-          title: 'Integrations Specialist',
-          slack: 'patrick',
-          timezone: 'Mountain',
-          phone: '303-888-8909',
-          email: 'patrick.poole@fareharbor.com',
-          office: 'Denver',
-          manager: 'Neubs/Raleigh'
-        },
+        let mostRecentBuilderLive = builderArrayLive.pop();
         
-        zack: {
-          records: zackRecordsState,
-          live: zackLiveState,
-          name: 'Zack Feld',
-          image: zackImage,
-          title: 'Special Big Helper',
-          slack: 'zackf',
-          timezone: 'Mountain',
-          phone: '847-912-1215',
-          email: 'zack@fareharbor.com',
-          office: 'Denver',
-          manager: 'Mark Loh'
-        },
-        neubs: {
-          records: neubsRecordsState,
-          live: neubsLiveState,
-          name: 'Alex Neubauer',
-          image: neubsImage,
-          title: 'Enterprise Integrations Specialist',
-          slack: 'neubs',
-          timezone: 'Mountain',
-          phone: '615-354-4808',
-          email: 'alex@fareharbor.com',
-          office: 'Denver',
-          manager: 'Raleigh Caruso'
-        },
-        marco: {
-          records: marcoRecordsState,
-          live: marcoLiveState,
-          name: 'Marco Depperu',
-          image: marcoImage,
-          title: 'Integrations Specialist',
-          slack: 'mdepperu',
-          timezone: 'Central European Summer Time',
-          phone: '0686423460',
-          email: 'marco.depperu@fareharbor.com',
-          office: 'Amsterdam',
-          manager: 'Michael Klempner'
-        },
-        amaia: {
-          records: amaiaRecordsState,
-          live: amaiaLiveState,
-          name: 'Amaia Ibarra',
-          image: amaiaImage,
-          title: 'Integrations Specialist',
-          slack: 'amaia',
-          timezone: 'Central European Summer Time',
-          phone: '34615711333',
-          email: 'amaia.ibarra@fareharbor.com',
-          office: 'Amsterdam',
-          manager: 'Michael Klempner'
-        },
-        elly: {
-          records: ellyRecordsState,
-          live: ellyLiveState,
-          name: 'Nallely Torres',
-          image: ellyImage,
-          title: 'Integrations Specialist',
-          slack: 'elly',
-          timezone: 'Mountain',
-          phone: '720-380-3867',
-          email: 'nallely.torres@fareharbor.com',
-          office: 'Denver',
-          manager: 'Neubs'
-        },
-        tobey: {
-          records: tobeyRecordsState,
-          live: tobeyLiveState,
-          name: 'Tobey Ross',
-          image: tobeyImage,
-          title: 'Integrations Specialist',
-          slack: 'tobez',
-          timezone: 'Mountain',
-          phone: '512-529-6783',
-          email: 'tobey.ross@fareharbor.com',
-          office: 'Denver',
-          manager: 'Neubs'
-        },
-        johnny: {
-          records: johnnyRecordsState,
-          live: johnnyLiveState,
-          name: 'Johnny Garcia',
-          image: johnnyImage,
-          title: 'Integrations Specialist',
-          slack: 'patrick',
-          timezone: 'Mountain',
-          phone: '303-888-8909',
-          email: 'patrick.poole@fareharbor.com',
-          office: 'Denver',
-          manager: 'Neubs'
-        }
-      })
-  };
+        let mostRecentTierLive = tierArrayLive.pop();
+        let mostRecentShortnameLive = shortnameArrayLive.pop();
+        let mostRecentWebTypeLive = webTypeArrayLive.pop();
+            
+        this.setState({
+          loading:false,
+          patrick: {
+            records: {
+              monthly: monthlyIntegrationsArray.length,
+              daily: dailyIntegrationsArray.length,
+              total: totalIntegrationsArray.length,
+              mostRecentName: mostRecentName,
+              mostRecentDate: mostRecentDate,
+              mostRecentSubmitter: mostRecentSubmitter,
+              mostRecentBuilder: mostRecentBuilder,
+              mostRecentTier: mostRecentTier,
+              mostRecentShortname: mostRecentShortname,
+              mostRecentWebType: mostRecentWebType,
+              tier0: tier0,
+              tier1: tier1,
+              tier2: tier2,
+              tier3: tier3,
+              tier4: tier4,
+            },
+            live: {
+              total: totalIntegrationsArrayLive.length,
+              monthly:  monthlyIntegrationsArrayLive.length,
+              daily: dailyIntegrationsArrayLive.length,
+              mostRecentNameLive: mostRecentNameLive,
+              mostRecentDateLive: mostRecentDateLive,
+              mostRecentSubmitterLive: mostRecentSubmitterLive,
+              mostRecentBuilderLive: mostRecentBuilderLive,
+              mostRecentTierLive: mostRecentTierLive,
+              mostRecentShortnameLive: mostRecentShortnameLive,
+              mostRecentWebTypeLive: mostRecentWebTypeLive,
+              tier0Live: tier0Live,
+              tier1Live: tier1Live,
+              tier2Live: tier2Live,
+              tier3Live: tier3Live,
+              tier4Live: tier4Live,
+            },
+            info:{
+              name: 'Patrick Poole',
+              image: patrickImage,
+              title: 'Integrations Specialist',
+              slack: 'patrick',
+              timezone: 'Mountain',
+              phone: '303-888-8909',
+              email: 'patrick.poole@fareharbor.com',
+              office: 'Denver',
+              manager: 'Neubs/Raleigh'
+            
+            }
+          }
+        })
+        console.log(monthlyIntegrationsArrayLive.length);
+        console.log(totalIntegrationsArrayLive.length);
+        console.log(dailyIntegrationsArrayLive.length);
+    }, 12000);
 
-  loadLiveRecords();
-loadOBRecords();
-
-
-setTimeout(()=> {
-  if(johnnyLiveState.length > 0) {
-    this.setState({loading:false})
   }
-}, 20000);
+
+loadOBRecords();
+ 
 }
 
 render() {
-
-
+  console.log(this.state.patrick.records.tier4);
   return (
     <div className="App">
     {this.state.loading ? <LoadingSpinner /> :
@@ -507,16 +536,26 @@ render() {
           <img src={logo} className="App-logo" alt="logo" />
           <MainHeading>Integration Team Airtable Dashboard</MainHeading>
           
-          
-
          <AppContainer>
             <Container>
-              <Integrator records={this.state.patrick.records} live={this.state.patrick.live} name={this.state.patrick.name} image={this.state.patrick.image} 
-             title={this.state.patrick.title} slack={this.state.patrick.slack} timezone={this.state.patrick.timezone}
-             phone={this.state.patrick.phone} email={this.state.patrick.email} office={this.state.patrick.office} 
-             manager={this.state.patrick.manager}/> 
+              <Integrator name={this.state.patrick.info.name} image={this.state.patrick.info.image} 
+             title={this.state.patrick.info.title} slack={this.state.patrick.info.slack} timezone={this.state.patrick.info.timezone}
+             phone={this.state.patrick.info.phone} email={this.state.patrick.info.email} office={this.state.patrick.info.office} 
+             manager={this.state.patrick.info.manager}  total={this.state.patrick.records.total} monthly={this.state.patrick.records.monthly}
+             daily={this.state.patrick.records.daily} mostRecentName={this.state.patrick.records.mostRecentName} mostRecentDate={this.state.patrick.records.mostRecentDate}
+             mostRecentSubmitter={this.state.patrick.records.mostRecentSubmitter} mostRecentBuilder={this.state.patrick.records.mostRecentBuilder}
+             mostRecentTier={this.state.patrick.records.mostRecentTier} mostRecentShortname={this.state.patrick.records.mostRecentShortname}
+             mostRecentWebType={this.state.patrick.records.mostRecentWebType} totalLive={this.state.patrick.live.total} monthlyLive={this.state.patrick.live.monthly}
+             dailyLive={this.state.patrick.live.daily} mostRecentNameLive={this.state.patrick.live.mostRecentNameLive} mostRecentDateLive={this.state.patrick.live.mostRecentDateLive}
+             mostRecentSubmitterLive={this.state.patrick.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.patrick.live.mostRecentBuilderLive}
+             mostRecentTierLive={this.state.patrick.live.mostRecentTierLive} mostRecentShortnameLive={this.state.patrick.live.mostRecentShortnameLive}
+             mostRecentWebTypeLive={this.state.patrick.live.mostRecentWebTypeLive} tier0={this.state.patrick.records.tier0} tier1={this.state.patrick.records.tier1}
+             tier2={this.state.patrick.records.tier2} tier3={this.state.patrick.records.tier3} tier4={this.state.patrick.records.tier4} 
+             tier0Live={this.state.patrick.live.tier0Live} tier1Live={this.state.patrick.live.tier1Live}
+             tier2Live={this.state.patrick.live.tier2Live} tier3Live={this.state.patrick.live.tier3Live} tier4Live={this.state.patrick.live.tier4Live}/> 
            </Container>
-            <Container>
+         
+            {/*<Container>
               <Integrator records={this.state.amaia.records} live={this.state.amaia.live} name={this.state.amaia.name} image={this.state.amaia.image} 
               title={this.state.amaia.title} slack={this.state.amaia.slack} timezone={this.state.amaia.timezone}
               phone={this.state.amaia.phone} email={this.state.amaia.email} office={this.state.amaia.office} 
@@ -557,7 +596,7 @@ render() {
               title={this.state.johnny.title} slack={this.state.johnny.slack} timezone={this.state.johnny.timezone}
               phone={this.state.johnny.phone} email={this.state.johnny.email} office={this.state.johnny.office} 
               manager={this.state.johnny.manager}/>
-            </Container>
+            </Container>*/}
           </AppContainer>
           </div>
           }
