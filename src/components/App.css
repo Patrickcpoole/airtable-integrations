@@ -32,11 +32,11 @@
 }
 
 .picture {
-  width:9vh;
-  height:9vh;
+  width:11vh;
+  height:11vh;
   border-radius:20%;
-  margin-top:10px;
-  margin-bottom:-25px;
+  margin-top:20px;
+  margin-bottom:-20px;
 }
 
 .App-link {
@@ -64,7 +64,7 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   padding: 20px;
   max-width: 60%;
-  height:80%;
+  height:85vh;
   width: 100%;
   display:flex;
   flex-direction: row;
@@ -87,8 +87,8 @@ h5 {
 }
 
 .modal-picture {
-  width:12vh;
-  height:12vh;
+  width:16vh;
+  height:16vh;
   border-radius:20%;
   margin-top:10px;
   margin-bottom:-25px;

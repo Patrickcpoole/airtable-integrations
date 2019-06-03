@@ -21,7 +21,7 @@ const IntegratorContainer = styled.div`
     background-color:white;
     height: 65vh;
     border-radius:8px;
-    box-shadow: 2px 5px 15px 2px hsla(0, 0%, 0%, 0.4);
+    box-shadow: 2px 3px 12px 2px hsla(0, 0%, 0%, 0.3);
     transition: .4s all ease-in-out;
     :hover {
       background-color:#ffbf00;
