@@ -16,6 +16,7 @@ const CompanyHeader = styled.div`
     height:30%;
     display:flex;
     flex-direction:column;
+    align-items:center;
     justify-content:flex-start;
 `;
 
@@ -30,6 +31,17 @@ const CompanySubheading = styled.h2`
     margin-top:-.75vh;
 `;
 
+const CompanyLocation = styled.h3`
+    font-size:.85rem;
+    color:#282c34;
+    margin-top:.75vh;
+    display:inline-block;
+    border-radius:300px;
+    padding: 2px 10px 2px 10px;
+    background: ${props => props.color};
+    width:max-content;
+`;
+
 const InfoContainer = styled.div`
     width:100%;
     height:70%;
@@ -37,6 +49,9 @@ const InfoContainer = styled.div`
     flex-direction:row;
     justify-content:center;
     align-items:center;
+    @media (max-width: 1500px) {
+    margin-top:10%;
+  }
 `;
 
 const InfoRight = styled.div`
@@ -63,14 +78,16 @@ const InfoText = styled.p`
 `;
 
 class CompanyInfo extends Component {
-  render() {
     
+  render() {
+    console.log(this.props.colorProp);
  
     return (
       <CompanyContainer>
           <CompanyHeader>
             <CompanyHeading>Last Company Integrated:</CompanyHeading>
             <CompanySubheading>{this.props.mostRecentName}</CompanySubheading>
+            <CompanyLocation color={this.props.colorProp}>{this.props.mostRecentCompanyRegion}</CompanyLocation>
           </CompanyHeader>
         <InfoContainer>
             <InfoLeft>

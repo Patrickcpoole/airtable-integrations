@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { Component } from 'react';
 import logo from '../airtable-logo.png';
 import './App.css';
 import styled from 'styled-components';
@@ -499,6 +499,7 @@ componentDidMount() {
   let tierArrayLive = [];
   let shortnameArrayLive = [];
   let webTypeArrayLive = [];
+  let companyRegionArrayLive = [];
 
   let companyArrayLiveNeubs = [];          
   let completionDateArrayLiveNeubs = [];
@@ -507,6 +508,7 @@ componentDidMount() {
   let tierArrayLiveNeubs = [];
   let shortnameArrayLiveNeubs = [];
   let webTypeArrayLiveNeubs = [];
+  let companyRegionArrayLiveNeubs = [];
 
   let companyArrayLiveZack = [];          
   let completionDateArrayLiveZack = [];
@@ -515,6 +517,7 @@ componentDidMount() {
   let tierArrayLiveZack = [];
   let shortnameArrayLiveZack = [];
   let webTypeArrayLiveZack = [];
+  let companyRegionArrayLiveZack = [];
 
   let companyArrayLiveMarco = [];          
   let completionDateArrayLiveMarco = [];
@@ -523,6 +526,7 @@ componentDidMount() {
   let tierArrayLiveMarco = [];
   let shortnameArrayLiveMarco = [];
   let webTypeArrayLiveMarco = [];
+  let companyRegionArrayLiveMarco = [];
 
   let companyArrayLiveAmaia = [];          
   let completionDateArrayLiveAmaia = [];
@@ -531,6 +535,7 @@ componentDidMount() {
   let tierArrayLiveAmaia = [];
   let shortnameArrayLiveAmaia = [];
   let webTypeArrayLiveAmaia = [];
+  let companyRegionArrayLiveAmaia = [];
 
   let companyArrayLiveElly = [];          
   let completionDateArrayLiveElly = [];
@@ -539,6 +544,7 @@ componentDidMount() {
   let tierArrayLiveElly = [];
   let shortnameArrayLiveElly = [];
   let webTypeArrayLiveElly = [];
+  let companyRegionArrayLiveElly = [];
 
   let companyArrayLiveTobey = [];          
   let completionDateArrayLiveTobey = [];
@@ -547,6 +553,7 @@ componentDidMount() {
   let tierArrayLiveTobey = [];
   let shortnameArrayLiveTobey = [];
   let webTypeArrayLiveTobey = [];
+  let companyRegionArrayLiveTobey = [];
 
   let companyArrayLiveJohnny = [];          
   let completionDateArrayLiveJohnny = [];
@@ -555,6 +562,7 @@ componentDidMount() {
   let tierArrayLiveJohnny = [];
   let shortnameArrayLiveJohnny = [];
   let webTypeArrayLiveJohnny = [];
+  let companyRegionArrayLiveJohnny = [];
 
   let tier0Live = 0;
   let tier1Live = 0;
@@ -660,6 +668,7 @@ componentDidMount() {
             let lastItemTierLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Website Type'];
+            let lastCompanyRegionLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Company Region'];
             
             companyArrayLive.push(lastItemNameLive);
             completionDateArrayLive.push(lastItemDateFormattedLive);
@@ -668,6 +677,7 @@ componentDidMount() {
             tierArrayLive.push(lastItemTierLive);
             shortnameArrayLive.push(lastItemShortnameLive);
             webTypeArrayLive.push(lastItemWebTypeLive);
+            companyRegionArrayLive.push(lastCompanyRegionLive);
           } 
         } catch(err) {
           
@@ -712,6 +722,7 @@ componentDidMount() {
             let lastItemTierLive = totalRecordsLiveNeubs[totalRecordsLiveNeubs.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLiveNeubs[totalRecordsLiveNeubs.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLiveNeubs[totalRecordsLiveNeubs.length - 1].fields['Website Type'];
+            let lastCompanyRegionLive = totalRecordsLiveNeubs[totalRecordsLiveNeubs.length - 1].fields['Company Region'];
             
             companyArrayLiveNeubs.push(lastItemNameLive);
             completionDateArrayLiveNeubs.push(lastItemDateFormattedLive);
@@ -720,6 +731,7 @@ componentDidMount() {
             tierArrayLiveNeubs.push(lastItemTierLive);
             shortnameArrayLiveNeubs.push(lastItemShortnameLive);
             webTypeArrayLiveNeubs.push(lastItemWebTypeLive);
+            companyRegionArrayLiveNeubs.push(lastCompanyRegionLive);
           } 
         } catch(err) {
           
@@ -764,6 +776,7 @@ componentDidMount() {
             let lastItemTierLive = totalRecordsLiveZack[totalRecordsLiveZack.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLiveZack[totalRecordsLiveZack.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLiveZack[totalRecordsLiveZack.length - 1].fields['Website Type'];
+            let lastCompanyRegionLive = totalRecordsLiveZack[totalRecordsLiveZack.length - 1].fields['Company Region'];
             
             companyArrayLiveZack.push(lastItemNameLive);
             completionDateArrayLiveZack.push(lastItemDateFormattedLive);
@@ -772,6 +785,7 @@ componentDidMount() {
             tierArrayLiveZack.push(lastItemTierLive);
             shortnameArrayLiveZack.push(lastItemShortnameLive);
             webTypeArrayLiveZack.push(lastItemWebTypeLive);
+            companyRegionArrayLiveZack.push(lastCompanyRegionLive);
           } 
         } catch(err) {
           
@@ -816,6 +830,7 @@ componentDidMount() {
             let lastItemTierLive = totalRecordsLiveMarco[totalRecordsLiveMarco.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLiveMarco[totalRecordsLiveMarco.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLiveMarco[totalRecordsLiveMarco.length - 1].fields['Website Type'];
+            let lastCompanyRegionLive = totalRecordsLiveMarco[totalRecordsLiveMarco.length - 1].fields['Company Region'];
             
             companyArrayLiveMarco.push(lastItemNameLive);
             completionDateArrayLiveMarco.push(lastItemDateFormattedLive);
@@ -824,6 +839,7 @@ componentDidMount() {
             tierArrayLiveMarco.push(lastItemTierLive);
             shortnameArrayLiveMarco.push(lastItemShortnameLive);
             webTypeArrayLiveMarco.push(lastItemWebTypeLive);
+            companyRegionArrayLiveMarco.push(lastCompanyRegionLive);
           } 
         } catch(err) {
           
@@ -868,6 +884,7 @@ componentDidMount() {
             let lastItemTierLive = totalRecordsLiveAmaia[totalRecordsLiveAmaia.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLiveAmaia[totalRecordsLiveAmaia.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLiveAmaia[totalRecordsLiveAmaia.length - 1].fields['Website Type'];
+            let lastCompanyRegionLive = totalRecordsLiveAmaia[totalRecordsLiveAmaia.length - 1].fields['Company Region'];
             
             companyArrayLiveAmaia.push(lastItemNameLive);
             completionDateArrayLiveAmaia.push(lastItemDateFormattedLive);
@@ -876,6 +893,7 @@ componentDidMount() {
             tierArrayLiveAmaia.push(lastItemTierLive);
             shortnameArrayLiveAmaia.push(lastItemShortnameLive);
             webTypeArrayLiveAmaia.push(lastItemWebTypeLive);
+            companyRegionArrayLiveAmaia.push(lastCompanyRegionLive);
           } 
         } catch(err) {
           
@@ -920,6 +938,7 @@ componentDidMount() {
             let lastItemTierLive = totalRecordsLiveElly[totalRecordsLiveElly.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLiveElly[totalRecordsLiveElly.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLiveElly[totalRecordsLiveElly.length - 1].fields['Website Type'];
+            let lastCompanyRegionLive = totalRecordsLiveElly[totalRecordsLiveElly.length - 1].fields['Company Region'];
             
             companyArrayLiveElly.push(lastItemNameLive);
             completionDateArrayLiveElly.push(lastItemDateFormattedLive);
@@ -928,6 +947,7 @@ componentDidMount() {
             tierArrayLiveElly.push(lastItemTierLive);
             shortnameArrayLiveElly.push(lastItemShortnameLive);
             webTypeArrayLiveElly.push(lastItemWebTypeLive);
+            companyRegionArrayLiveElly.push(lastCompanyRegionLive);
           } 
         } catch(err) {
           
@@ -972,7 +992,8 @@ componentDidMount() {
             let lastItemTierLive = totalRecordsLiveTobey[totalRecordsLiveTobey.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLiveTobey[totalRecordsLiveTobey.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLiveTobey[totalRecordsLiveTobey.length - 1].fields['Website Type'];
-            
+            let lastCompanyRegionLive = totalRecordsLiveTobey[totalRecordsLiveTobey.length - 1].fields['Company Region'];
+
             companyArrayLiveTobey.push(lastItemNameLive);
             completionDateArrayLiveTobey.push(lastItemDateFormattedLive);
             submitterArrayLiveTobey.push(lastItemSubmitterLive);
@@ -980,6 +1001,7 @@ componentDidMount() {
             tierArrayLiveTobey.push(lastItemTierLive);
             shortnameArrayLiveTobey.push(lastItemShortnameLive);
             webTypeArrayLiveTobey.push(lastItemWebTypeLive);
+            companyRegionArrayLiveTobey.push(lastCompanyRegionLive);
           } 
         } catch(err) {
           
@@ -1024,6 +1046,7 @@ componentDidMount() {
             let lastItemTierLive = totalRecordsLiveJohnny[totalRecordsLiveJohnny.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLiveJohnny[totalRecordsLiveJohnny.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLiveJohnny[totalRecordsLiveJohnny.length - 1].fields['Website Type'];
+            let lastCompanyRegionLive = totalRecordsLiveJohnny[totalRecordsLiveJohnny.length - 1].fields['Company Region'];
             
             companyArrayLiveJohnny.push(lastItemNameLive);
             completionDateArrayLiveJohnny.push(lastItemDateFormattedLive);
@@ -1032,6 +1055,7 @@ componentDidMount() {
             tierArrayLiveJohnny.push(lastItemTierLive);
             shortnameArrayLiveJohnny.push(lastItemShortnameLive);
             webTypeArrayLiveJohnny.push(lastItemWebTypeLive);
+            companyRegionArrayLiveJohnny.push(lastCompanyRegionLive);
           } 
         } catch(err) {
           
@@ -1052,6 +1076,7 @@ componentDidMount() {
     let tierArray = [];
     let shortnameArray = [];
     let webTypeArray = [];
+    let companyRegionArray = [];
 
     let dailyIntegrationsArrayNeubs = [];
     let totalIntegrationsArrayNeubs = [];
@@ -1063,6 +1088,7 @@ componentDidMount() {
     let tierArrayNeubs = [];
     let shortnameArrayNeubs = [];
     let webTypeArrayNeubs = [];
+    let companyRegionArrayNeubs = [];
 
     let dailyIntegrationsArrayZack = [];
     let totalIntegrationsArrayZack = [];
@@ -1074,6 +1100,7 @@ componentDidMount() {
     let tierArrayZack = [];
     let shortnameArrayZack = [];
     let webTypeArrayZack = [];
+    let companyRegionArrayZack = [];
 
     let dailyIntegrationsArrayMarco = [];
     let totalIntegrationsArrayMarco = [];
@@ -1085,6 +1112,7 @@ componentDidMount() {
     let tierArrayMarco = [];
     let shortnameArrayMarco = [];
     let webTypeArrayMarco = [];
+    let companyRegionArrayMarco = [];
 
     let dailyIntegrationsArrayAmaia = [];
     let totalIntegrationsArrayAmaia = [];
@@ -1096,6 +1124,7 @@ componentDidMount() {
     let tierArrayAmaia = [];
     let shortnameArrayAmaia = [];
     let webTypeArrayAmaia = [];
+    let companyRegionArrayAmaia = [];
 
     let dailyIntegrationsArrayElly= [];
     let totalIntegrationsArrayElly = [];
@@ -1107,6 +1136,7 @@ componentDidMount() {
     let tierArrayElly = [];
     let shortnameArrayElly = [];
     let webTypeArrayElly = [];
+    let companyRegionArrayElly = [];
 
     let dailyIntegrationsArrayTobey = [];
     let totalIntegrationsArrayTobey = [];
@@ -1118,6 +1148,7 @@ componentDidMount() {
     let tierArrayTobey = [];
     let shortnameArrayTobey = [];
     let webTypeArrayTobey = [];
+    let companyRegionArrayTobey = [];
 
     let dailyIntegrationsArrayJohnny = [];
     let totalIntegrationsArrayJohnny = [];
@@ -1129,6 +1160,7 @@ componentDidMount() {
     let tierArrayJohnny = [];
     let shortnameArrayJohnny = [];
     let webTypeArrayJohnny = [];
+    let companyRegionArrayJohnny = [];
 
     let tier0 = 0;
     let tier1 = 0;
@@ -1242,6 +1274,7 @@ componentDidMount() {
             let lastItemTier = totalRecords[totalRecords.length - 1].fields['Tier'];
             let lastItemShortname = totalRecords[totalRecords.length - 1].fields['Shortname'];
             let lastItemWebType = totalRecords[totalRecords.length - 1].fields['Website Type'];
+            let lastCompanyRegion = totalRecords[totalRecords.length - 1].fields['Company Region'];
             
             companyArray.push(lastItemName);
             completionDateArray.push(lastItemDateFormatted);
@@ -1250,6 +1283,7 @@ componentDidMount() {
             tierArray.push(lastItemTier);
             shortnameArray.push(lastItemShortname);
             webTypeArray.push(lastItemWebType);
+            companyRegionArray.push(lastCompanyRegion);
             }
             }
               } catch(err) {
@@ -1301,6 +1335,7 @@ componentDidMount() {
             let lastItemTier = totalRecordsNeubs[totalRecordsNeubs.length - 1].fields['Tier'];
             let lastItemShortname = totalRecordsNeubs[totalRecordsNeubs.length - 1].fields['Shortname'];
             let lastItemWebType = totalRecordsNeubs[totalRecordsNeubs.length - 1].fields['Website Type'];
+            let lastCompanyRegion = totalRecordsNeubs[totalRecordsNeubs.length - 1].fields['Company Region'];
             
             companyArrayNeubs.push(lastItemName);
             completionDateArrayNeubs.push(lastItemDateFormatted);
@@ -1309,6 +1344,7 @@ componentDidMount() {
             tierArrayNeubs.push(lastItemTier);
             shortnameArrayNeubs.push(lastItemShortname);
             webTypeArrayNeubs.push(lastItemWebType);
+            companyRegionArrayNeubs.push(lastCompanyRegion);
             }
             }
               } catch(err) {
@@ -1360,6 +1396,7 @@ componentDidMount() {
             let lastItemTier = totalRecordsZack[totalRecordsZack.length - 1].fields['Tier'];
             let lastItemShortname = totalRecordsZack[totalRecordsZack.length - 1].fields['Shortname'];
             let lastItemWebType = totalRecordsZack[totalRecordsZack.length - 1].fields['Website Type'];
+            let lastCompanyRegion = totalRecordsZack[totalRecordsZack.length - 1].fields['Company Region'];
             
             companyArrayZack.push(lastItemName);
             completionDateArrayZack.push(lastItemDateFormatted);
@@ -1368,6 +1405,7 @@ componentDidMount() {
             tierArrayZack.push(lastItemTier);
             shortnameArrayZack.push(lastItemShortname);
             webTypeArrayZack.push(lastItemWebType);
+            companyRegionArrayZack.push(lastCompanyRegion);
             }
             }
               } catch(err) {
@@ -1419,6 +1457,7 @@ componentDidMount() {
             let lastItemTier = totalRecordsMarco[totalRecordsMarco.length - 1].fields['Tier'];
             let lastItemShortname = totalRecordsMarco[totalRecordsMarco.length - 1].fields['Shortname'];
             let lastItemWebType = totalRecordsMarco[totalRecordsMarco.length - 1].fields['Website Type'];
+            let lastCompanyRegion = totalRecordsMarco[totalRecordsMarco.length - 1].fields['Company Region'];
             
             companyArrayMarco.push(lastItemName);
             completionDateArrayMarco.push(lastItemDateFormatted);
@@ -1427,6 +1466,7 @@ componentDidMount() {
             tierArrayMarco.push(lastItemTier);
             shortnameArrayMarco.push(lastItemShortname);
             webTypeArrayMarco.push(lastItemWebType);
+            companyRegionArrayMarco.push(lastCompanyRegion);
             }
             }
               } catch(err) {
@@ -1478,6 +1518,8 @@ componentDidMount() {
             let lastItemTier = totalRecordsAmaia[totalRecordsAmaia.length - 1].fields['Tier'];
             let lastItemShortname = totalRecordsAmaia[totalRecordsAmaia.length - 1].fields['Shortname'];
             let lastItemWebType = totalRecordsAmaia[totalRecordsAmaia.length - 1].fields['Website Type'];
+            let lastCompanyRegion = totalRecordsAmaia[totalRecordsAmaia.length - 1].fields['Company Region'];
+            
             
             companyArrayAmaia.push(lastItemName);
             completionDateArrayAmaia.push(lastItemDateFormatted);
@@ -1486,6 +1528,7 @@ componentDidMount() {
             tierArrayAmaia.push(lastItemTier);
             shortnameArrayAmaia.push(lastItemShortname);
             webTypeArrayAmaia.push(lastItemWebType);
+            companyRegionArrayAmaia.push(lastCompanyRegion);
             }
             }
               } catch(err) {
@@ -1537,6 +1580,7 @@ componentDidMount() {
             let lastItemTier = totalRecordsElly[totalRecordsElly.length - 1].fields['Tier'];
             let lastItemShortname = totalRecordsElly[totalRecordsElly.length - 1].fields['Shortname'];
             let lastItemWebType = totalRecordsElly[totalRecordsElly.length - 1].fields['Website Type'];
+            let lastCompanyRegion = totalRecordsElly[totalRecordsElly.length - 1].fields['Company Region'];
             
             companyArrayElly.push(lastItemName);
             completionDateArrayElly.push(lastItemDateFormatted);
@@ -1545,6 +1589,7 @@ componentDidMount() {
             tierArrayElly.push(lastItemTier);
             shortnameArrayElly.push(lastItemShortname);
             webTypeArrayElly.push(lastItemWebType);
+            companyRegionArrayElly.push(lastCompanyRegion);
             }
             }
               } catch(err) {
@@ -1597,6 +1642,7 @@ componentDidMount() {
                     let lastItemTier = totalRecordsTobey[totalRecordsTobey.length - 1].fields['Tier'];
                     let lastItemShortname = totalRecordsTobey[totalRecordsTobey.length - 1].fields['Shortname'];
                     let lastItemWebType = totalRecordsTobey[totalRecordsTobey.length - 1].fields['Website Type'];
+                    let lastCompanyRegion = totalRecordsTobey[totalRecordsTobey.length - 1].fields['Company Region'];
                     
                     companyArrayTobey.push(lastItemName);
                     completionDateArrayTobey.push(lastItemDateFormatted);
@@ -1605,6 +1651,7 @@ componentDidMount() {
                     tierArrayTobey.push(lastItemTier);
                     shortnameArrayTobey.push(lastItemShortname);
                     webTypeArrayTobey.push(lastItemWebType);
+                    companyRegionArrayTobey.push(lastCompanyRegion);
                     }
                     }
                       } catch(err) {
@@ -1656,6 +1703,7 @@ componentDidMount() {
                         let lastItemTier = totalRecordsJohnny[totalRecordsJohnny.length - 1].fields['Tier'];
                         let lastItemShortname = totalRecordsJohnny[totalRecordsJohnny.length - 1].fields['Shortname'];
                         let lastItemWebType = totalRecordsJohnny[totalRecordsJohnny.length - 1].fields['Website Type'];
+                        let lastCompanyRegion = totalRecordsJohnny[totalRecordsJohnny.length - 1].fields['Company Region'];
                         
                         companyArrayJohnny.push(lastItemName);
                         completionDateArrayJohnny.push(lastItemDateFormatted);
@@ -1664,6 +1712,7 @@ componentDidMount() {
                         tierArrayJohnny.push(lastItemTier);
                         shortnameArrayJohnny.push(lastItemShortname);
                         webTypeArrayJohnny.push(lastItemWebType);
+                        companyRegionArrayJohnny.push(lastCompanyRegion);
                         }
                         }
                           } catch(err) {
@@ -1676,6 +1725,7 @@ componentDidMount() {
       });
 
       setTimeout(() => {
+        
         let mostRecentName = companyArray.pop();  
         let mostRecentDate = completionDateArray.pop();
         let mostRecentSubmitter = submitterArray.pop();
@@ -1683,6 +1733,24 @@ componentDidMount() {
         let mostRecentTier = tierArray.pop();
         let mostRecentShortname = shortnameArray.pop();
         let mostRecentWebType = webTypeArray.pop();
+        let mostRecentCompanyRegion = companyRegionArray.pop();
+
+        let colorProp = '';
+        let green = '#60af64';
+        let blue = '#399adb';
+        let pink = '#db6280';
+        switch(mostRecentCompanyRegion) {
+          case 'North America':
+            colorProp = green;
+            break;
+          case 'Europe':
+            colorProp = blue;
+            break;
+          case 'Australia & Pacific':
+            colorProp = pink;
+            break;
+        }
+
         let mostRecentNameLive = companyArrayLive.pop();
         let mostRecentDateLive = completionDateArrayLive.pop();
         let mostRecentSubmitterLive = submitterArrayLive.pop();
@@ -1690,6 +1758,20 @@ componentDidMount() {
         let mostRecentTierLive = tierArrayLive.pop();
         let mostRecentShortnameLive = shortnameArrayLive.pop();
         let mostRecentWebTypeLive = webTypeArrayLive.pop();
+        let mostRecentCompanyRegionLive = companyRegionArrayLive.pop();
+
+        let colorPropLive = '';
+        switch(mostRecentCompanyRegionLive) {
+          case 'North America':
+            colorPropLive = green;
+            break;
+          case 'Europe':
+            colorPropLive = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropLive = pink;
+            break;
+        }
 
         let mostRecentNameNeubs = companyArrayNeubs.pop();  
         let mostRecentDateNeubs = completionDateArrayNeubs.pop();
@@ -1698,6 +1780,21 @@ componentDidMount() {
         let mostRecentTierNeubs = tierArrayNeubs.pop();
         let mostRecentShortnameNeubs = shortnameArrayNeubs.pop();
         let mostRecentWebTypeNeubs = webTypeArrayNeubs.pop();
+        let mostRecentCompanyRegionNeubs = companyRegionArrayNeubs.pop();
+
+        let colorPropNeubs = '';
+        switch(mostRecentCompanyRegionNeubs) {
+          case 'North America':
+            colorPropNeubs = green;
+            break;
+          case 'Europe':
+            colorPropNeubs = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropNeubs = pink;
+            break;
+        }
+
         let mostRecentNameLiveNeubs = companyArrayLiveNeubs.pop();
         let mostRecentDateLiveNeubs = completionDateArrayLiveNeubs.pop();
         let mostRecentSubmitterLiveNeubs = submitterArrayLiveNeubs.pop();
@@ -1705,6 +1802,20 @@ componentDidMount() {
         let mostRecentTierLiveNeubs = tierArrayLiveNeubs.pop();
         let mostRecentShortnameLiveNeubs = shortnameArrayLiveNeubs.pop();
         let mostRecentWebTypeLiveNeubs = webTypeArrayLiveNeubs.pop();
+        let mostRecentCompanyRegionLiveNeubs = companyRegionArrayLiveNeubs.pop();
+
+        let colorPropLiveNeubs = '';
+        switch(mostRecentCompanyRegionLiveNeubs) {
+          case 'North America':
+            colorPropLiveNeubs = green;
+            break;
+          case 'Europe':
+            colorPropLiveNeubs = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropLiveNeubs = pink;
+            break;
+        }
         
         let mostRecentNameZack = companyArrayZack.pop();  
         let mostRecentDateZack = completionDateArrayZack.pop();
@@ -1713,6 +1824,21 @@ componentDidMount() {
         let mostRecentTierZack = tierArrayZack.pop();
         let mostRecentShortnameZack = shortnameArrayZack.pop();
         let mostRecentWebTypeZack = webTypeArrayZack.pop();
+        let mostRecentCompanyRegionZack = companyRegionArrayZack.pop();
+
+        let colorPropZack = '';
+        switch(mostRecentCompanyRegionZack) {
+          case 'North America':
+            colorPropZack = green;
+            break;
+          case 'Europe':
+            colorPropZack = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropZack = pink;
+            break;
+        }
+
         let mostRecentNameLiveZack = companyArrayLiveZack.pop();
         let mostRecentDateLiveZack = completionDateArrayLiveZack.pop();
         let mostRecentSubmitterLiveZack = submitterArrayLiveZack.pop();
@@ -1720,6 +1846,20 @@ componentDidMount() {
         let mostRecentTierLiveZack = tierArrayLiveZack.pop();
         let mostRecentShortnameLiveZack = shortnameArrayLiveZack.pop();
         let mostRecentWebTypeLiveZack = webTypeArrayLiveZack.pop();
+        let mostRecentCompanyRegionLiveZack = companyRegionArrayLiveZack.pop();
+
+        let colorPropLiveZack = '';
+        switch(mostRecentCompanyRegionLiveZack) {
+          case 'North America':
+            colorPropLiveZack = green;
+            break;
+          case 'Europe':
+            colorPropLiveZack = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropLiveZack = pink;
+            break;
+        }
 
         let mostRecentNameMarco = companyArrayMarco.pop();  
         let mostRecentDateMarco = completionDateArrayMarco.pop();
@@ -1728,6 +1868,21 @@ componentDidMount() {
         let mostRecentTierMarco = tierArrayMarco.pop();
         let mostRecentShortnameMarco = shortnameArrayMarco.pop();
         let mostRecentWebTypeMarco = webTypeArrayMarco.pop();
+        let mostRecentCompanyRegionMarco = companyRegionArrayMarco.pop();
+
+        let colorPropMarco = '';
+        switch(mostRecentCompanyRegionMarco) {
+          case 'North America':
+            colorPropMarco = green;
+            break;
+          case 'Europe':
+            colorPropMarco = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropMarco = pink;
+            break;
+        }
+
         let mostRecentNameLiveMarco = companyArrayLiveMarco.pop();
         let mostRecentDateLiveMarco = completionDateArrayLiveMarco.pop();
         let mostRecentSubmitterLiveMarco = submitterArrayLiveMarco.pop();
@@ -1735,6 +1890,20 @@ componentDidMount() {
         let mostRecentTierLiveMarco = tierArrayLiveMarco.pop();
         let mostRecentShortnameLiveMarco = shortnameArrayLiveMarco.pop();
         let mostRecentWebTypeLiveMarco = webTypeArrayLiveMarco.pop();
+        let mostRecentCompanyRegionLiveMarco = companyRegionArrayLiveMarco.pop();
+
+        let colorPropLiveMarco = '';
+        switch(mostRecentCompanyRegionLiveMarco) {
+          case 'North America':
+            colorPropLiveMarco = green;
+            break;
+          case 'Europe':
+            colorPropLiveMarco = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropLiveMarco = pink;
+            break;
+        }
 
         let mostRecentNameAmaia= companyArrayAmaia.pop();  
         let mostRecentDateAmaia = completionDateArrayAmaia.pop();
@@ -1743,6 +1912,23 @@ componentDidMount() {
         let mostRecentTierAmaia = tierArrayAmaia.pop();
         let mostRecentShortnameAmaia = shortnameArrayAmaia.pop();
         let mostRecentWebTypeAmaia = webTypeArrayAmaia.pop();
+        let mostRecentCompanyRegionAmaia = companyRegionArrayAmaia.pop();
+
+        let colorPropAmaia = '';
+        switch(mostRecentCompanyRegionAmaia) {
+          case 'North America':
+            colorPropAmaia = green;
+            break;
+          case 'Europe':
+            colorPropAmaia = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropAmaia = pink;
+            break;
+        }
+
+        console.log(colorPropAmaia);
+
         let mostRecentNameLiveAmaia = companyArrayLiveAmaia.pop();
         let mostRecentDateLiveAmaia = completionDateArrayLiveAmaia.pop();
         let mostRecentSubmitterLiveAmaia = submitterArrayLiveAmaia.pop();
@@ -1750,6 +1936,20 @@ componentDidMount() {
         let mostRecentTierLiveAmaia = tierArrayLiveAmaia.pop();
         let mostRecentShortnameLiveAmaia = shortnameArrayLiveAmaia.pop();
         let mostRecentWebTypeLiveAmaia = webTypeArrayLiveAmaia.pop();
+        let mostRecentCompanyRegionLiveAmaia = companyRegionArrayLiveAmaia.pop();
+
+        let colorPropLiveAmaia = '';
+        switch(mostRecentCompanyRegionLiveAmaia) {
+          case 'North America':
+            colorPropLiveAmaia = green;
+            break;
+          case 'Europe':
+            colorPropLiveAmaia = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropLiveAmaia = pink;
+            break;
+        }
 
         let mostRecentNameElly = companyArrayElly.pop();  
         let mostRecentDateElly = completionDateArrayElly.pop();
@@ -1758,6 +1958,21 @@ componentDidMount() {
         let mostRecentTierElly = tierArrayElly.pop();
         let mostRecentShortnameElly = shortnameArrayElly.pop();
         let mostRecentWebTypeElly = webTypeArrayElly.pop();
+        let mostRecentCompanyRegionElly = companyRegionArrayElly.pop();
+
+        let colorPropElly = '';
+        switch(mostRecentCompanyRegionElly) {
+          case 'North America':
+            colorPropElly = green;
+            break;
+          case 'Europe':
+            colorPropElly = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropElly = pink;
+            break;
+        }
+
         let mostRecentNameLiveElly = companyArrayLiveElly.pop();
         let mostRecentDateLiveElly = completionDateArrayLiveElly.pop();
         let mostRecentSubmitterLiveElly = submitterArrayLiveElly.pop();
@@ -1765,6 +1980,20 @@ componentDidMount() {
         let mostRecentTierLiveElly = tierArrayLiveElly.pop();
         let mostRecentShortnameLiveElly = shortnameArrayLiveElly.pop();
         let mostRecentWebTypeLiveElly = webTypeArrayLiveElly.pop();
+        let mostRecentCompanyRegionLiveElly = companyRegionArrayLiveElly.pop();
+
+        let colorPropLiveElly = '';
+        switch(mostRecentCompanyRegionLiveElly) {
+          case 'North America':
+            colorPropLiveElly = green;
+            break;
+          case 'Europe':
+            colorPropLiveElly = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropLiveElly = pink;
+            break;
+        }
 
         let mostRecentNameTobey = companyArrayTobey.pop();  
         let mostRecentDateTobey = completionDateArrayTobey.pop();
@@ -1773,6 +2002,21 @@ componentDidMount() {
         let mostRecentTierTobey = tierArrayTobey.pop();
         let mostRecentShortnameTobey = shortnameArrayTobey.pop();
         let mostRecentWebTypeTobey = webTypeArrayTobey.pop();
+        let mostRecentCompanyRegionTobey = companyRegionArrayTobey.pop();
+
+        let colorPropTobey = '';
+        switch(mostRecentCompanyRegionTobey) {
+          case 'North America':
+            colorPropTobey = green;
+            break;
+          case 'Europe':
+            colorPropTobey = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropTobey = pink;
+            break;
+        }
+
         let mostRecentNameLiveTobey = companyArrayLiveTobey.pop();
         let mostRecentDateLiveTobey = completionDateArrayLiveTobey.pop();
         let mostRecentSubmitterLiveTobey = submitterArrayLiveTobey.pop();
@@ -1780,6 +2024,20 @@ componentDidMount() {
         let mostRecentTierLiveTobey = tierArrayLiveTobey.pop();
         let mostRecentShortnameLiveTobey = shortnameArrayLiveTobey.pop();
         let mostRecentWebTypeLiveTobey = webTypeArrayLiveTobey.pop();
+        let mostRecentCompanyRegionLiveTobey = companyRegionArrayLiveTobey.pop();
+
+        let colorPropLiveTobey = '';
+        switch(mostRecentCompanyRegionLiveTobey) {
+          case 'North America':
+            colorPropLiveTobey = green;
+            break;
+          case 'Europe':
+            colorPropLiveTobey = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropLiveTobey = pink;
+            break;
+        }
 
         let mostRecentNameJohnny = companyArrayJohnny.pop();  
         let mostRecentDateJohnny = completionDateArrayJohnny.pop();
@@ -1788,6 +2046,21 @@ componentDidMount() {
         let mostRecentTierJohnny = tierArrayJohnny.pop();
         let mostRecentShortnameJohnny = shortnameArrayJohnny.pop();
         let mostRecentWebTypeJohnny = webTypeArrayJohnny.pop();
+        let mostRecentCompanyRegionJohnny = companyRegionArrayJohnny.pop();
+
+        let colorPropJohnny = '';
+        switch(mostRecentCompanyRegionJohnny) {
+          case 'North America':
+            colorPropJohnny = green;
+            break;
+          case 'Europe':
+            colorPropLiveJohnny = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropLiveJohnny = pink;
+            break;
+        }
+
         let mostRecentNameLiveJohnny = companyArrayLiveJohnny.pop();
         let mostRecentDateLiveJohnny = completionDateArrayLiveJohnny.pop();
         let mostRecentSubmitterLiveJohnny = submitterArrayLiveJohnny.pop();
@@ -1795,6 +2068,20 @@ componentDidMount() {
         let mostRecentTierLiveJohnny = tierArrayLiveJohnny.pop();
         let mostRecentShortnameLiveJohnny = shortnameArrayLiveJohnny.pop();
         let mostRecentWebTypeLiveJohnny = webTypeArrayLiveJohnny.pop();
+        let mostRecentCompanyRegionLiveJohnny = companyRegionArrayLiveJohnny.pop();
+
+        let colorPropLiveJohnny = '';
+        switch(mostRecentCompanyRegionLiveJohnny) {
+          case 'North America':
+            colorPropLiveJohnny = green;
+            break;
+          case 'Europe':
+            colorPropLiveJohnny = blue;
+            break;
+          case 'Australia & Pacific':
+            colorPropLiveJohnny = pink;
+            break;
+        }
         this.setState({
           loading:false,
           patrick: {
@@ -1809,6 +2096,8 @@ componentDidMount() {
               mostRecentTier: mostRecentTier,
               mostRecentShortname: mostRecentShortname,
               mostRecentWebType: mostRecentWebType,
+              mostRecentCompanyRegion: mostRecentCompanyRegion,
+              colorProp: colorProp,
               tier0: tier0,
               tier1: tier1,
               tier2: tier2,
@@ -1826,6 +2115,8 @@ componentDidMount() {
               mostRecentTierLive: mostRecentTierLive,
               mostRecentShortnameLive: mostRecentShortnameLive,
               mostRecentWebTypeLive: mostRecentWebTypeLive,
+              mostRecentCompanyRegionLive: mostRecentCompanyRegionLive,
+              colorProp: colorPropLive,
               tier0Live: tier0Live,
               tier1Live: tier1Live,
               tier2Live: tier2Live,
@@ -1858,6 +2149,8 @@ componentDidMount() {
               mostRecentTier: mostRecentTierNeubs,
               mostRecentShortname: mostRecentShortnameNeubs,
               mostRecentWebType: mostRecentWebTypeNeubs,
+              mostRecentCompanyRegion: mostRecentCompanyRegionNeubs,
+              colorProp: colorPropNeubs,
               tier0: tier0Neubs,
               tier1: tier1Neubs,
               tier2: tier2Neubs,
@@ -1875,6 +2168,8 @@ componentDidMount() {
               mostRecentTierLive: mostRecentTierLiveNeubs,
               mostRecentShortnameLive: mostRecentShortnameLiveNeubs,
               mostRecentWebTypeLive: mostRecentWebTypeLiveNeubs,
+              mostRecentCompanyRegionLive: mostRecentCompanyRegionLiveNeubs,
+              colorProp: colorPropLiveNeubs,
               tier0Live: tier0LiveNeubs,
               tier1Live: tier1LiveNeubs,
               tier2Live: tier2LiveNeubs,
@@ -1906,6 +2201,8 @@ componentDidMount() {
               mostRecentTier: mostRecentTierZack,
               mostRecentShortname: mostRecentShortnameZack,
               mostRecentWebType: mostRecentWebTypeZack,
+              mostRecentCompanyRegion: mostRecentCompanyRegionZack,
+              colorProp: colorPropZack,
               tier0: tier0Zack,
               tier1: tier1Zack,
               tier2: tier2Zack,
@@ -1923,6 +2220,8 @@ componentDidMount() {
               mostRecentTierLive: mostRecentTierLiveZack,
               mostRecentShortnameLive: mostRecentShortnameLiveZack,
               mostRecentWebTypeLive: mostRecentWebTypeLiveZack,
+              mostRecentCompanyRegionLive: mostRecentCompanyRegionLiveZack,
+              colorProp: colorPropLiveZack,
               tier0Live: tier0LiveZack,
               tier1Live: tier1LiveZack,
               tier2Live: tier2LiveZack,
@@ -1954,6 +2253,8 @@ componentDidMount() {
               mostRecentTier: mostRecentTierMarco,
               mostRecentShortname: mostRecentShortnameMarco,
               mostRecentWebType: mostRecentWebTypeMarco,
+              mostRecentCompanyRegion: mostRecentCompanyRegionMarco,
+              colorProp: colorPropMarco,
               tier0: tier0Marco,
               tier1: tier1Marco,
               tier2: tier2Marco,
@@ -1971,6 +2272,8 @@ componentDidMount() {
               mostRecentTierLive: mostRecentTierLiveMarco,
               mostRecentShortnameLive: mostRecentShortnameLiveMarco,
               mostRecentWebTypeLive: mostRecentWebTypeLiveMarco,
+              mostRecentCompanyRegionLive: mostRecentCompanyRegionLiveMarco,
+              colorProp: colorPropLiveMarco,
               tier0Live: tier0LiveMarco,
               tier1Live: tier1LiveMarco,
               tier2Live: tier2LiveMarco,
@@ -2002,6 +2305,8 @@ componentDidMount() {
               mostRecentTier: mostRecentTierAmaia,
               mostRecentShortname: mostRecentShortnameAmaia,
               mostRecentWebType: mostRecentWebTypeAmaia,
+              mostRecentCompanyRegion: mostRecentCompanyRegionAmaia,
+              colorProp: colorPropAmaia,
               tier0: tier0Amaia,
               tier1: tier1Amaia,
               tier2: tier2Amaia,
@@ -2019,6 +2324,8 @@ componentDidMount() {
               mostRecentTierLive: mostRecentTierLiveAmaia,
               mostRecentShortnameLive: mostRecentShortnameLiveAmaia,
               mostRecentWebTypeLive: mostRecentWebTypeLiveAmaia,
+              mostRecentCompanyRegionLive: mostRecentCompanyRegionLiveAmaia,
+              colorProp: colorPropLiveAmaia,
               tier0Live: tier0LiveAmaia,
               tier1Live: tier1LiveAmaia,
               tier2Live: tier2LiveAmaia,
@@ -2050,6 +2357,8 @@ componentDidMount() {
               mostRecentTier: mostRecentTierElly,
               mostRecentShortname: mostRecentShortnameElly,
               mostRecentWebType: mostRecentWebTypeElly,
+              mostRecentCompanyRegion: mostRecentCompanyRegionElly,
+              colorProp: colorPropElly,
               tier0: tier0Elly,
               tier1: tier1Elly,
               tier2: tier2Elly,
@@ -2067,6 +2376,8 @@ componentDidMount() {
               mostRecentTierLive: mostRecentTierLiveElly,
               mostRecentShortnameLive: mostRecentShortnameLiveElly,
               mostRecentWebTypeLive: mostRecentWebTypeLiveElly,
+              mostRecentCompanyRegionLive: mostRecentCompanyRegionLiveElly,
+              colorProp: colorPropLiveElly,
               tier0Live: tier0LiveElly,
               tier1Live: tier1LiveElly,
               tier2Live: tier2LiveElly,
@@ -2099,6 +2410,8 @@ componentDidMount() {
               mostRecentTier: mostRecentTierTobey,
               mostRecentShortname: mostRecentShortnameTobey,
               mostRecentWebType: mostRecentWebTypeTobey,
+              mostRecentCompanyRegion: mostRecentCompanyRegionTobey,
+              colorProp: colorPropTobey,
               tier0: tier0Tobey,
               tier1: tier1Tobey,
               tier2: tier2Tobey,
@@ -2116,6 +2429,8 @@ componentDidMount() {
               mostRecentTierLive: mostRecentTierLiveTobey,
               mostRecentShortnameLive: mostRecentShortnameLiveTobey,
               mostRecentWebTypeLive: mostRecentWebTypeLiveTobey,
+              mostRecentCompanyRegionLive: mostRecentCompanyRegionLiveTobey,
+              colorProp: colorPropLiveTobey,
               tier0Live: tier0LiveTobey,
               tier1Live: tier1LiveTobey,
               tier2Live: tier2LiveTobey,
@@ -2148,6 +2463,8 @@ componentDidMount() {
               mostRecentTier: mostRecentTierJohnny,
               mostRecentShortname: mostRecentShortnameJohnny,
               mostRecentWebType: mostRecentWebTypeJohnny,
+              mostRecentCompanyRegion: mostRecentCompanyRegionJohnny,
+              colorProp: colorPropJohnny,
               tier0: tier0Johnny,
               tier1: tier1Johnny,
               tier2: tier2Johnny,
@@ -2165,6 +2482,8 @@ componentDidMount() {
               mostRecentTierLive: mostRecentTierLiveJohnny,
               mostRecentShortnameLive: mostRecentShortnameLiveJohnny,
               mostRecentWebTypeLive: mostRecentWebTypeLiveJohnny,
+              mostRecentCompanyRegionLive: mostRecentCompanyRegionLiveJohnny,
+              colorProp: colorPropLiveJohnny,
               tier0Live: tier0LiveJohnny,
               tier1Live: tier1LiveJohnny,
               tier2Live: tier2LiveJohnny,
@@ -2178,7 +2497,7 @@ componentDidMount() {
               slack: 'johnnyboy',
               timezone: 'Mountain',
               phone: '303-514-1387',
-              email: 'patrick.poole@fareharbor.com',
+              email: 'johnny.garcia@fareharbor.com',
               office: 'Denver',
               manager: 'Raleigh Caruso',
               teamLead:'Neubs'
@@ -2188,7 +2507,7 @@ componentDidMount() {
         })
         
         
-    }, 12000);
+    }, 3000);
 
   }
 
@@ -2214,11 +2533,13 @@ render() {
              daily={this.state.patrick.records.daily} mostRecentName={this.state.patrick.records.mostRecentName} mostRecentDate={this.state.patrick.records.mostRecentDate}
              mostRecentSubmitter={this.state.patrick.records.mostRecentSubmitter} mostRecentBuilder={this.state.patrick.records.mostRecentBuilder}
              mostRecentTier={this.state.patrick.records.mostRecentTier} mostRecentShortname={this.state.patrick.records.mostRecentShortname}
-             mostRecentWebType={this.state.patrick.records.mostRecentWebType} totalLive={this.state.patrick.live.total} monthlyLive={this.state.patrick.live.monthly}
+             mostRecentWebType={this.state.patrick.records.mostRecentWebType} mostRecentCompanyRegion={this.state.patrick.records.mostRecentCompanyRegion} 
+             colorProp={this.state.patrick.records.colorProp} totalLive={this.state.patrick.live.total} monthlyLive={this.state.patrick.live.monthly}
              dailyLive={this.state.patrick.live.daily} mostRecentNameLive={this.state.patrick.live.mostRecentNameLive} mostRecentDateLive={this.state.patrick.live.mostRecentDateLive}
              mostRecentSubmitterLive={this.state.patrick.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.patrick.live.mostRecentBuilderLive}
              mostRecentTierLive={this.state.patrick.live.mostRecentTierLive} mostRecentShortnameLive={this.state.patrick.live.mostRecentShortnameLive}
-             mostRecentWebTypeLive={this.state.patrick.live.mostRecentWebTypeLive} tier0={this.state.patrick.records.tier0} tier1={this.state.patrick.records.tier1}
+             mostRecentWebTypeLive={this.state.patrick.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.patrick.live.mostRecentCompanyRegionLive} 
+             colorPropLive={this.state.patrick.live.colorProp} tier0={this.state.patrick.records.tier0} tier1={this.state.patrick.records.tier1}
              tier2={this.state.patrick.records.tier2} tier3={this.state.patrick.records.tier3} tier4={this.state.patrick.records.tier4} 
              tier0Live={this.state.patrick.live.tier0Live} tier1Live={this.state.patrick.live.tier1Live}
              tier2Live={this.state.patrick.live.tier2Live} tier3Live={this.state.patrick.live.tier3Live} tier4Live={this.state.patrick.live.tier4Live}/> 
@@ -2231,11 +2552,13 @@ render() {
              daily={this.state.neubs.records.daily} mostRecentName={this.state.neubs.records.mostRecentName} mostRecentDate={this.state.neubs.records.mostRecentDate}
              mostRecentSubmitter={this.state.neubs.records.mostRecentSubmitter} mostRecentBuilder={this.state.neubs.records.mostRecentBuilder}
              mostRecentTier={this.state.neubs.records.mostRecentTier} mostRecentShortname={this.state.neubs.records.mostRecentShortname}
-             mostRecentWebType={this.state.neubs.records.mostRecentWebType} totalLive={this.state.neubs.live.total} monthlyLive={this.state.neubs.live.monthly}
+             mostRecentWebType={this.state.neubs.records.mostRecentWebType} mostRecentCompanyRegion={this.state.neubs.records.mostRecentCompanyRegion} 
+             colorProp={this.state.neubs.records.colorProp} totalLive={this.state.neubs.live.total} monthlyLive={this.state.neubs.live.monthly}
              dailyLive={this.state.neubs.live.daily} mostRecentNameLive={this.state.neubs.live.mostRecentNameLive} mostRecentDateLive={this.state.neubs.live.mostRecentDateLive}
              mostRecentSubmitterLive={this.state.neubs.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.neubs.live.mostRecentBuilderLive}
              mostRecentTierLive={this.state.neubs.live.mostRecentTierLive} mostRecentShortnameLive={this.state.neubs.live.mostRecentShortnameLive}
-             mostRecentWebTypeLive={this.state.neubs.live.mostRecentWebTypeLive} tier0={this.state.neubs.records.tier0} tier1={this.state.neubs.records.tier1}
+             mostRecentWebTypeLive={this.state.neubs.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.neubs.live.mostRecentCompanyRegionLive} 
+             colorPropLive={this.state.neubs.live.colorProp}tier0={this.state.neubs.records.tier0} tier1={this.state.neubs.records.tier1}
              tier2={this.state.neubs.records.tier2} tier3={this.state.neubs.records.tier3} tier4={this.state.neubs.records.tier4} 
              tier0Live={this.state.neubs.live.tier0Live} tier1Live={this.state.neubs.live.tier1Live}
              tier2Live={this.state.neubs.live.tier2Live} tier3Live={this.state.neubs.live.tier3Live} tier4Live={this.state.neubs.live.tier4Live}/>
@@ -2248,11 +2571,13 @@ render() {
              daily={this.state.zack.records.daily} mostRecentName={this.state.zack.records.mostRecentName} mostRecentDate={this.state.zack.records.mostRecentDate}
              mostRecentSubmitter={this.state.zack.records.mostRecentSubmitter} mostRecentBuilder={this.state.zack.records.mostRecentBuilder}
              mostRecentTier={this.state.zack.records.mostRecentTier} mostRecentShortname={this.state.zack.records.mostRecentShortname}
-             mostRecentWebType={this.state.zack.records.mostRecentWebType} totalLive={this.state.zack.live.total} monthlyLive={this.state.zack.live.monthly}
+             mostRecentWebType={this.state.zack.records.mostRecentWebType} mostRecentCompanyRegion={this.state.zack.records.mostRecentCompanyRegion}  
+             colorProp={this.state.zack.records.colorProp} totalLive={this.state.zack.live.total} monthlyLive={this.state.zack.live.monthly}
              dailyLive={this.state.zack.live.daily} mostRecentNameLive={this.state.zack.live.mostRecentNameLive} mostRecentDateLive={this.state.zack.live.mostRecentDateLive}
              mostRecentSubmitterLive={this.state.zack.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.zack.live.mostRecentBuilderLive}
              mostRecentTierLive={this.state.zack.live.mostRecentTierLive} mostRecentShortnameLive={this.state.zack.live.mostRecentShortnameLive}
-             mostRecentWebTypeLive={this.state.zack.live.mostRecentWebTypeLive} tier0={this.state.zack.records.tier0} tier1={this.state.zack.records.tier1}
+             mostRecentWebTypeLive={this.state.zack.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.zack.live.mostRecentCompanyRegionLive} 
+             colorPropLive={this.state.zack.live.colorProp}tier0={this.state.zack.records.tier0} tier1={this.state.zack.records.tier1}
              tier2={this.state.zack.records.tier2} tier3={this.state.zack.records.tier3} tier4={this.state.zack.records.tier4} 
              tier0Live={this.state.zack.live.tier0Live} tier1Live={this.state.zack.live.tier1Live}
              tier2Live={this.state.zack.live.tier2Live} tier3Live={this.state.zack.live.tier3Live} tier4Live={this.state.zack.live.tier4Live}/>
@@ -2265,11 +2590,13 @@ render() {
                 daily={this.state.marco.records.daily} mostRecentName={this.state.marco.records.mostRecentName} mostRecentDate={this.state.marco.records.mostRecentDate}
                 mostRecentSubmitter={this.state.marco.records.mostRecentSubmitter} mostRecentBuilder={this.state.marco.records.mostRecentBuilder}
                 mostRecentTier={this.state.marco.records.mostRecentTier} mostRecentShortname={this.state.marco.records.mostRecentShortname}
-                mostRecentWebType={this.state.marco.records.mostRecentWebType} totalLive={this.state.marco.live.total} monthlyLive={this.state.marco.live.monthly}
+                mostRecentWebType={this.state.marco.records.mostRecentWebType} mostRecentCompanyRegion={this.state.marco.records.mostRecentCompanyRegion} 
+                colorProp={this.state.marco.records.colorProp} totalLive={this.state.marco.live.total} monthlyLive={this.state.marco.live.monthly}
                 dailyLive={this.state.marco.live.daily} mostRecentNameLive={this.state.marco.live.mostRecentNameLive} mostRecentDateLive={this.state.marco.live.mostRecentDateLive}
                 mostRecentSubmitterLive={this.state.marco.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.marco.live.mostRecentBuilderLive}
                 mostRecentTierLive={this.state.marco.live.mostRecentTierLive} mostRecentShortnameLive={this.state.marco.live.mostRecentShortnameLive}
-                mostRecentWebTypeLive={this.state.marco.live.mostRecentWebTypeLive} tier0={this.state.marco.records.tier0} tier1={this.state.marco.records.tier1}
+                mostRecentWebTypeLive={this.state.marco.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.marco.live.mostRecentCompanyRegionLive} 
+                colorPropLive={this.state.marco.live.colorProp} tier0={this.state.marco.records.tier0} tier1={this.state.marco.records.tier1}
                 tier2={this.state.marco.records.tier2} tier3={this.state.marco.records.tier3} tier4={this.state.marco.records.tier4} 
                 tier0Live={this.state.marco.live.tier0Live} tier1Live={this.state.marco.live.tier1Live}
                 tier2Live={this.state.marco.live.tier2Live} tier3Live={this.state.marco.live.tier3Live} tier4Live={this.state.marco.live.tier4Live}/>
@@ -2282,11 +2609,13 @@ render() {
                 daily={this.state.amaia.records.daily} mostRecentName={this.state.amaia.records.mostRecentName} mostRecentDate={this.state.amaia.records.mostRecentDate}
                 mostRecentSubmitter={this.state.amaia.records.mostRecentSubmitter} mostRecentBuilder={this.state.amaia.records.mostRecentBuilder}
                 mostRecentTier={this.state.amaia.records.mostRecentTier} mostRecentShortname={this.state.amaia.records.mostRecentShortname}
-                mostRecentWebType={this.state.amaia.records.mostRecentWebType} totalLive={this.state.amaia.live.total} monthlyLive={this.state.amaia.live.monthly}
+                mostRecentWebType={this.state.amaia.records.mostRecentWebType} mostRecentCompanyRegion={this.state.amaia.records.mostRecentCompanyRegion} 
+                colorProp={this.state.amaia.records.colorProp} totalLive={this.state.amaia.live.total} monthlyLive={this.state.amaia.live.monthly}
                 dailyLive={this.state.amaia.live.daily} mostRecentNameLive={this.state.amaia.live.mostRecentNameLive} mostRecentDateLive={this.state.amaia.live.mostRecentDateLive}
                 mostRecentSubmitterLive={this.state.amaia.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.amaia.live.mostRecentBuilderLive}
                 mostRecentTierLive={this.state.amaia.live.mostRecentTierLive} mostRecentShortnameLive={this.state.amaia.live.mostRecentShortnameLive}
-                mostRecentWebTypeLive={this.state.amaia.live.mostRecentWebTypeLive} tier0={this.state.amaia.records.tier0} tier1={this.state.amaia.records.tier1}
+                mostRecentWebTypeLive={this.state.amaia.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.amaia.live.mostRecentCompanyRegionLive} 
+                colorPropLive={this.state.amaia.live.colorProp} tier0={this.state.amaia.records.tier0} tier1={this.state.amaia.records.tier1}
                 tier2={this.state.amaia.records.tier2} tier3={this.state.amaia.records.tier3} tier4={this.state.amaia.records.tier4} 
                 tier0Live={this.state.amaia.live.tier0Live} tier1Live={this.state.amaia.live.tier1Live}
                 tier2Live={this.state.amaia.live.tier2Live} tier3Live={this.state.amaia.live.tier3Live} tier4Live={this.state.amaia.live.tier4Live}/>
@@ -2299,12 +2628,13 @@ render() {
                 daily={this.state.elly.records.daily} mostRecentName={this.state.elly.records.mostRecentName} mostRecentDate={this.state.elly.records.mostRecentDate}
                 mostRecentSubmitter={this.state.elly.records.mostRecentSubmitter} mostRecentBuilder={this.state.elly.records.mostRecentBuilder}
                 mostRecentTier={this.state.elly.records.mostRecentTier} mostRecentShortname={this.state.elly.records.mostRecentShortname}
-                mostRecentWebType={this.state.elly.records.mostRecentWebType} totalLive={this.state.elly.live.total} monthlyLive={this.state.elly.live.monthly}
+                mostRecentWebType={this.state.elly.records.mostRecentWebType} mostRecentCompanyRegion={this.state.elly.records.mostRecentCompanyRegion} 
+                colorProp={this.state.elly.records.colorProp} totalLive={this.state.elly.live.total} monthlyLive={this.state.elly.live.monthly}
                 dailyLive={this.state.elly.live.daily} mostRecentNameLive={this.state.elly.live.mostRecentNameLive} mostRecentDateLive={this.state.elly.live.mostRecentDateLive}
                 mostRecentSubmitterLive={this.state.elly.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.elly.live.mostRecentBuilderLive}
                 mostRecentTierLive={this.state.elly.live.mostRecentTierLive} mostRecentShortnameLive={this.state.elly.live.mostRecentShortnameLive}
-                mostRecentWebTypeLive={this.state.elly.live.mostRecentWebTypeLive} tier0={this.state.elly.records.tier0} tier1={this.state.elly.records.tier1}
-                tier2={this.state.elly.records.tier2} tier3={this.state.elly.records.tier3} tier4={this.state.elly.records.tier4} 
+                mostRecentWebTypeLive={this.state.elly.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.elly.live.mostRecentCompanyRegionLive} tier0={this.state.elly.records.tier0} tier1={this.state.elly.records.tier1}
+                colorPropLive={this.state.elly.live.colorProp} tier2={this.state.elly.records.tier2} tier3={this.state.elly.records.tier3} tier4={this.state.elly.records.tier4} 
                 tier0Live={this.state.elly.live.tier0Live} tier1Live={this.state.elly.live.tier1Live}
                 tier2Live={this.state.elly.live.tier2Live} tier3Live={this.state.elly.live.tier3Live} tier4Live={this.state.elly.live.tier4Live}/>
             </Container>
@@ -2316,11 +2646,13 @@ render() {
                 daily={this.state.tobey.records.daily} mostRecentName={this.state.tobey.records.mostRecentName} mostRecentDate={this.state.tobey.records.mostRecentDate}
                 mostRecentSubmitter={this.state.tobey.records.mostRecentSubmitter} mostRecentBuilder={this.state.tobey.records.mostRecentBuilder}
                 mostRecentTier={this.state.tobey.records.mostRecentTier} mostRecentShortname={this.state.tobey.records.mostRecentShortname}
-                mostRecentWebType={this.state.tobey.records.mostRecentWebType} totalLive={this.state.tobey.live.total} monthlyLive={this.state.tobey.live.monthly}
+                mostRecentWebType={this.state.tobey.records.mostRecentWebType} mostRecentCompanyRegion={this.state.tobey.records.mostRecentCompanyRegion} 
+                colorProp={this.state.tobey.records.colorProp} totalLive={this.state.tobey.live.total} monthlyLive={this.state.tobey.live.monthly}
                 dailyLive={this.state.tobey.live.daily} mostRecentNameLive={this.state.tobey.live.mostRecentNameLive} mostRecentDateLive={this.state.tobey.live.mostRecentDateLive}
                 mostRecentSubmitterLive={this.state.tobey.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.tobey.live.mostRecentBuilderLive}
                 mostRecentTierLive={this.state.tobey.live.mostRecentTierLive} mostRecentShortnameLive={this.state.tobey.live.mostRecentShortnameLive}
-                mostRecentWebTypeLive={this.state.tobey.live.mostRecentWebTypeLive} tier0={this.state.tobey.records.tier0} tier1={this.state.tobey.records.tier1}
+                mostRecentWebTypeLive={this.state.tobey.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.tobey.live.mostRecentCompanyRegionLive} 
+                colorPropLive={this.state.tobey.live.colorProp}tier0={this.state.tobey.records.tier0} tier1={this.state.tobey.records.tier1}
                 tier2={this.state.tobey.records.tier2} tier3={this.state.tobey.records.tier3} tier4={this.state.tobey.records.tier4} 
                 tier0Live={this.state.tobey.live.tier0Live} tier1Live={this.state.tobey.live.tier1Live}
                 tier2Live={this.state.tobey.live.tier2Live} tier3Live={this.state.tobey.live.tier3Live} tier4Live={this.state.tobey.live.tier4Live}/>
@@ -2330,14 +2662,16 @@ render() {
                 title={this.state.johnny.info.title} slack={this.state.johnny.info.slack} timezone={this.state.johnny.info.timezone}
                 phone={this.state.johnny.info.phone} email={this.state.johnny.info.email} office={this.state.johnny.info.office} 
                 manager={this.state.johnny.info.manager}  total={this.state.johnny.records.total} monthly={this.state.johnny.records.monthly}
-                daily={this.state.johnny.records.daily} mostRecentName={this.state.johnny.records.mostRecentName} mostRecentDate={this.state.johnny.records.mostRecentDate}
+                colorProp={this.state.johnny.records.colorProp} daily={this.state.johnny.records.daily} mostRecentName={this.state.johnny.records.mostRecentName} mostRecentDate={this.state.johnny.records.mostRecentDate}
                 mostRecentSubmitter={this.state.johnny.records.mostRecentSubmitter} mostRecentBuilder={this.state.johnny.records.mostRecentBuilder}
                 mostRecentTier={this.state.johnny.records.mostRecentTier} mostRecentShortname={this.state.johnny.records.mostRecentShortname}
-                mostRecentWebType={this.state.johnny.records.mostRecentWebType} totalLive={this.state.johnny.live.total} monthlyLive={this.state.johnny.live.monthly}
+                mostRecentWebType={this.state.johnny.records.mostRecentWebType} mostRecentCompanyRegion={this.state.johnny.records.mostRecentCompanyRegion} 
+                totalLive={this.state.johnny.live.total} monthlyLive={this.state.johnny.live.monthly}
                 dailyLive={this.state.johnny.live.daily} mostRecentNameLive={this.state.johnny.live.mostRecentNameLive} mostRecentDateLive={this.state.johnny.live.mostRecentDateLive}
                 mostRecentSubmitterLive={this.state.johnny.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.johnny.live.mostRecentBuilderLive}
                 mostRecentTierLive={this.state.johnny.live.mostRecentTierLive} mostRecentShortnameLive={this.state.johnny.live.mostRecentShortnameLive}
-                mostRecentWebTypeLive={this.state.johnny.live.mostRecentWebTypeLive} tier0={this.state.johnny.records.tier0} tier1={this.state.johnny.records.tier1}
+                mostRecentWebTypeLive={this.state.johnny.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.johnny.live.mostRecentCompanyRegionLive} 
+                colorPropLive={this.state.johnny.live.colorProp} tier0={this.state.johnny.records.tier0} tier1={this.state.johnny.records.tier1}
                 tier2={this.state.johnny.records.tier2} tier3={this.state.johnny.records.tier3} tier4={this.state.johnny.records.tier4} 
                 tier0Live={this.state.johnny.live.tier0Live} tier1Live={this.state.johnny.live.tier1Live}
                 tier2Live={this.state.johnny.live.tier2Live} tier3Live={this.state.johnny.live.tier3Live} tier4Live={this.state.johnny.live.tier4Live}/>

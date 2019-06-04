@@ -27,6 +27,10 @@ const IntegratorContainer = styled.div`
       background-color:#ffbf00;
       cursor: pointer;
   }
+  @media (max-width: 1500px) {
+    width: 30vw;
+    height: 70vh;
+  }
   `;
 
   const Header = styled.div`
@@ -34,7 +38,9 @@ const IntegratorContainer = styled.div`
      width:100%;
     border-bottom: solid 2px;
     border-color:#282c34;
-    
+    @media (max-width: 1500px) {
+    height:27.5%;
+  }
   `;
 
   const IntegratorName = styled.h3`
@@ -72,7 +78,8 @@ class Integrator extends Component {
 
           <CompanyInfo mostRecentName={this.props.mostRecentName} mostRecentDate={this.props.mostRecentDate} mostRecentSubmitter={this.props.mostRecentSubmitter} 
           mostRecentBuilder={this.props.mostRecentBuilder} 
-              mostRecentTier={this.props.mostRecentTier} mostRecentShortname={this.props.mostRecentShortname} mostRecentWebType={this.props.mostRecentWebType}/>
+              mostRecentTier={this.props.mostRecentTier} mostRecentShortname={this.props.mostRecentShortname} mostRecentWebType={this.props.mostRecentWebType}
+              mostRecentCompanyRegion={this.props.mostRecentCompanyRegion} colorProp={this.props.colorProp}/>
 
               <Modal name={this.props.name} monthly = {this.props.monthly} monthlyLive={this.props.monthlyLive} 
               daily={this.props.daily} dailyLive={this.props.dailyLive} total={this.props.total} 
@@ -81,11 +88,11 @@ class Integrator extends Component {
               office={this.props.office} manager={this.props.manager} show={this.state.isOpen} onClose={this.toggleModal}
               recentName={this.props.mostRecentName} recentDate={this.props.mostRecentDate} recentSubmitter={this.props.mostRecentSubmitter} 
               recentBuilder={this.props.mostRecentBuilder} recentTier={this.props.mostRecentTier} recentShortname={this.props.mostRecentShortname} 
-              recentWebType={this.props.mostRecentWebType}  
+              recentWebType={this.props.mostRecentWebType}  mostRecentCompanyRegion={this.props.mostRecentCompanyRegion} colorProp={this.props.colorProp}
               mostRecentNameLive={this.props.mostRecentNameLive} mostRecentDateLive={this.props.mostRecentDateLive} mostRecentSubmitterLive={this.props.mostRecentSubmitterLive}
               mostRecentBuilderLive={this.props.mostRecentBuilderLive} mostRecentTierLive={this.props.mostRecentTierLive} mostRecentShortnameLive={this.props.mostRecentShortnameLive}
-              mostRecentWebTypeLive={this.props.mostRecentWebTypeLive} tier0={this.props.tier0} tier1={this.props.tier1} 
-              tier2={this.props.tier2} tier3={this.props.tier3} tier4={this.props.tier4}
+              mostRecentWebTypeLive={this.props.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.props.mostRecentCompanyRegionLive}tier0={this.props.tier0} tier1={this.props.tier1} 
+              colorPropLive={this.props.colorPropLive} tier2={this.props.tier2} tier3={this.props.tier3} tier4={this.props.tier4}
               tier0Live={this.props.tier0Live} tier1Live={this.props.tier1Live} 
               tier2Live={this.props.tier2Live} tier3Live={this.props.tier3Live} tier4Live={this.props.tier4Live}/>  
            

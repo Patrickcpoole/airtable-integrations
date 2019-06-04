@@ -21,12 +21,12 @@ const NumberContainer = styled.div`
 
 const CompletedNumber = styled.h1`
     color:#282c34;
-    font-size:2rem;
+    font-size:2.5rem;
 `;
 
 const CompletedText = styled.h2`
     color:#282c34;
-    font-size:.75rem;
+    font-size:1rem;
     padding:10px;
     margin-top:-3vh;
 `;
@@ -47,10 +47,11 @@ const CompanyHeader = styled.div`
     display:flex;
     flex-direction:column;
     justify-content:flex-start;
+    align-items:center;
 `;
 
 const CompanyHeading = styled.h1`
-    font-size:.75rem;
+    font-size:1.25rem;
     color:#282c34;
 `;
 
@@ -87,10 +88,21 @@ const InfoLeft = styled.div`
 `;
 
 const InfoText = styled.p`
-    font-size:.75rem;
+    font-size:1rem;
     color:#282c34;
     font-weight:600;
     padding:5px;
+`;
+
+const CompanyLocation = styled.h3`
+    font-size:1rem;
+    color:#282c34;
+    margin-top:.75vh;
+    display:inline-block;
+    border-radius:300px;
+    padding: 5px 15px 5px 15px;
+    background:${props => props.color};
+    width:max-content;
 `;
 
 
@@ -199,6 +211,7 @@ class Modal extends React.Component {
                         <CompanyHeader>
                             <CompanyHeading>Last Company Integrated:</CompanyHeading>
                             <CompanySubheading>{this.props.recentName}</CompanySubheading>
+                            <CompanyLocation color={this.props.colorProp}>{this.props.mostRecentCompanyRegion}</CompanyLocation>
                         </CompanyHeader>
                         <InfoContainer>
                             <InfoLeft>
@@ -243,15 +256,15 @@ class Modal extends React.Component {
                 <CompletedContainer>
                     <NumberContainer>
                         <CompletedNumber>{this.props.monthlyLive}</CompletedNumber>
-                        <CompletedText> Live Integrations Completed This Month</CompletedText>
+                        <CompletedText>Integrations Completed This Month</CompletedText>
                     </NumberContainer>
                     <NumberContainer>
                         <CompletedNumber>{this.props.totalLive}</CompletedNumber>
-                        <CompletedText>Live Integrations Completed</CompletedText>
+                        <CompletedText>Total Integrations Completed</CompletedText>
                     </NumberContainer>
                     <NumberContainer>
                     <CompletedNumber>{this.props.dailyLive}</CompletedNumber>
-                    <CompletedText>Live Integrations Completed Today</CompletedText>
+                    <CompletedText>Integrations Completed Today</CompletedText>
                     </NumberContainer>
                 </CompletedContainer>
                 </div>
@@ -260,6 +273,7 @@ class Modal extends React.Component {
                     <CompanyHeader>
                             <CompanyHeading>Last Company Integrated:</CompanyHeading>
                             <CompanySubheading>{this.props.mostRecentNameLive}</CompanySubheading>
+                            <CompanyLocation color={this.props.colorPropLive}>{this.props.mostRecentCompanyRegionLive}</CompanyLocation>
                         </CompanyHeader>
                         <InfoContainer>
                             <InfoLeft>
