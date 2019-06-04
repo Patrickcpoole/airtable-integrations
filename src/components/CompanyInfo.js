@@ -13,7 +13,7 @@ const CompanyContainer = styled.div`
 
 const CompanyHeader = styled.div`
     width:100%;
-    height:30%;
+    height:40%;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -44,13 +44,14 @@ const CompanyLocation = styled.h3`
 
 const InfoContainer = styled.div`
     width:100%;
-    height:70%;
+    height:60%;
     display:flex;
     flex-direction:row;
     justify-content:center;
     align-items:center;
     @media (max-width: 1500px) {
     margin-top:10%;
+    
   }
 `;
 
@@ -71,7 +72,7 @@ const InfoLeft = styled.div`
 `;
 
 const InfoText = styled.p`
-    font-size:.75rem;
+    font-size:.85rem;
     color:#282c34;
     font-weight:600;
     padding:5px;

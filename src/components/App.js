@@ -128,7 +128,7 @@ class App extends Component {
       info:{
         name: 'Alex Neubauer',
         image: neubsImage,
-        title: 'Enterprise Integrations Specialist',
+        title: 'Enterprise Integrations',
         slack: 'neubs',
         timezone: 'Mountain',
         phone: '615-354-4808',
@@ -2179,7 +2179,7 @@ componentDidMount() {
             info:{
               name: 'Alex Neubauer',
               image: neubsImage,
-              title: 'Enterprise Integrations Specialist',
+              title: 'Enterprise Integrations',
               slack: 'neubs',
               timezone: 'Mountain',
               phone: '615-354-4808',
@@ -2507,7 +2507,7 @@ componentDidMount() {
         })
         
         
-    }, 3000);
+    }, 12000);
 
   }
 

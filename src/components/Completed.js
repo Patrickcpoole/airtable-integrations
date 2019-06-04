@@ -9,6 +9,10 @@ const CompletedContainer = styled.div`
     flex-direction: row;
     border-bottom: solid 2px;
     border-color:#282c34;
+    @media (max-width: 1500px) {
+    font-size:2rem;
+    height:22.5%;
+  }
 `;
 
 const NumberContainer = styled.div`
@@ -18,8 +22,11 @@ const NumberContainer = styled.div`
 
 const CompletedNumber = styled.h1`
     color:#282c34;
+    font-size:2.25rem;
+    @media (max-width: 1500px) {
     font-size:2rem;
     
+  }
 `;
 
 const CompletedText = styled.h2`

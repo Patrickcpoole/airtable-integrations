@@ -11,17 +11,25 @@ const CompletedContainer = styled.div`
     display:flex;
     flex-direction: row;
     border-color:#282c34;
+    
 `;
 
 const NumberContainer = styled.div`
     width:33%;
     height:100%;
     margin-top:-5%;
+    @media (max-width: 1500px) {
+    margin-top:-10%;
+  }
 `;
 
 const CompletedNumber = styled.h1`
     color:#282c34;
     font-size:2.5rem;
+    @media (max-width: 1500px) {
+    font-size:2.25rem;
+    margin-top:25%;
+  }
 `;
 
 const CompletedText = styled.h2`
@@ -29,6 +37,10 @@ const CompletedText = styled.h2`
     font-size:1rem;
     padding:10px;
     margin-top:-3vh;
+    @media (max-width: 1500px) {
+    font-size:.75rem;
+   
+  }
 `;
 
 const CompanyContainer = styled.div`
@@ -53,12 +65,20 @@ const CompanyHeader = styled.div`
 const CompanyHeading = styled.h1`
     font-size:1.25rem;
     color:#282c34;
+    @media (max-width: 1500px) {
+    font-size:1rem;
+   
+  }
 `;
 
 const CompanySubheading = styled.h2`
     font-size:1rem;
     color:#282c34;
     margin-top:-.75vh;
+    @media (max-width: 1500px) {
+    font-size:.75rem;
+   
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -69,6 +89,7 @@ const InfoContainer = styled.div`
     justify-content:center;
     align-items:center;
     margin-top:10%;
+    
 `;
 
 const InfoRight = styled.div`
@@ -92,6 +113,10 @@ const InfoText = styled.p`
     color:#282c34;
     font-weight:600;
     padding:5px;
+    @media (max-width: 1500px) {
+    font-size:.75rem;
+   
+  }
 `;
 
 const CompanyLocation = styled.h3`
@@ -103,6 +128,10 @@ const CompanyLocation = styled.h3`
     padding: 5px 15px 5px 15px;
     background:${props => props.color};
     width:max-content;
+    @media (max-width: 1500px) {
+    font-size:.75rem;
+   
+  }
 `;
 
 
@@ -143,11 +172,11 @@ class Modal extends React.Component {
                   this.props.tier4
                 ],
                 backgroundColor:[
-                  'rgb(205,176,255)',
-                  'rgb(255,213,110)',
-                  'rgb(147,223,136)',
-                  'rgb(255,169,128)',
-                  'rgb(249,157,226)'
+                  'rgb(175, 132, 249)',
+                  'rgb(255, 210, 102)',
+                  'rgb(96, 175, 100)',
+                  'rgb(229, 131, 84)',
+                  'rgb(226, 129, 202)'
                 ]
               }
             ]
@@ -165,11 +194,11 @@ class Modal extends React.Component {
                   this.props.tier4Live
                 ],
                 backgroundColor:[
-                  'rgb(205,176,255)',
-                  'rgb(255,213,110)',
-                  'rgb(147,223,136)',
-                  'rgb(255,169,128)',
-                  'rgb(249,157,226)'
+                    'rgb(175, 132, 249)',
+                    'rgb(255, 210, 102)',
+                    'rgb(96, 175, 100)',
+                    'rgb(229, 131, 84)',
+                    'rgb(226, 129, 202)'
                 ]
               }
             ]
