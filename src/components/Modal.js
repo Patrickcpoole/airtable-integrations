@@ -314,7 +314,7 @@ class Modal extends React.Component {
                             <InfoLeft>
                                 <InfoText>Completion date: {this.props.mostRecentDateLive}</InfoText>
                                 <InfoText>Submitted by: {this.props.mostRecentSubmitterLive}</InfoText>
-                                <InfoText>Dashboard Builder: {this.props.mostRecentBuilderLive}</InfoText>
+                                <InfoText>Integration Type: {this.props.mostRecentIntegrationTypeLive}</InfoText>
                             </InfoLeft>
                             <InfoRight>
                                 <InfoText>Tier: {this.props.mostRecentTierLive}</InfoText>

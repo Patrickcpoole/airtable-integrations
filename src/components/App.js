@@ -73,7 +73,7 @@ class App extends Component {
           mostRecentName: '',
           mostRecentDate: '',
           mostRecentSubmitter: '',
-          mostRecentBuilder: '',
+          integrationType: '',
           mostRecentTier: '',
           mostRecentShortname: '',
           mostRecentWebType: '',
@@ -121,7 +121,7 @@ class App extends Component {
         mostRecentName: '',
         mostRecentDate: '',
         mostRecentSubmitter: '',
-        mostRecentBuilder: '',
+        integrationType: '',
         mostRecentTier: '',
         mostRecentShortname: '',
         mostRecentWebType: '',
@@ -168,7 +168,7 @@ class App extends Component {
         mostRecentName: '',
         mostRecentDate: '',
         mostRecentSubmitter: '',
-        mostRecentBuilder: '',
+        integrationType: '',
         mostRecentTier: '',
         mostRecentShortname: '',
         mostRecentWebType: '',
@@ -215,7 +215,7 @@ class App extends Component {
       mostRecentName: '',
       mostRecentDate: '',
       mostRecentSubmitter: '',
-      mostRecentBuilder: '',
+      integrationType: '',
       mostRecentTier: '',
       mostRecentShortname: '',
       mostRecentWebType: '',
@@ -262,7 +262,7 @@ class App extends Component {
       mostRecentName: '',
       mostRecentDate: '',
       mostRecentSubmitter: '',
-      mostRecentBuilder: '',
+      integrationType: '',
       mostRecentTier: '',
       mostRecentShortname: '',
       mostRecentWebType: '',
@@ -309,7 +309,7 @@ class App extends Component {
       mostRecentName: '',
       mostRecentDate: '',
       mostRecentSubmitter: '',
-      mostRecentBuilder: '',
+      integrationType: '',
       mostRecentTier: '',
       mostRecentShortname: '',
       mostRecentWebType: '',
@@ -356,7 +356,7 @@ class App extends Component {
       mostRecentName: '',
       mostRecentDate: '',
       mostRecentSubmitter: '',
-      mostRecentBuilder: '',
+      integrationType: '',
       mostRecentTier: '',
       mostRecentShortname: '',
       mostRecentWebType: '',
@@ -403,7 +403,7 @@ class App extends Component {
       mostRecentName: '',
       mostRecentDate: '',
       mostRecentSubmitter: '',
-      mostRecentBuilder: '',
+      integrationType: '',
       mostRecentTier: '',
       mostRecentShortname: '',
       mostRecentWebType: '',
@@ -501,7 +501,7 @@ componentDidMount() {
   let companyArrayLive = [];          
   let completionDateArrayLive = [];
   let submitterArrayLive = [];
-  let builderArrayLive = [];
+  let integrationTypeArrayLive = [];
   let tierArrayLive = [];
   let shortnameArrayLive = [];
   let webTypeArrayLive = [];
@@ -510,7 +510,7 @@ componentDidMount() {
   let companyArrayLiveNeubs = [];          
   let completionDateArrayLiveNeubs = [];
   let submitterArrayLiveNeubs = [];
-  let builderArrayLiveNeubs = [];
+  let integrationTypeArrayLiveNeubs = [];
   let tierArrayLiveNeubs = [];
   let shortnameArrayLiveNeubs = [];
   let webTypeArrayLiveNeubs = [];
@@ -519,7 +519,7 @@ componentDidMount() {
   let companyArrayLiveZack = [];          
   let completionDateArrayLiveZack = [];
   let submitterArrayLiveZack = [];
-  let builderArrayLiveZack = [];
+  let integrationTypeArrayLiveZack = [];
   let tierArrayLiveZack = [];
   let shortnameArrayLiveZack = [];
   let webTypeArrayLiveZack = [];
@@ -528,7 +528,7 @@ componentDidMount() {
   let companyArrayLiveMarco = [];          
   let completionDateArrayLiveMarco = [];
   let submitterArrayLiveMarco = [];
-  let builderArrayLiveMarco = [];
+  let integrationTypeArrayLiveMarco = [];
   let tierArrayLiveMarco = [];
   let shortnameArrayLiveMarco = [];
   let webTypeArrayLiveMarco = [];
@@ -537,7 +537,7 @@ componentDidMount() {
   let companyArrayLiveAmaia = [];          
   let completionDateArrayLiveAmaia = [];
   let submitterArrayLiveAmaia = [];
-  let builderArrayLiveAmaia = [];
+  let integrationTypeArrayLiveAmaia = [];
   let tierArrayLiveAmaia = [];
   let shortnameArrayLiveAmaia = [];
   let webTypeArrayLiveAmaia = [];
@@ -546,7 +546,7 @@ componentDidMount() {
   let companyArrayLiveElly = [];          
   let completionDateArrayLiveElly = [];
   let submitterArrayLiveElly = [];
-  let builderArrayLiveElly = [];
+  let integrationTypeArrayLiveElly = [];
   let tierArrayLiveElly = [];
   let shortnameArrayLiveElly = [];
   let webTypeArrayLiveElly = [];
@@ -555,7 +555,7 @@ componentDidMount() {
   let companyArrayLiveTobey = [];          
   let completionDateArrayLiveTobey = [];
   let submitterArrayLiveTobey = [];
-  let builderArrayLiveTobey = [];
+  let integrationTypeArrayLiveTobey = [];
   let tierArrayLiveTobey = [];
   let shortnameArrayLiveTobey = [];
   let webTypeArrayLiveTobey = [];
@@ -564,7 +564,7 @@ componentDidMount() {
   let companyArrayLiveJohnny = [];          
   let completionDateArrayLiveJohnny = [];
   let submitterArrayLiveJohnny = [];
-  let builderArrayLiveJohnny = [];
+  let integrationTypeArrayLiveJohnny = [];
   let tierArrayLiveJohnny = [];
   let shortnameArrayLiveJohnny = [];
   let webTypeArrayLiveJohnny = [];
@@ -670,7 +670,7 @@ componentDidMount() {
             let lastItemDateLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Completion Date'];
             let lastItemDateFormattedLive = moment(lastItemDateLive).format('MMMM Do YYYY, h:mm a');
             let lastItemSubmitterLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Name of submitter'];
-            let lastItemBuilderLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Dashboard Builder'];
+            let lastItemIntegrationTypeLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Type of Integration Request'];
             let lastItemTierLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLive[totalRecordsLive.length - 1].fields['Website Type'];
@@ -679,7 +679,7 @@ componentDidMount() {
             companyArrayLive.push(lastItemNameLive);
             completionDateArrayLive.push(lastItemDateFormattedLive);
             submitterArrayLive.push(lastItemSubmitterLive);
-            builderArrayLive.push(lastItemBuilderLive);
+            integrationTypeArrayLive.push(lastItemIntegrationTypeLive);
             tierArrayLive.push(lastItemTierLive);
             shortnameArrayLive.push(lastItemShortnameLive);
             webTypeArrayLive.push(lastItemWebTypeLive);
@@ -724,7 +724,7 @@ componentDidMount() {
             let lastItemDateLive = totalRecordsLiveNeubs[totalRecordsLiveNeubs.length - 1].fields['Completion Date'];
             let lastItemDateFormattedLive = moment(lastItemDateLive).format('MMMM Do YYYY, h:mm a');
             let lastItemSubmitterLive = totalRecordsLiveNeubs[totalRecordsLiveNeubs.length - 1].fields['Name of submitter'];
-            let lastItemBuilderLive = totalRecordsLiveNeubs[totalRecordsLiveNeubs.length - 1].fields['Dashboard Builder'];
+            let lastItemIntegrationTypeLive = totalRecordsLiveNeubs[totalRecordsLiveNeubs.length - 1].fields['Type of Integration Request'];
             let lastItemTierLive = totalRecordsLiveNeubs[totalRecordsLiveNeubs.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLiveNeubs[totalRecordsLiveNeubs.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLiveNeubs[totalRecordsLiveNeubs.length - 1].fields['Website Type'];
@@ -733,7 +733,7 @@ componentDidMount() {
             companyArrayLiveNeubs.push(lastItemNameLive);
             completionDateArrayLiveNeubs.push(lastItemDateFormattedLive);
             submitterArrayLiveNeubs.push(lastItemSubmitterLive);
-            builderArrayLiveNeubs.push(lastItemBuilderLive);
+            integrationTypeArrayLiveNeubs.push(lastItemIntegrationTypeLive);
             tierArrayLiveNeubs.push(lastItemTierLive);
             shortnameArrayLiveNeubs.push(lastItemShortnameLive);
             webTypeArrayLiveNeubs.push(lastItemWebTypeLive);
@@ -778,7 +778,7 @@ componentDidMount() {
             let lastItemDateLive = totalRecordsLiveZack[totalRecordsLiveZack.length - 1].fields['Completion Date'];
             let lastItemDateFormattedLive = moment(lastItemDateLive).format('MMMM Do YYYY, h:mm a');
             let lastItemSubmitterLive = totalRecordsLiveZack[totalRecordsLiveZack.length - 1].fields['Name of submitter'];
-            let lastItemBuilderLive = totalRecordsLiveZack[totalRecordsLiveZack.length - 1].fields['Dashboard Builder'];
+            let lastItemIntegrationTypeLive = totalRecordsLiveZack[totalRecordsLiveZack.length - 1].fields['Type of Integration Request'];
             let lastItemTierLive = totalRecordsLiveZack[totalRecordsLiveZack.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLiveZack[totalRecordsLiveZack.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLiveZack[totalRecordsLiveZack.length - 1].fields['Website Type'];
@@ -787,7 +787,7 @@ componentDidMount() {
             companyArrayLiveZack.push(lastItemNameLive);
             completionDateArrayLiveZack.push(lastItemDateFormattedLive);
             submitterArrayLiveZack.push(lastItemSubmitterLive);
-            builderArrayLiveZack.push(lastItemBuilderLive);
+            integrationTypeArrayLiveZack.push(lastItemIntegrationTypeLive);
             tierArrayLiveZack.push(lastItemTierLive);
             shortnameArrayLiveZack.push(lastItemShortnameLive);
             webTypeArrayLiveZack.push(lastItemWebTypeLive);
@@ -832,7 +832,7 @@ componentDidMount() {
             let lastItemDateLive = totalRecordsLiveMarco[totalRecordsLiveMarco.length - 1].fields['Completion Date'];
             let lastItemDateFormattedLive = moment(lastItemDateLive).format('MMMM Do YYYY, h:mm a');
             let lastItemSubmitterLive = totalRecordsLiveMarco[totalRecordsLiveMarco.length - 1].fields['Name of submitter'];
-            let lastItemBuilderLive = totalRecordsLiveMarco[totalRecordsLiveMarco.length - 1].fields['Dashboard Builder'];
+            let lastItemIntegrationTypeLive = totalRecordsLiveMarco[totalRecordsLiveMarco.length - 1].fields['Type of Integration Request'];
             let lastItemTierLive = totalRecordsLiveMarco[totalRecordsLiveMarco.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLiveMarco[totalRecordsLiveMarco.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLiveMarco[totalRecordsLiveMarco.length - 1].fields['Website Type'];
@@ -841,7 +841,7 @@ componentDidMount() {
             companyArrayLiveMarco.push(lastItemNameLive);
             completionDateArrayLiveMarco.push(lastItemDateFormattedLive);
             submitterArrayLiveMarco.push(lastItemSubmitterLive);
-            builderArrayLiveMarco.push(lastItemBuilderLive);
+            integrationTypeArrayLiveMarco.push(lastItemIntegrationTypeLive);
             tierArrayLiveMarco.push(lastItemTierLive);
             shortnameArrayLiveMarco.push(lastItemShortnameLive);
             webTypeArrayLiveMarco.push(lastItemWebTypeLive);
@@ -886,7 +886,7 @@ componentDidMount() {
             let lastItemDateLive = totalRecordsLiveAmaia[totalRecordsLiveAmaia.length - 1].fields['Completion Date'];
             let lastItemDateFormattedLive = moment(lastItemDateLive).format('MMMM Do YYYY, h:mm a');
             let lastItemSubmitterLive = totalRecordsLiveAmaia[totalRecordsLiveAmaia.length - 1].fields['Name of submitter'];
-            let lastItemBuilderLive = totalRecordsLiveAmaia[totalRecordsLiveAmaia.length - 1].fields['Dashboard Builder'];
+            let lastItemIntegrationTypeLive = totalRecordsLiveAmaia[totalRecordsLiveAmaia.length - 1].fields['Type of Integration Request'];
             let lastItemTierLive = totalRecordsLiveAmaia[totalRecordsLiveAmaia.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLiveAmaia[totalRecordsLiveAmaia.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLiveAmaia[totalRecordsLiveAmaia.length - 1].fields['Website Type'];
@@ -895,7 +895,7 @@ componentDidMount() {
             companyArrayLiveAmaia.push(lastItemNameLive);
             completionDateArrayLiveAmaia.push(lastItemDateFormattedLive);
             submitterArrayLiveAmaia.push(lastItemSubmitterLive);
-            builderArrayLiveAmaia.push(lastItemBuilderLive);
+            integrationTypeArrayLiveAmaia.push(lastItemIntegrationTypeLive);
             tierArrayLiveAmaia.push(lastItemTierLive);
             shortnameArrayLiveAmaia.push(lastItemShortnameLive);
             webTypeArrayLiveAmaia.push(lastItemWebTypeLive);
@@ -940,7 +940,7 @@ componentDidMount() {
             let lastItemDateLive = totalRecordsLiveElly[totalRecordsLiveElly.length - 1].fields['Completion Date'];
             let lastItemDateFormattedLive = moment(lastItemDateLive).format('MMMM Do YYYY, h:mm a');
             let lastItemSubmitterLive = totalRecordsLiveElly[totalRecordsLiveElly.length - 1].fields['Name of submitter'];
-            let lastItemBuilderLive = totalRecordsLiveElly[totalRecordsLiveElly.length - 1].fields['Dashboard Builder'];
+            let lastItemIntegrationTypeLive = totalRecordsLiveElly[totalRecordsLiveElly.length - 1].fields['Type of Integration Request'];
             let lastItemTierLive = totalRecordsLiveElly[totalRecordsLiveElly.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLiveElly[totalRecordsLiveElly.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLiveElly[totalRecordsLiveElly.length - 1].fields['Website Type'];
@@ -949,7 +949,7 @@ componentDidMount() {
             companyArrayLiveElly.push(lastItemNameLive);
             completionDateArrayLiveElly.push(lastItemDateFormattedLive);
             submitterArrayLiveElly.push(lastItemSubmitterLive);
-            builderArrayLiveElly.push(lastItemBuilderLive);
+            integrationTypeArrayLiveElly.push(lastItemIntegrationTypeLive);
             tierArrayLiveElly.push(lastItemTierLive);
             shortnameArrayLiveElly.push(lastItemShortnameLive);
             webTypeArrayLiveElly.push(lastItemWebTypeLive);
@@ -994,7 +994,7 @@ componentDidMount() {
             let lastItemDateLive = totalRecordsLiveTobey[totalRecordsLiveTobey.length - 1].fields['Completion Date'];
             let lastItemDateFormattedLive = moment(lastItemDateLive).format('MMMM Do YYYY, h:mm a');
             let lastItemSubmitterLive = totalRecordsLiveTobey[totalRecordsLiveTobey.length - 1].fields['Name of submitter'];
-            let lastItemBuilderLive = totalRecordsLiveTobey[totalRecordsLiveTobey.length - 1].fields['Dashboard Builder'];
+            let lastItemIntegrationTypeLive = totalRecordsLiveTobey[totalRecordsLiveTobey.length - 1].fields['Type of Integration Request'];
             let lastItemTierLive = totalRecordsLiveTobey[totalRecordsLiveTobey.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLiveTobey[totalRecordsLiveTobey.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLiveTobey[totalRecordsLiveTobey.length - 1].fields['Website Type'];
@@ -1003,7 +1003,7 @@ componentDidMount() {
             companyArrayLiveTobey.push(lastItemNameLive);
             completionDateArrayLiveTobey.push(lastItemDateFormattedLive);
             submitterArrayLiveTobey.push(lastItemSubmitterLive);
-            builderArrayLiveTobey.push(lastItemBuilderLive);
+            integrationTypeArrayLiveTobey.push(lastItemIntegrationTypeLive);
             tierArrayLiveTobey.push(lastItemTierLive);
             shortnameArrayLiveTobey.push(lastItemShortnameLive);
             webTypeArrayLiveTobey.push(lastItemWebTypeLive);
@@ -1048,7 +1048,7 @@ componentDidMount() {
             let lastItemDateLive = totalRecordsLiveJohnny[totalRecordsLiveJohnny.length - 1].fields['Completion Date'];
             let lastItemDateFormattedLive = moment(lastItemDateLive).format('MMMM Do YYYY, h:mm a');
             let lastItemSubmitterLive = totalRecordsLiveJohnny[totalRecordsLiveJohnny.length - 1].fields['Name of submitter'];
-            let lastItemBuilderLive = totalRecordsLiveJohnny[totalRecordsLiveJohnny.length - 1].fields['Dashboard Builder'];
+            let lastItemIntegrationTypeLive = totalRecordsLiveJohnny[totalRecordsLiveJohnny.length - 1].fields['Type of Integration Request'];
             let lastItemTierLive = totalRecordsLiveJohnny[totalRecordsLiveJohnny.length - 1].fields['Tier'];
             let lastItemShortnameLive = totalRecordsLiveJohnny[totalRecordsLiveJohnny.length - 1].fields['Shortname'];
             let lastItemWebTypeLive = totalRecordsLiveJohnny[totalRecordsLiveJohnny.length - 1].fields['Website Type'];
@@ -1057,7 +1057,7 @@ componentDidMount() {
             companyArrayLiveJohnny.push(lastItemNameLive);
             completionDateArrayLiveJohnny.push(lastItemDateFormattedLive);
             submitterArrayLiveJohnny.push(lastItemSubmitterLive);
-            builderArrayLiveJohnny.push(lastItemBuilderLive);
+            integrationTypeArrayLiveJohnny.push(lastItemIntegrationTypeLive);
             tierArrayLiveJohnny.push(lastItemTierLive);
             shortnameArrayLiveJohnny.push(lastItemShortnameLive);
             webTypeArrayLiveJohnny.push(lastItemWebTypeLive);
@@ -1746,21 +1746,23 @@ componentDidMount() {
         let blue = '#399adb';
         let pink = '#db6280';
         switch(mostRecentCompanyRegion) {
-          case 'North America':
+          case 'Americas':
             colorProp = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorProp = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorProp = pink;
             break;
+          default: 
+            colorProp = green;
         }
 
         let mostRecentNameLive = companyArrayLive.pop();
         let mostRecentDateLive = completionDateArrayLive.pop();
         let mostRecentSubmitterLive = submitterArrayLive.pop();
-        let mostRecentBuilderLive = builderArrayLive.pop();
+        let mostRecentIntegrationTypeLive = integrationTypeArrayLive.pop();
         let mostRecentTierLive = tierArrayLive.pop();
         let mostRecentShortnameLive = shortnameArrayLive.pop();
         let mostRecentWebTypeLive = webTypeArrayLive.pop();
@@ -1768,15 +1770,17 @@ componentDidMount() {
 
         let colorPropLive = '';
         switch(mostRecentCompanyRegionLive) {
-          case 'North America':
+          case 'Americas':
             colorPropLive = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorPropLive = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorPropLive = pink;
             break;
+          default: 
+            colorPropLive = green;
         }
 
         let mostRecentNameNeubs = companyArrayNeubs.pop();  
@@ -1790,21 +1794,23 @@ componentDidMount() {
 
         let colorPropNeubs = '';
         switch(mostRecentCompanyRegionNeubs) {
-          case 'North America':
+          case 'Americas':
             colorPropNeubs = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorPropNeubs = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorPropNeubs = pink;
             break;
+          default: 
+            colorPropNeubs = green;
         }
 
         let mostRecentNameLiveNeubs = companyArrayLiveNeubs.pop();
         let mostRecentDateLiveNeubs = completionDateArrayLiveNeubs.pop();
         let mostRecentSubmitterLiveNeubs = submitterArrayLiveNeubs.pop();
-        let mostRecentBuilderLiveNeubs = builderArrayLiveNeubs.pop();
+        let mostRecentIntegrationTypeLiveNeubs = integrationTypeArrayLiveNeubs.pop();
         let mostRecentTierLiveNeubs = tierArrayLiveNeubs.pop();
         let mostRecentShortnameLiveNeubs = shortnameArrayLiveNeubs.pop();
         let mostRecentWebTypeLiveNeubs = webTypeArrayLiveNeubs.pop();
@@ -1812,15 +1818,17 @@ componentDidMount() {
 
         let colorPropLiveNeubs = '';
         switch(mostRecentCompanyRegionLiveNeubs) {
-          case 'North America':
+          case 'Americas':
             colorPropLiveNeubs = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorPropLiveNeubs = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorPropLiveNeubs = pink;
             break;
+          default: 
+            colorPropLiveNeubs = green;
         }
         
         let mostRecentNameZack = companyArrayZack.pop();  
@@ -1834,21 +1842,23 @@ componentDidMount() {
 
         let colorPropZack = '';
         switch(mostRecentCompanyRegionZack) {
-          case 'North America':
+          case 'Americas':
             colorPropZack = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorPropZack = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorPropZack = pink;
             break;
+          default: 
+            colorPropZack = green;
         }
 
         let mostRecentNameLiveZack = companyArrayLiveZack.pop();
         let mostRecentDateLiveZack = completionDateArrayLiveZack.pop();
         let mostRecentSubmitterLiveZack = submitterArrayLiveZack.pop();
-        let mostRecentBuilderLiveZack = builderArrayLiveZack.pop();
+        let mostRecentIntegrationTypeLiveZack = integrationTypeArrayLiveZack.pop();
         let mostRecentTierLiveZack = tierArrayLiveZack.pop();
         let mostRecentShortnameLiveZack = shortnameArrayLiveZack.pop();
         let mostRecentWebTypeLiveZack = webTypeArrayLiveZack.pop();
@@ -1856,15 +1866,17 @@ componentDidMount() {
 
         let colorPropLiveZack = '';
         switch(mostRecentCompanyRegionLiveZack) {
-          case 'North America':
+          case 'Americas':
             colorPropLiveZack = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorPropLiveZack = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorPropLiveZack = pink;
             break;
+          default: 
+            colorPropLiveZack = green;
         }
 
         let mostRecentNameMarco = companyArrayMarco.pop();  
@@ -1878,21 +1890,23 @@ componentDidMount() {
 
         let colorPropMarco = '';
         switch(mostRecentCompanyRegionMarco) {
-          case 'North America':
+          case 'Americas':
             colorPropMarco = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorPropMarco = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorPropMarco = pink;
             break;
+          default: 
+            colorPropMarco = green;
         }
 
         let mostRecentNameLiveMarco = companyArrayLiveMarco.pop();
         let mostRecentDateLiveMarco = completionDateArrayLiveMarco.pop();
         let mostRecentSubmitterLiveMarco = submitterArrayLiveMarco.pop();
-        let mostRecentBuilderLiveMarco = builderArrayLiveMarco.pop();
+        let mostRecentIntegrationTypeLiveMarco = integrationTypeArrayLiveMarco.pop();
         let mostRecentTierLiveMarco = tierArrayLiveMarco.pop();
         let mostRecentShortnameLiveMarco = shortnameArrayLiveMarco.pop();
         let mostRecentWebTypeLiveMarco = webTypeArrayLiveMarco.pop();
@@ -1900,15 +1914,17 @@ componentDidMount() {
 
         let colorPropLiveMarco = '';
         switch(mostRecentCompanyRegionLiveMarco) {
-          case 'North America':
+          case 'Americas':
             colorPropLiveMarco = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorPropLiveMarco = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorPropLiveMarco = pink;
             break;
+          default: 
+            colorPropLiveMarco = green;
         }
 
         let mostRecentNameAmaia= companyArrayAmaia.pop();  
@@ -1922,15 +1938,17 @@ componentDidMount() {
 
         let colorPropAmaia = '';
         switch(mostRecentCompanyRegionAmaia) {
-          case 'North America':
+          case 'Americas':
             colorPropAmaia = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorPropAmaia = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorPropAmaia = pink;
             break;
+          default: 
+            colorPropAmaia = green;
         }
 
         console.log(colorPropAmaia);
@@ -1938,7 +1956,7 @@ componentDidMount() {
         let mostRecentNameLiveAmaia = companyArrayLiveAmaia.pop();
         let mostRecentDateLiveAmaia = completionDateArrayLiveAmaia.pop();
         let mostRecentSubmitterLiveAmaia = submitterArrayLiveAmaia.pop();
-        let mostRecentBuilderLiveAmaia = builderArrayLiveAmaia.pop();
+        let mostRecentIntegrationTypeLiveAmaia = integrationTypeArrayLiveAmaia.pop();
         let mostRecentTierLiveAmaia = tierArrayLiveAmaia.pop();
         let mostRecentShortnameLiveAmaia = shortnameArrayLiveAmaia.pop();
         let mostRecentWebTypeLiveAmaia = webTypeArrayLiveAmaia.pop();
@@ -1946,15 +1964,17 @@ componentDidMount() {
 
         let colorPropLiveAmaia = '';
         switch(mostRecentCompanyRegionLiveAmaia) {
-          case 'North America':
+          case 'Americas':
             colorPropLiveAmaia = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorPropLiveAmaia = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorPropLiveAmaia = pink;
             break;
+          default: 
+            colorPropLiveAmaia = green;
         }
 
         let mostRecentNameElly = companyArrayElly.pop();  
@@ -1968,21 +1988,23 @@ componentDidMount() {
 
         let colorPropElly = '';
         switch(mostRecentCompanyRegionElly) {
-          case 'North America':
+          case 'Americas':
             colorPropElly = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorPropElly = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorPropElly = pink;
             break;
+          default: 
+            colorPropElly = green;
         }
 
         let mostRecentNameLiveElly = companyArrayLiveElly.pop();
         let mostRecentDateLiveElly = completionDateArrayLiveElly.pop();
         let mostRecentSubmitterLiveElly = submitterArrayLiveElly.pop();
-        let mostRecentBuilderLiveElly = builderArrayLiveElly.pop();
+        let mostRecentIntegrationTypeLiveElly = integrationTypeArrayLiveElly.pop();
         let mostRecentTierLiveElly = tierArrayLiveElly.pop();
         let mostRecentShortnameLiveElly = shortnameArrayLiveElly.pop();
         let mostRecentWebTypeLiveElly = webTypeArrayLiveElly.pop();
@@ -1990,15 +2012,17 @@ componentDidMount() {
 
         let colorPropLiveElly = '';
         switch(mostRecentCompanyRegionLiveElly) {
-          case 'North America':
+          case 'Americas':
             colorPropLiveElly = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorPropLiveElly = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorPropLiveElly = pink;
             break;
+          default: 
+            colorPropLiveElly = green;
         }
 
         let mostRecentNameTobey = companyArrayTobey.pop();  
@@ -2012,21 +2036,23 @@ componentDidMount() {
 
         let colorPropTobey = '';
         switch(mostRecentCompanyRegionTobey) {
-          case 'North America':
+          case 'Americas':
             colorPropTobey = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorPropTobey = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorPropTobey = pink;
             break;
+          default: 
+          colorPropTobey = green;
         }
 
         let mostRecentNameLiveTobey = companyArrayLiveTobey.pop();
         let mostRecentDateLiveTobey = completionDateArrayLiveTobey.pop();
         let mostRecentSubmitterLiveTobey = submitterArrayLiveTobey.pop();
-        let mostRecentBuilderLiveTobey = builderArrayLiveTobey.pop();
+        let mostRecentIntegrationTypeLiveTobey = integrationTypeArrayLiveTobey.pop();
         let mostRecentTierLiveTobey = tierArrayLiveTobey.pop();
         let mostRecentShortnameLiveTobey = shortnameArrayLiveTobey.pop();
         let mostRecentWebTypeLiveTobey = webTypeArrayLiveTobey.pop();
@@ -2034,15 +2060,17 @@ componentDidMount() {
 
         let colorPropLiveTobey = '';
         switch(mostRecentCompanyRegionLiveTobey) {
-          case 'North America':
+          case 'Americas':
             colorPropLiveTobey = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorPropLiveTobey = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorPropLiveTobey = pink;
             break;
+          default: 
+          colorPropLiveTobey = green;
         }
 
         let mostRecentNameJohnny = companyArrayJohnny.pop();  
@@ -2056,21 +2084,23 @@ componentDidMount() {
 
         let colorPropJohnny = '';
         switch(mostRecentCompanyRegionJohnny) {
-          case 'North America':
+          case 'Americas':
             colorPropJohnny = green;
             break;
-          case 'Europe':
-            colorPropLiveJohnny = blue;
+          case 'EMEA':
+            colorPropJohnny = blue;
             break;
-          case 'Australia & Pacific':
-            colorPropLiveJohnny = pink;
+          case 'APAC':
+            colorPropJohnny = pink;
             break;
+          default: 
+          colorPropJohnny = green;
         }
 
         let mostRecentNameLiveJohnny = companyArrayLiveJohnny.pop();
         let mostRecentDateLiveJohnny = completionDateArrayLiveJohnny.pop();
         let mostRecentSubmitterLiveJohnny = submitterArrayLiveJohnny.pop();
-        let mostRecentBuilderLiveJohnny = builderArrayLiveJohnny.pop();
+        let mostRecentIntegrationTypeLiveJohnny = integrationTypeArrayLiveJohnny.pop();
         let mostRecentTierLiveJohnny = tierArrayLiveJohnny.pop();
         let mostRecentShortnameLiveJohnny = shortnameArrayLiveJohnny.pop();
         let mostRecentWebTypeLiveJohnny = webTypeArrayLiveJohnny.pop();
@@ -2078,15 +2108,17 @@ componentDidMount() {
 
         let colorPropLiveJohnny = '';
         switch(mostRecentCompanyRegionLiveJohnny) {
-          case 'North America':
+          case 'Americas':
             colorPropLiveJohnny = green;
             break;
-          case 'Europe':
+          case 'EMEA':
             colorPropLiveJohnny = blue;
             break;
-          case 'Australia & Pacific':
+          case 'APAC':
             colorPropLiveJohnny = pink;
             break;
+          default: 
+          colorPropLiveJohnny = green;
         }
         this.setState({
           loading:false,
@@ -2117,7 +2149,7 @@ componentDidMount() {
               mostRecentNameLive: mostRecentNameLive,
               mostRecentDateLive: mostRecentDateLive,
               mostRecentSubmitterLive: mostRecentSubmitterLive,
-              mostRecentBuilderLive: mostRecentBuilderLive,
+              mostRecentIntegrationTypeLive: mostRecentIntegrationTypeLive,
               mostRecentTierLive: mostRecentTierLive,
               mostRecentShortnameLive: mostRecentShortnameLive,
               mostRecentWebTypeLive: mostRecentWebTypeLive,
@@ -2170,7 +2202,7 @@ componentDidMount() {
               mostRecentNameLive: mostRecentNameLiveNeubs,
               mostRecentDateLive: mostRecentDateLiveNeubs,
               mostRecentSubmitterLive: mostRecentSubmitterLiveNeubs,
-              mostRecentBuilderLive: mostRecentBuilderLiveNeubs,
+              mostRecentIntegrationTypeLive: mostRecentIntegrationTypeLiveNeubs,
               mostRecentTierLive: mostRecentTierLiveNeubs,
               mostRecentShortnameLive: mostRecentShortnameLiveNeubs,
               mostRecentWebTypeLive: mostRecentWebTypeLiveNeubs,
@@ -2222,7 +2254,7 @@ componentDidMount() {
               mostRecentNameLive: mostRecentNameLiveZack,
               mostRecentDateLive: mostRecentDateLiveZack,
               mostRecentSubmitterLive: mostRecentSubmitterLiveZack,
-              mostRecentBuilderLive: mostRecentBuilderLiveZack,
+              mostRecentIntegrationTypeLive: mostRecentIntegrationTypeLiveZack,
               mostRecentTierLive: mostRecentTierLiveZack,
               mostRecentShortnameLive: mostRecentShortnameLiveZack,
               mostRecentWebTypeLive: mostRecentWebTypeLiveZack,
@@ -2274,7 +2306,7 @@ componentDidMount() {
               mostRecentNameLive: mostRecentNameLiveMarco,
               mostRecentDateLive: mostRecentDateLiveMarco,
               mostRecentSubmitterLive: mostRecentSubmitterLiveMarco,
-              mostRecentBuilderLive: mostRecentBuilderLiveMarco,
+              mostRecentIntegrationTypeLive: mostRecentIntegrationTypeLiveMarco,
               mostRecentTierLive: mostRecentTierLiveMarco,
               mostRecentShortnameLive: mostRecentShortnameLiveMarco,
               mostRecentWebTypeLive: mostRecentWebTypeLiveMarco,
@@ -2326,7 +2358,7 @@ componentDidMount() {
               mostRecentNameLive: mostRecentNameLiveAmaia,
               mostRecentDateLive: mostRecentDateLiveAmaia,
               mostRecentSubmitterLive: mostRecentSubmitterLiveAmaia,
-              mostRecentBuilderLive: mostRecentBuilderLiveAmaia,
+              mostRecentIntegrationTypeLive: mostRecentIntegrationTypeLiveAmaia,
               mostRecentTierLive: mostRecentTierLiveAmaia,
               mostRecentShortnameLive: mostRecentShortnameLiveAmaia,
               mostRecentWebTypeLive: mostRecentWebTypeLiveAmaia,
@@ -2378,7 +2410,7 @@ componentDidMount() {
               mostRecentNameLive: mostRecentNameLiveElly,
               mostRecentDateLive: mostRecentDateLiveElly,
               mostRecentSubmitterLive: mostRecentSubmitterLiveElly,
-              mostRecentBuilderLive: mostRecentBuilderLiveElly,
+              mostRecentIntegrationTypeLive: mostRecentIntegrationTypeLiveElly,
               mostRecentTierLive: mostRecentTierLiveElly,
               mostRecentShortnameLive: mostRecentShortnameLiveElly,
               mostRecentWebTypeLive: mostRecentWebTypeLiveElly,
@@ -2431,7 +2463,7 @@ componentDidMount() {
               mostRecentNameLive: mostRecentNameLiveTobey,
               mostRecentDateLive: mostRecentDateLiveTobey,
               mostRecentSubmitterLive: mostRecentSubmitterLiveTobey,
-              mostRecentBuilderLive: mostRecentBuilderLiveTobey,
+              mostRecentIntegrationTypeLive: mostRecentIntegrationTypeLiveTobey,
               mostRecentTierLive: mostRecentTierLiveTobey,
               mostRecentShortnameLive: mostRecentShortnameLiveTobey,
               mostRecentWebTypeLive: mostRecentWebTypeLiveTobey,
@@ -2484,7 +2516,7 @@ componentDidMount() {
               mostRecentNameLive: mostRecentNameLiveJohnny,
               mostRecentDateLive: mostRecentDateLiveJohnny,
               mostRecentSubmitterLive: mostRecentSubmitterLiveJohnny,
-              mostRecentBuilderLive: mostRecentBuilderLiveJohnny,
+              mostRecentIntegrationTypeLive: mostRecentIntegrationTypeLiveJohnny,
               mostRecentTierLive: mostRecentTierLiveJohnny,
               mostRecentShortnameLive: mostRecentShortnameLiveJohnny,
               mostRecentWebTypeLive: mostRecentWebTypeLiveJohnny,
@@ -2513,7 +2545,7 @@ componentDidMount() {
         })
         
         
-    }, 12000);
+    }, 10000);
 
   }
 
@@ -2543,7 +2575,7 @@ render() {
              mostRecentWebType={this.state.patrick.records.mostRecentWebType} mostRecentCompanyRegion={this.state.patrick.records.mostRecentCompanyRegion} 
              colorProp={this.state.patrick.records.colorProp} totalLive={this.state.patrick.live.total} monthlyLive={this.state.patrick.live.monthly}
              dailyLive={this.state.patrick.live.daily} mostRecentNameLive={this.state.patrick.live.mostRecentNameLive} mostRecentDateLive={this.state.patrick.live.mostRecentDateLive}
-             mostRecentSubmitterLive={this.state.patrick.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.patrick.live.mostRecentBuilderLive}
+             mostRecentSubmitterLive={this.state.patrick.live.mostRecentSubmitterLive} mostRecentIntegrationTypeLive={this.state.patrick.live.mostRecentIntegrationTypeLive}
              mostRecentTierLive={this.state.patrick.live.mostRecentTierLive} mostRecentShortnameLive={this.state.patrick.live.mostRecentShortnameLive}
              mostRecentWebTypeLive={this.state.patrick.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.patrick.live.mostRecentCompanyRegionLive} 
              colorPropLive={this.state.patrick.live.colorProp} tier0={this.state.patrick.records.tier0} tier1={this.state.patrick.records.tier1}
@@ -2562,7 +2594,7 @@ render() {
                 mostRecentWebType={this.state.amaia.records.mostRecentWebType} mostRecentCompanyRegion={this.state.amaia.records.mostRecentCompanyRegion} 
                 colorProp={this.state.amaia.records.colorProp} totalLive={this.state.amaia.live.total} monthlyLive={this.state.amaia.live.monthly}
                 dailyLive={this.state.amaia.live.daily} mostRecentNameLive={this.state.amaia.live.mostRecentNameLive} mostRecentDateLive={this.state.amaia.live.mostRecentDateLive}
-                mostRecentSubmitterLive={this.state.amaia.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.amaia.live.mostRecentBuilderLive}
+                mostRecentSubmitterLive={this.state.amaia.live.mostRecentSubmitterLive} mostRecentIntegrationTypeLive={this.state.amaia.live.mostRecentIntegrationTypeLive}
                 mostRecentTierLive={this.state.amaia.live.mostRecentTierLive} mostRecentShortnameLive={this.state.amaia.live.mostRecentShortnameLive}
                 mostRecentWebTypeLive={this.state.amaia.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.amaia.live.mostRecentCompanyRegionLive} 
                 colorPropLive={this.state.amaia.live.colorProp} tier0={this.state.amaia.records.tier0} tier1={this.state.amaia.records.tier1}
@@ -2581,7 +2613,7 @@ render() {
              mostRecentWebType={this.state.neubs.records.mostRecentWebType} mostRecentCompanyRegion={this.state.neubs.records.mostRecentCompanyRegion} 
              colorProp={this.state.neubs.records.colorProp} totalLive={this.state.neubs.live.total} monthlyLive={this.state.neubs.live.monthly}
              dailyLive={this.state.neubs.live.daily} mostRecentNameLive={this.state.neubs.live.mostRecentNameLive} mostRecentDateLive={this.state.neubs.live.mostRecentDateLive}
-             mostRecentSubmitterLive={this.state.neubs.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.neubs.live.mostRecentBuilderLive}
+             mostRecentSubmitterLive={this.state.neubs.live.mostRecentSubmitterLive} mostRecentIntegrationTypeLive={this.state.neubs.live.mostRecentIntegrationTypeLive}
              mostRecentTierLive={this.state.neubs.live.mostRecentTierLive} mostRecentShortnameLive={this.state.neubs.live.mostRecentShortnameLive}
              mostRecentWebTypeLive={this.state.neubs.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.neubs.live.mostRecentCompanyRegionLive} 
              colorPropLive={this.state.neubs.live.colorProp}tier0={this.state.neubs.records.tier0} tier1={this.state.neubs.records.tier1}
@@ -2601,7 +2633,7 @@ render() {
                 mostRecentWebType={this.state.marco.records.mostRecentWebType} mostRecentCompanyRegion={this.state.marco.records.mostRecentCompanyRegion} 
                 colorProp={this.state.marco.records.colorProp} totalLive={this.state.marco.live.total} monthlyLive={this.state.marco.live.monthly}
                 dailyLive={this.state.marco.live.daily} mostRecentNameLive={this.state.marco.live.mostRecentNameLive} mostRecentDateLive={this.state.marco.live.mostRecentDateLive}
-                mostRecentSubmitterLive={this.state.marco.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.marco.live.mostRecentBuilderLive}
+                mostRecentSubmitterLive={this.state.marco.live.mostRecentSubmitterLive} mostRecentIntegrationTypeLive={this.state.marco.live.mostRecentIntegrationTypeLive}
                 mostRecentTierLive={this.state.marco.live.mostRecentTierLive} mostRecentShortnameLive={this.state.marco.live.mostRecentShortnameLive}
                 mostRecentWebTypeLive={this.state.marco.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.marco.live.mostRecentCompanyRegionLive} 
                 colorPropLive={this.state.marco.live.colorProp} tier0={this.state.marco.records.tier0} tier1={this.state.marco.records.tier1}
@@ -2621,7 +2653,7 @@ render() {
                 mostRecentWebType={this.state.tobey.records.mostRecentWebType} mostRecentCompanyRegion={this.state.tobey.records.mostRecentCompanyRegion} 
                 colorProp={this.state.tobey.records.colorProp} totalLive={this.state.tobey.live.total} monthlyLive={this.state.tobey.live.monthly}
                 dailyLive={this.state.tobey.live.daily} mostRecentNameLive={this.state.tobey.live.mostRecentNameLive} mostRecentDateLive={this.state.tobey.live.mostRecentDateLive}
-                mostRecentSubmitterLive={this.state.tobey.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.tobey.live.mostRecentBuilderLive}
+                mostRecentSubmitterLive={this.state.tobey.live.mostRecentSubmitterLive} mostRecentIntegrationTypeLive={this.state.tobey.live.mostRecentIntegrationTypeLive}
                 mostRecentTierLive={this.state.tobey.live.mostRecentTierLive} mostRecentShortnameLive={this.state.tobey.live.mostRecentShortnameLive}
                 mostRecentWebTypeLive={this.state.tobey.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.tobey.live.mostRecentCompanyRegionLive} 
                 colorPropLive={this.state.tobey.live.colorProp}tier0={this.state.tobey.records.tier0} tier1={this.state.tobey.records.tier1}
@@ -2640,7 +2672,7 @@ render() {
                 mostRecentWebType={this.state.johnny.records.mostRecentWebType} mostRecentCompanyRegion={this.state.johnny.records.mostRecentCompanyRegion} 
                 totalLive={this.state.johnny.live.total} monthlyLive={this.state.johnny.live.monthly}
                 dailyLive={this.state.johnny.live.daily} mostRecentNameLive={this.state.johnny.live.mostRecentNameLive} mostRecentDateLive={this.state.johnny.live.mostRecentDateLive}
-                mostRecentSubmitterLive={this.state.johnny.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.johnny.live.mostRecentBuilderLive}
+                mostRecentSubmitterLive={this.state.johnny.live.mostRecentSubmitterLive} mostRecentIntegrationTypeLive={this.state.johnny.live.mostRecentIntegrationTypeLive}
                 mostRecentTierLive={this.state.johnny.live.mostRecentTierLive} mostRecentShortnameLive={this.state.johnny.live.mostRecentShortnameLive}
                 mostRecentWebTypeLive={this.state.johnny.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.johnny.live.mostRecentCompanyRegionLive} 
                 colorPropLive={this.state.johnny.live.colorProp} tier0={this.state.johnny.records.tier0} tier1={this.state.johnny.records.tier1}
@@ -2659,7 +2691,7 @@ render() {
                 mostRecentWebType={this.state.elly.records.mostRecentWebType} mostRecentCompanyRegion={this.state.elly.records.mostRecentCompanyRegion} 
                 colorProp={this.state.elly.records.colorProp} totalLive={this.state.elly.live.total} monthlyLive={this.state.elly.live.monthly}
                 dailyLive={this.state.elly.live.daily} mostRecentNameLive={this.state.elly.live.mostRecentNameLive} mostRecentDateLive={this.state.elly.live.mostRecentDateLive}
-                mostRecentSubmitterLive={this.state.elly.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.elly.live.mostRecentBuilderLive}
+                mostRecentSubmitterLive={this.state.elly.live.mostRecentSubmitterLive} mostRecentIntegrationTypeLive={this.state.elly.live.mostRecentIntegrationTypeLive}
                 mostRecentTierLive={this.state.elly.live.mostRecentTierLive} mostRecentShortnameLive={this.state.elly.live.mostRecentShortnameLive}
                 mostRecentWebTypeLive={this.state.elly.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.elly.live.mostRecentCompanyRegionLive} tier0={this.state.elly.records.tier0} tier1={this.state.elly.records.tier1}
                 colorPropLive={this.state.elly.live.colorProp} tier2={this.state.elly.records.tier2} tier3={this.state.elly.records.tier3} tier4={this.state.elly.records.tier4} 
@@ -2677,7 +2709,7 @@ render() {
              mostRecentWebType={this.state.zack.records.mostRecentWebType} mostRecentCompanyRegion={this.state.zack.records.mostRecentCompanyRegion}  
              colorProp={this.state.zack.records.colorProp} totalLive={this.state.zack.live.total} monthlyLive={this.state.zack.live.monthly}
              dailyLive={this.state.zack.live.daily} mostRecentNameLive={this.state.zack.live.mostRecentNameLive} mostRecentDateLive={this.state.zack.live.mostRecentDateLive}
-             mostRecentSubmitterLive={this.state.zack.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.zack.live.mostRecentBuilderLive}
+             mostRecentSubmitterLive={this.state.zack.live.mostRecentSubmitterLive} mostRecentIntegrationTypeLive={this.state.zack.live.mostRecentIntegrationTypeLive}
              mostRecentTierLive={this.state.zack.live.mostRecentTierLive} mostRecentShortnameLive={this.state.zack.live.mostRecentShortnameLive}
              mostRecentWebTypeLive={this.state.zack.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.zack.live.mostRecentCompanyRegionLive} 
              colorPropLive={this.state.zack.live.colorProp}tier0={this.state.zack.records.tier0} tier1={this.state.zack.records.tier1}

@@ -90,7 +90,7 @@ class Integrator extends Component {
               recentBuilder={this.props.mostRecentBuilder} recentTier={this.props.mostRecentTier} recentShortname={this.props.mostRecentShortname} 
               recentWebType={this.props.mostRecentWebType}  mostRecentCompanyRegion={this.props.mostRecentCompanyRegion} colorProp={this.props.colorProp}
               mostRecentNameLive={this.props.mostRecentNameLive} mostRecentDateLive={this.props.mostRecentDateLive} mostRecentSubmitterLive={this.props.mostRecentSubmitterLive}
-              mostRecentBuilderLive={this.props.mostRecentBuilderLive} mostRecentTierLive={this.props.mostRecentTierLive} mostRecentShortnameLive={this.props.mostRecentShortnameLive}
+              mostRecentIntegrationTypeLive={this.props.mostRecentIntegrationTypeLive} mostRecentTierLive={this.props.mostRecentTierLive} mostRecentShortnameLive={this.props.mostRecentShortnameLive}
               mostRecentWebTypeLive={this.props.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.props.mostRecentCompanyRegionLive}tier0={this.props.tier0} tier1={this.props.tier1} 
               colorPropLive={this.props.colorPropLive} tier2={this.props.tier2} tier3={this.props.tier3} tier4={this.props.tier4}
               tier0Live={this.props.tier0Live} tier1Live={this.props.tier1Live} 

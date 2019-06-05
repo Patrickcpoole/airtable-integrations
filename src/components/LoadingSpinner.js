@@ -14,7 +14,7 @@ const SpinnerContainer = styled.div`
 
     const LoadingSpinner = () => (
       <SpinnerContainer>
-        <h1>Loading...</h1>
+        <h1>Loading Data...</h1>
         <img className="logo-loading" src={logo} />
       </SpinnerContainer>
     );
