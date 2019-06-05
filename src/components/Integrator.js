@@ -17,7 +17,7 @@ const IntegratorContainer = styled.div`
     width: 23vw;
     margin-right:2%;
     margin-left:2%;
-    margin-top:1%;
+    margin-top:2%;
     background-color:white;
     height: 65vh;
     border-radius:8px;

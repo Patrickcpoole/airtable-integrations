@@ -21,17 +21,23 @@ const AppContainer = styled.div`
     flex-wrap: wrap;
     justify-content:center;
     align-items:center;
+    margin-top:10px;
 `;
 
 const MainHeading = styled.h1`
-  font-size:32px;
-  color:#282c34;
+  font-size:2.25rem;
+  display:inline-block;
+  margin-left:10px;
+  margin-bottom:20px;
+  color:white;
+
 `;
 
 const Container = styled.div`
   display:flex;
   flex-direction:column;
   margin:10px;
+  margin-top:10px;
 `;
 
 const apiKey = process.env.REACT_APP_AIRTABLE_KEY;
@@ -2521,9 +2527,10 @@ render() {
     <div className="App">
     {this.state.loading ? <LoadingSpinner /> :
     <div>
-          <img src={logo} className="App-logo" alt="logo" />
-          <MainHeading>Airtable Metrics Dashboard</MainHeading>
-          
+      <div className="header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <MainHeading>Airtable Metrics Dashboard</MainHeading>
+      </div>
          <AppContainer>
             <Container>
               <Integrator name={this.state.patrick.info.name} image={this.state.patrick.info.image} 
@@ -2545,6 +2552,25 @@ render() {
              tier2Live={this.state.patrick.live.tier2Live} tier3Live={this.state.patrick.live.tier3Live} tier4Live={this.state.patrick.live.tier4Live}/> 
            </Container>
            <Container>
+              <Integrator name={this.state.amaia.info.name} image={this.state.amaia.info.image} 
+                title={this.state.amaia.info.title} slack={this.state.amaia.info.slack} timezone={this.state.amaia.info.timezone}
+                phone={this.state.amaia.info.phone} email={this.state.amaia.info.email} office={this.state.amaia.info.office} 
+                manager={this.state.amaia.info.manager}  total={this.state.amaia.records.total} monthly={this.state.amaia.records.monthly}
+                daily={this.state.amaia.records.daily} mostRecentName={this.state.amaia.records.mostRecentName} mostRecentDate={this.state.amaia.records.mostRecentDate}
+                mostRecentSubmitter={this.state.amaia.records.mostRecentSubmitter} mostRecentBuilder={this.state.amaia.records.mostRecentBuilder}
+                mostRecentTier={this.state.amaia.records.mostRecentTier} mostRecentShortname={this.state.amaia.records.mostRecentShortname}
+                mostRecentWebType={this.state.amaia.records.mostRecentWebType} mostRecentCompanyRegion={this.state.amaia.records.mostRecentCompanyRegion} 
+                colorProp={this.state.amaia.records.colorProp} totalLive={this.state.amaia.live.total} monthlyLive={this.state.amaia.live.monthly}
+                dailyLive={this.state.amaia.live.daily} mostRecentNameLive={this.state.amaia.live.mostRecentNameLive} mostRecentDateLive={this.state.amaia.live.mostRecentDateLive}
+                mostRecentSubmitterLive={this.state.amaia.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.amaia.live.mostRecentBuilderLive}
+                mostRecentTierLive={this.state.amaia.live.mostRecentTierLive} mostRecentShortnameLive={this.state.amaia.live.mostRecentShortnameLive}
+                mostRecentWebTypeLive={this.state.amaia.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.amaia.live.mostRecentCompanyRegionLive} 
+                colorPropLive={this.state.amaia.live.colorProp} tier0={this.state.amaia.records.tier0} tier1={this.state.amaia.records.tier1}
+                tier2={this.state.amaia.records.tier2} tier3={this.state.amaia.records.tier3} tier4={this.state.amaia.records.tier4} 
+                tier0Live={this.state.amaia.live.tier0Live} tier1Live={this.state.amaia.live.tier1Live}
+                tier2Live={this.state.amaia.live.tier2Live} tier3Live={this.state.amaia.live.tier3Live} tier4Live={this.state.amaia.live.tier4Live}/>
+            </Container>
+           <Container>
            <Integrator name={this.state.neubs.info.name} image={this.state.neubs.info.image} 
              title={this.state.neubs.info.title} slack={this.state.neubs.info.slack} timezone={this.state.neubs.info.timezone}
              phone={this.state.neubs.info.phone} email={this.state.neubs.info.email} office={this.state.neubs.info.office} 
@@ -2563,25 +2589,7 @@ render() {
              tier0Live={this.state.neubs.live.tier0Live} tier1Live={this.state.neubs.live.tier1Live}
              tier2Live={this.state.neubs.live.tier2Live} tier3Live={this.state.neubs.live.tier3Live} tier4Live={this.state.neubs.live.tier4Live}/>
             </Container>
-            <Container>
-           <Integrator name={this.state.zack.info.name} image={this.state.zack.info.image} 
-             title={this.state.zack.info.title} slack={this.state.zack.info.slack} timezone={this.state.zack.info.timezone}
-             phone={this.state.zack.info.phone} email={this.state.zack.info.email} office={this.state.zack.info.office} 
-             manager={this.state.zack.info.manager}  total={this.state.zack.records.total} monthly={this.state.zack.records.monthly}
-             daily={this.state.zack.records.daily} mostRecentName={this.state.zack.records.mostRecentName} mostRecentDate={this.state.zack.records.mostRecentDate}
-             mostRecentSubmitter={this.state.zack.records.mostRecentSubmitter} mostRecentBuilder={this.state.zack.records.mostRecentBuilder}
-             mostRecentTier={this.state.zack.records.mostRecentTier} mostRecentShortname={this.state.zack.records.mostRecentShortname}
-             mostRecentWebType={this.state.zack.records.mostRecentWebType} mostRecentCompanyRegion={this.state.zack.records.mostRecentCompanyRegion}  
-             colorProp={this.state.zack.records.colorProp} totalLive={this.state.zack.live.total} monthlyLive={this.state.zack.live.monthly}
-             dailyLive={this.state.zack.live.daily} mostRecentNameLive={this.state.zack.live.mostRecentNameLive} mostRecentDateLive={this.state.zack.live.mostRecentDateLive}
-             mostRecentSubmitterLive={this.state.zack.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.zack.live.mostRecentBuilderLive}
-             mostRecentTierLive={this.state.zack.live.mostRecentTierLive} mostRecentShortnameLive={this.state.zack.live.mostRecentShortnameLive}
-             mostRecentWebTypeLive={this.state.zack.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.zack.live.mostRecentCompanyRegionLive} 
-             colorPropLive={this.state.zack.live.colorProp}tier0={this.state.zack.records.tier0} tier1={this.state.zack.records.tier1}
-             tier2={this.state.zack.records.tier2} tier3={this.state.zack.records.tier3} tier4={this.state.zack.records.tier4} 
-             tier0Live={this.state.zack.live.tier0Live} tier1Live={this.state.zack.live.tier1Live}
-             tier2Live={this.state.zack.live.tier2Live} tier3Live={this.state.zack.live.tier3Live} tier4Live={this.state.zack.live.tier4Live}/>
-            </Container>
+            
             <Container>
               <Integrator name={this.state.marco.info.name} image={this.state.marco.info.image} 
                 title={this.state.marco.info.title} slack={this.state.marco.info.slack} timezone={this.state.marco.info.timezone}
@@ -2601,43 +2609,7 @@ render() {
                 tier0Live={this.state.marco.live.tier0Live} tier1Live={this.state.marco.live.tier1Live}
                 tier2Live={this.state.marco.live.tier2Live} tier3Live={this.state.marco.live.tier3Live} tier4Live={this.state.marco.live.tier4Live}/>
             </Container>
-            <Container>
-              <Integrator name={this.state.amaia.info.name} image={this.state.amaia.info.image} 
-                title={this.state.amaia.info.title} slack={this.state.amaia.info.slack} timezone={this.state.amaia.info.timezone}
-                phone={this.state.amaia.info.phone} email={this.state.amaia.info.email} office={this.state.amaia.info.office} 
-                manager={this.state.amaia.info.manager}  total={this.state.amaia.records.total} monthly={this.state.amaia.records.monthly}
-                daily={this.state.amaia.records.daily} mostRecentName={this.state.amaia.records.mostRecentName} mostRecentDate={this.state.amaia.records.mostRecentDate}
-                mostRecentSubmitter={this.state.amaia.records.mostRecentSubmitter} mostRecentBuilder={this.state.amaia.records.mostRecentBuilder}
-                mostRecentTier={this.state.amaia.records.mostRecentTier} mostRecentShortname={this.state.amaia.records.mostRecentShortname}
-                mostRecentWebType={this.state.amaia.records.mostRecentWebType} mostRecentCompanyRegion={this.state.amaia.records.mostRecentCompanyRegion} 
-                colorProp={this.state.amaia.records.colorProp} totalLive={this.state.amaia.live.total} monthlyLive={this.state.amaia.live.monthly}
-                dailyLive={this.state.amaia.live.daily} mostRecentNameLive={this.state.amaia.live.mostRecentNameLive} mostRecentDateLive={this.state.amaia.live.mostRecentDateLive}
-                mostRecentSubmitterLive={this.state.amaia.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.amaia.live.mostRecentBuilderLive}
-                mostRecentTierLive={this.state.amaia.live.mostRecentTierLive} mostRecentShortnameLive={this.state.amaia.live.mostRecentShortnameLive}
-                mostRecentWebTypeLive={this.state.amaia.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.amaia.live.mostRecentCompanyRegionLive} 
-                colorPropLive={this.state.amaia.live.colorProp} tier0={this.state.amaia.records.tier0} tier1={this.state.amaia.records.tier1}
-                tier2={this.state.amaia.records.tier2} tier3={this.state.amaia.records.tier3} tier4={this.state.amaia.records.tier4} 
-                tier0Live={this.state.amaia.live.tier0Live} tier1Live={this.state.amaia.live.tier1Live}
-                tier2Live={this.state.amaia.live.tier2Live} tier3Live={this.state.amaia.live.tier3Live} tier4Live={this.state.amaia.live.tier4Live}/>
-            </Container>
-            <Container>
-              <Integrator name={this.state.elly.info.name} image={this.state.elly.info.image} 
-                title={this.state.elly.info.title} slack={this.state.elly.info.slack} timezone={this.state.elly.info.timezone}
-                phone={this.state.elly.info.phone} email={this.state.elly.info.email} office={this.state.elly.info.office} 
-                manager={this.state.elly.info.manager}  total={this.state.elly.records.total} monthly={this.state.elly.records.monthly}
-                daily={this.state.elly.records.daily} mostRecentName={this.state.elly.records.mostRecentName} mostRecentDate={this.state.elly.records.mostRecentDate}
-                mostRecentSubmitter={this.state.elly.records.mostRecentSubmitter} mostRecentBuilder={this.state.elly.records.mostRecentBuilder}
-                mostRecentTier={this.state.elly.records.mostRecentTier} mostRecentShortname={this.state.elly.records.mostRecentShortname}
-                mostRecentWebType={this.state.elly.records.mostRecentWebType} mostRecentCompanyRegion={this.state.elly.records.mostRecentCompanyRegion} 
-                colorProp={this.state.elly.records.colorProp} totalLive={this.state.elly.live.total} monthlyLive={this.state.elly.live.monthly}
-                dailyLive={this.state.elly.live.daily} mostRecentNameLive={this.state.elly.live.mostRecentNameLive} mostRecentDateLive={this.state.elly.live.mostRecentDateLive}
-                mostRecentSubmitterLive={this.state.elly.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.elly.live.mostRecentBuilderLive}
-                mostRecentTierLive={this.state.elly.live.mostRecentTierLive} mostRecentShortnameLive={this.state.elly.live.mostRecentShortnameLive}
-                mostRecentWebTypeLive={this.state.elly.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.elly.live.mostRecentCompanyRegionLive} tier0={this.state.elly.records.tier0} tier1={this.state.elly.records.tier1}
-                colorPropLive={this.state.elly.live.colorProp} tier2={this.state.elly.records.tier2} tier3={this.state.elly.records.tier3} tier4={this.state.elly.records.tier4} 
-                tier0Live={this.state.elly.live.tier0Live} tier1Live={this.state.elly.live.tier1Live}
-                tier2Live={this.state.elly.live.tier2Live} tier3Live={this.state.elly.live.tier3Live} tier4Live={this.state.elly.live.tier4Live}/>
-            </Container>
+           
             <Container>
               <Integrator name={this.state.tobey.info.name} image={this.state.tobey.info.image} 
                 title={this.state.tobey.info.title} slack={this.state.tobey.info.slack} timezone={this.state.tobey.info.timezone}
@@ -2676,7 +2648,43 @@ render() {
                 tier0Live={this.state.johnny.live.tier0Live} tier1Live={this.state.johnny.live.tier1Live}
                 tier2Live={this.state.johnny.live.tier2Live} tier3Live={this.state.johnny.live.tier3Live} tier4Live={this.state.johnny.live.tier4Live}/>
             </Container>
-
+            <Container>
+              <Integrator name={this.state.elly.info.name} image={this.state.elly.info.image} 
+                title={this.state.elly.info.title} slack={this.state.elly.info.slack} timezone={this.state.elly.info.timezone}
+                phone={this.state.elly.info.phone} email={this.state.elly.info.email} office={this.state.elly.info.office} 
+                manager={this.state.elly.info.manager}  total={this.state.elly.records.total} monthly={this.state.elly.records.monthly}
+                daily={this.state.elly.records.daily} mostRecentName={this.state.elly.records.mostRecentName} mostRecentDate={this.state.elly.records.mostRecentDate}
+                mostRecentSubmitter={this.state.elly.records.mostRecentSubmitter} mostRecentBuilder={this.state.elly.records.mostRecentBuilder}
+                mostRecentTier={this.state.elly.records.mostRecentTier} mostRecentShortname={this.state.elly.records.mostRecentShortname}
+                mostRecentWebType={this.state.elly.records.mostRecentWebType} mostRecentCompanyRegion={this.state.elly.records.mostRecentCompanyRegion} 
+                colorProp={this.state.elly.records.colorProp} totalLive={this.state.elly.live.total} monthlyLive={this.state.elly.live.monthly}
+                dailyLive={this.state.elly.live.daily} mostRecentNameLive={this.state.elly.live.mostRecentNameLive} mostRecentDateLive={this.state.elly.live.mostRecentDateLive}
+                mostRecentSubmitterLive={this.state.elly.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.elly.live.mostRecentBuilderLive}
+                mostRecentTierLive={this.state.elly.live.mostRecentTierLive} mostRecentShortnameLive={this.state.elly.live.mostRecentShortnameLive}
+                mostRecentWebTypeLive={this.state.elly.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.elly.live.mostRecentCompanyRegionLive} tier0={this.state.elly.records.tier0} tier1={this.state.elly.records.tier1}
+                colorPropLive={this.state.elly.live.colorProp} tier2={this.state.elly.records.tier2} tier3={this.state.elly.records.tier3} tier4={this.state.elly.records.tier4} 
+                tier0Live={this.state.elly.live.tier0Live} tier1Live={this.state.elly.live.tier1Live}
+                tier2Live={this.state.elly.live.tier2Live} tier3Live={this.state.elly.live.tier3Live} tier4Live={this.state.elly.live.tier4Live}/>
+            </Container>
+            <Container>
+           <Integrator name={this.state.zack.info.name} image={this.state.zack.info.image} 
+             title={this.state.zack.info.title} slack={this.state.zack.info.slack} timezone={this.state.zack.info.timezone}
+             phone={this.state.zack.info.phone} email={this.state.zack.info.email} office={this.state.zack.info.office} 
+             manager={this.state.zack.info.manager}  total={this.state.zack.records.total} monthly={this.state.zack.records.monthly}
+             daily={this.state.zack.records.daily} mostRecentName={this.state.zack.records.mostRecentName} mostRecentDate={this.state.zack.records.mostRecentDate}
+             mostRecentSubmitter={this.state.zack.records.mostRecentSubmitter} mostRecentBuilder={this.state.zack.records.mostRecentBuilder}
+             mostRecentTier={this.state.zack.records.mostRecentTier} mostRecentShortname={this.state.zack.records.mostRecentShortname}
+             mostRecentWebType={this.state.zack.records.mostRecentWebType} mostRecentCompanyRegion={this.state.zack.records.mostRecentCompanyRegion}  
+             colorProp={this.state.zack.records.colorProp} totalLive={this.state.zack.live.total} monthlyLive={this.state.zack.live.monthly}
+             dailyLive={this.state.zack.live.daily} mostRecentNameLive={this.state.zack.live.mostRecentNameLive} mostRecentDateLive={this.state.zack.live.mostRecentDateLive}
+             mostRecentSubmitterLive={this.state.zack.live.mostRecentSubmitterLive} mostRecentBuilderLive={this.state.zack.live.mostRecentBuilderLive}
+             mostRecentTierLive={this.state.zack.live.mostRecentTierLive} mostRecentShortnameLive={this.state.zack.live.mostRecentShortnameLive}
+             mostRecentWebTypeLive={this.state.zack.live.mostRecentWebTypeLive} mostRecentCompanyRegionLive={this.state.zack.live.mostRecentCompanyRegionLive} 
+             colorPropLive={this.state.zack.live.colorProp}tier0={this.state.zack.records.tier0} tier1={this.state.zack.records.tier1}
+             tier2={this.state.zack.records.tier2} tier3={this.state.zack.records.tier3} tier4={this.state.zack.records.tier4} 
+             tier0Live={this.state.zack.live.tier0Live} tier1Live={this.state.zack.live.tier1Live}
+             tier2Live={this.state.zack.live.tier2Live} tier3Live={this.state.zack.live.tier3Live} tier4Live={this.state.zack.live.tier4Live}/>
+            </Container>
           </AppContainer>
           </div>
           }

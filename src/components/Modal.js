@@ -98,6 +98,7 @@ const InfoRight = styled.div`
     display:flex;
     flex-direction:column;
     justify-content:center;
+    
 `;
 
 const InfoLeft = styled.div`
@@ -109,7 +110,7 @@ const InfoLeft = styled.div`
 `;
 
 const InfoText = styled.p`
-    font-size:1rem;
+    font-size:.85rem;
     color:#282c34;
     font-weight:600;
     padding:5px;
@@ -134,6 +135,10 @@ const CompanyLocation = styled.h3`
   }
 `;
 
+const marginLeft = {
+    marginLeft:'2.5%'
+};
+
 
 
 
@@ -146,6 +151,7 @@ class Modal extends React.Component {
         
           }
     }
+    
     componentDidMount(){
         this.getChartData();
         console.log(this.props.tier0)
@@ -212,7 +218,7 @@ class Modal extends React.Component {
     if(!this.props.show) {
       return null;
     }
-
+    
     return (
         
         <div className="modal">
@@ -235,7 +241,7 @@ class Modal extends React.Component {
                         </NumberContainer>
                     </CompletedContainer>
                 </div>
-                <div className="row-two">
+                <div className="row-two-left">
                     <CompanyContainer>
                         <CompanyHeader>
                             <CompanyHeading>Last Company Integrated:</CompanyHeading>
@@ -256,7 +262,7 @@ class Modal extends React.Component {
                         </InfoContainer>
                     </CompanyContainer>
                 </div>
-                <div className="row-three">
+                <div className="row-three-left">
                     <div className="chart-container">
                         <Chart chartData={this.state.chartData} tierType="OB" legendPosition="bottom" />
                     </div>
@@ -297,7 +303,7 @@ class Modal extends React.Component {
                     </NumberContainer>
                 </CompletedContainer>
                 </div>
-                <div className="row-two">
+                <div className="row-two-right">
                 <CompanyContainer>
                     <CompanyHeader>
                             <CompanyHeading>Last Company Integrated:</CompanyHeading>
@@ -318,9 +324,9 @@ class Modal extends React.Component {
                         </InfoContainer>
                     </CompanyContainer>
                 </div>
-                <div className="row-three">
-                    <div className="chart-container">
-                        <Chart chartData={this.state.chartDataLive} tierType="Live" legendPosition="bottom"/>
+                <div className="row-three-right">
+                    <div style={marginLeft} className="chart-container">
+                        <Chart  chartData={this.state.chartDataLive} tierType="Live" legendPosition="bottom"/>
                     </div>
                 </div>
             </div>

@@ -32,14 +32,16 @@ class Chart extends Component{
               display:this.props.displayTitle,
               text:'Tiers Completed For '+this.props.tierType+' Requests',
               fontSize:18,
-              fontColor: 'rgb(40,44,52)'
+              fontColor: 'rgb(40,44,52)',
+              
             },
             legend:{
               display:this.props.displayLegend,
               position:this.props.legendPosition,
               labels: {
                   boxWidth:0,
-                  fontColor: 'rgb(40,44,52)'
+                  fontColor: 'rgb(40,44,52)',
+                  
               }
             }
           }}
