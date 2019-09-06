@@ -63,20 +63,20 @@ const CompanyHeader = styled.div`
 `;
 
 const CompanyHeading = styled.h1`
-    font-size:1.25rem;
+    font-size:1rem;
     color:#282c34;
     @media (max-width: 1500px) {
-    font-size:1rem;
+    font-size:.75rem;
    
   }
 `;
 
 const CompanySubheading = styled.h2`
-    font-size:1rem;
+    font-size:1.35rem;
     color:#282c34;
     margin-top:-.75vh;
     @media (max-width: 1500px) {
-    font-size:.75rem;
+    font-size:1rem;
    
   }
 `;
@@ -89,7 +89,10 @@ const InfoContainer = styled.div`
     justify-content:center;
     align-items:center;
     margin-top:10%;
-    
+    @media (max-width: 1500px) {
+        margin-top:2%;
+   
+  }
 `;
 
 const InfoRight = styled.div`
@@ -169,7 +172,7 @@ class Modal extends React.Component {
             labels: ['Tier 0', 'Tier 1', ' Tier 2', 'Tier 3', 'Tier 4'],
             datasets:[
               {
-                label: 'Integrations Completed',
+                label: 'Tiers',
                 data:[
                   this.props.tier0,
                   this.props.tier1,
@@ -191,7 +194,7 @@ class Modal extends React.Component {
             labels: ['Tier 0', 'Tier 1', ' Tier 2', 'Tier 3', 'Tier 4'],
             datasets:[
               {
-                label: 'Integrations Completed',
+                label: 'Tiers',
                 data:[
                   this.props.tier0Live,
                   this.props.tier1Live,

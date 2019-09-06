@@ -28,11 +28,14 @@ class Chart extends Component{
             aspectRatio:1.1,
             responsive:true,
             maintainAspectRatio: false,
+            
+                
             title:{
               display:this.props.displayTitle,
               text:'Tiers Completed For '+this.props.tierType+' Requests',
               fontSize:18,
               fontColor: 'rgb(40,44,52)',
+
               
             },
             legend:{
@@ -41,6 +44,7 @@ class Chart extends Component{
               labels: {
                   boxWidth:0,
                   fontColor: 'rgb(40,44,52)',
+                  FontSize: 14
                   
               }
             }
