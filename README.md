@@ -1,4 +1,4 @@
-#Airtable Integrations
+# Airtable Integrations
 
 Airtable Integrations is the first iteration of the Airtable Integrations application.
 
